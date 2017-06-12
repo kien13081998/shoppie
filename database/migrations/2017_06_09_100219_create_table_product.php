@@ -23,8 +23,6 @@ class CreateTableProduct extends Migration
             $table->string('quantity');
             $table->string('sale', 100);
             $table->string('price');
-            // $table->integer('category_id')->unsigned();
-            // $table->foreign('category_id')->references('id')->on('categorys');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
