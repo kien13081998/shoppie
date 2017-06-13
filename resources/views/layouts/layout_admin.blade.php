@@ -160,7 +160,8 @@
                     </ul>
                 </li> -->
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-in"></i> <span>Logout admin</span></a></li>
+                         <li><a href=""><i class="fa fa-sign-in"></i> <span>Login page</span></a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>

@@ -12,8 +12,8 @@
 */
 //LogicException
 
-Route::get('login','LoginController@viewLogin');
-Route::post('login','LoginController@checkLogin');
+// Route::get('login','LoginController@viewLogin');
+// Route::post('login','LoginController@checkLogin');
 
 // Route::get('', function () {
 //     return redirect ('');
@@ -38,4 +38,4 @@ Route::post('product/create', 'ProductController@store');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('admin');
+Route::get('/admin', 'AdminController@login')->name('admin');
