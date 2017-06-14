@@ -39,3 +39,6 @@ Route::post('product/create', 'ProductController@store');
 Auth::routes();
 
 Route::get('/admin', 'AdminController@login')->name('admin');
+
+// Route::resource('shop', 'CartController', ['only' => ['index', 'store', 'update', 'destroy']]);.
+// Route::resource('shop', 'ProductController', ['only' => ['index', 'show']]);

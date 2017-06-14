@@ -39,10 +39,13 @@ class NewsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        'name' => 'required',
-        'detail' => 'required'
+        'name' => 'required|string|max:50',
+        'detail' => 'required|string|max:255'
       ]);
-      $news = News::create(Input::all());
+        $news = $request->intersect(['name', 'detail']);
+        $news = News::create();
+        // print_r($news);
+        // exit;
       return redirect('news');
     }
 
@@ -86,11 +89,11 @@ class NewsController extends Controller
     public function update(Request $request, News $news)
     {
       $this->validate($request, [
-        'name' => 'required',
-        'detail' => 'required'
+        'name' => 'required|string|max:50',
+        'detail' => 'required|string|max:255'
       ]);
-      $news->update(Input::all());
-
+      $news = $request->intersect(['name', 'detail']);
+      $news = News::update();
       return redirect('news');
     }
 

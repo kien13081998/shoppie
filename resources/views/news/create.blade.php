@@ -2,12 +2,12 @@
 @section('content')
 <div class="container">
     <form class="form-signin1" action="{{url('news/create')}}" role="form" method="post" enctype="multipart/form-data">
-      
+      {{ csrf_field() }}
         <div class="login-wrap{{ $errors->has('name') ? ' has-error' : '' }}">
             <!-- <input type="text" autofocus="" placeholder="project" class="form-control" name="project"> -->
             <div class="row_form{{ $errors->has('name') ? ' has-error' : '' }}">
               <h5>name</h5>
-              <input type="text"   class="form-control{{ $errors->has('name') ? ' has-error' : '' }}" name="name"/>
+              <input type="text"   class="form-control{{ $errors->has('name') ? ' has-error' : '' }}" name="name" value="{{ old('name') }}"/>
               @if ($errors->has('name'))
                   <span class="help-block">
                       <strong>{{ $errors->first('name') }}</strong>
@@ -16,7 +16,7 @@
             </div>
             <div class="row_form{{ $errors->has('detail') ? ' has-error' : '' }}">
               <h5>details</h5>
-              <input type="text"  class="form-control{{ $errors->has('detail') ? ' has-error' : '' }}" name="detail"/>
+              <input type="text"  class="form-control{{ $errors->has('detail') ? ' has-error' : '' }}" name="detail" value="{{ old('detail') }}"/>
               @if ($errors->has('detail'))
                   <span class="help-block">
                       <strong>{{ $errors->first('detail') }}</strong>
@@ -41,6 +41,7 @@
             <!-- <label class="checkbox">
                 <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
             </label> -->
+            <br>
             <button type="submit" class="btn btn-lg btn-login btn-block btn btn-primary" name="submit" value="submit" style="background:#6BC5A4;">
                 <i class="fa fa-check"></i>
             </button>
