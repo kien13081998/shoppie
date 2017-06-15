@@ -1,4 +1,7 @@
 <!--body wrapper start-->
+@extends('layouts.layout_admin')
+@section('content')
+
 <div class="wrapper">
 <div class="row">
 <div class="col-sm-12">
@@ -22,14 +25,16 @@
                 </thead>
                 <tbody>
                   <?php
-                    foreach($news as $k => $v ): ?>
+                  // echo "<pre>";
+                  // print_r($news);
+                  // echo "</pre>";
+                    // foreach($news as $k => $v ): ?>
                     <tr>
-                      <td>{!! $v['id'] !!}</td>
-                      <td>{!! $v['name'] !!}</td>
-                      <td>{!! $v['detail'] !!}</td>
-                    <td>
+                      <td>{!! $news->id !!}</td>
+                      <td>{!! $news->name !!}</td>
+                      <td>{!! $news->detail !!}</td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?php //endforeach; ?>
                 </tbody>
             </table>
         </section>
@@ -38,3 +43,4 @@
 </div>
 </div>
 </div>
+@stop

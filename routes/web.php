@@ -35,6 +35,10 @@ Route::get('news/show/{news}', 'NewsController@show')->where('id', '[0-9]+');
 
 Route::get('product/create', 'ProductController@create');
 Route::post('product/create', 'ProductController@store');
+Route::get('product', 'ProductController@index');
+
+Route::get('product/show/{product}', 'ProductController@show')->where('id', '[0-9]+');
+
 
 Auth::routes();
 

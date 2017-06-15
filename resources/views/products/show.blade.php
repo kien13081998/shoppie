@@ -1,6 +1,7 @@
+<!--body wrapper start-->
 @extends('layouts.layout_admin')
 @section('content')
-<!--body wrapper start-->
+
 <div class="wrapper">
 <div class="row">
 <div class="col-sm-12">
@@ -17,25 +18,33 @@
             <table class="table table-bordered table-striped table-condensed">
                 <thead>
                 <tr>
+                  <th>id</th>
                   <th>name</th>
-                  <th>details</th>
-                  <th>cong cu</th>
+                  <th>detail</th>
+                  <th>size</th>
+                  <th>images</th>
+                  <th>color</th>
+                  <th>quantity</th>
+                  <th>sale</th>
+                  <th>price</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($news as $k => $v ): ?>
+                  <?php
+                    foreach($products as $k => $v ): ?>
                     <tr>
+                      <td>{!! $v['id'] !!}</td>
                       <td>{!! $v['name'] !!}</td>
-                      <td>{!! $v['detail'] !!}</td>
+                      <td>{!! $v['size'] !!}</td>
+                      <td>{!! $v['images'] !!}</td>
+                      <td>{!! $v['color'] !!}</td>
+                      <td>{!! $v['quantity'] !!}</td>
+                      <td>{!! $v['sale'] !!}</td>
+                      <td>{!! $v['price'] !!}</td>
                     <td>
-                      <a href="news/edit/{!! $v['id'] !!}">edit</a>
-                      <a href="news/destroy/{!! $v['id']!!}">delete</a>
-                      <a href="news/show/{!! $v['id']!!}">show</a>
-
-                    </td>
-                  </tr>
-                  <?php  endforeach; ?>
+                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </section>

@@ -84,19 +84,19 @@
                 <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Users</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="">create</a></li>
-                        <li><a href="">list</a></li>
+                        <li><a href="javascript:history.back()/">list</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>Products</span></a>
                     <ul class="sub-menu-list">
-                      <li><a href="">create</a></li>
-                      <li><a href="">show</a></li>
+                      <li><a href="../../product/create">create</a></li>
+                      <li><a href="../../product">show</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>News</span></a>
                     <ul class="sub-menu-list">
-                      <li><a href="../news/create">create</a></li>
-                      <li><a href="../news">list</a></li>
+                      <li><a href="../../news/create">create</a></li>
+                      <li><a href="../../news">list</a></li>
 
                     </ul>
                 </li>
@@ -218,46 +218,46 @@
 </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="{{('../js/jquery-1.10.2.min.js')}}"></script>
-<script src="{{('../js/jquery-ui-1.9.2.custom.min.js')}}"></script>
-<script src="{{('../js/jquery-migrate-1.2.1.min.js')}}"></script>
-<script src="{{('../js/bootstrap.min.js')}}"></script>
-<script src="{{('../js/modernizr.min.js')}}"></script>
-<script src="{{('../js/jquery.nicescroll.js')}}"></script>
+<script src="{{asset('../js/jquery-1.10.2.min.js')}}"></script>
+<script src="{{asset('../js/jquery-ui-1.9.2.custom.min.js')}}"></script>
+<script src="{{asset('../js/jquery-migrate-1.2.1.min.js')}}"></script>
+<script src="{{asset('../js/bootstrap.min.js')}}"></script>
+<script src="{{asset('../js/modernizr.min.js')}}"></script>
+<script src="{{asset('../js/jquery.nicescroll.js')}}"></script>
 
 <!--easy pie chart-->
-<script src="{{('../js/easypiechart/jquery.easypiechart.js')}}"></script>
-<script src="{{('../js/easypiechart/easypiechart-init.js')}}"></script>
+<script src="{{asset('../js/easypiechart/jquery.easypiechart.js')}}"></script>
+<script src="{{asset('../js/easypiechart/easypiechart-init.js')}}"></script>
 
 <!--Sparkline Chart-->
-<script src="{{('../js/sparkline/jquery.sparkline.js')}}"></script>
-<script src="{{('../js/sparkline/sparkline-init.js')}}"></script>
+<script src="{{asset('../js/sparkline/jquery.sparkline.js')}}"></script>
+<script src="{{asset('../js/sparkline/sparkline-init.js')}}"></script>
 
 <!--icheck -->
-<script src="{{('../js/iCheck/jquery.icheck.js')}}"></script>
-<script src="{{('../js/icheck-init.js')}}"></script>
+<script src="{{asset('../js/iCheck/jquery.icheck.js')}}"></script>
+<!-- <script src="{{asset('../js/icheck-init.js')}}"></script> -->
 
 <!-- jQuery Flot Chart-->
-<script src="{{('../js/flot-chart/jquery.flot.js')}}"></script>
-<script src="{{('../js/flot-chart/jquery.flot.tooltip.js')}}"></script>
-<script src="{{('../js/flot-chart/jquery.flot.resize.js')}}"></script>
+<script src="{{asset('../js/flot-chart/jquery.flot.js')}}"></script>
+<script src="{{asset('../js/flot-chart/jquery.flot.tooltip.js')}}"></script>
+<script src="{{asset('../js/flot-chart/jquery.flot.resize.js')}}"></script>
 
 
 <!--Morris Chart-->
 <!-- <script src="{{('js/morris-chart/morris.js')}}"></script> -->
-<script src="{{('../js/morris-chart/raphael-min.js')}}"></script>
+<script src="{{asset('../js/morris-chart/raphael-min.js')}}"></script>
 
 <!--Calendar-->
-<script src="{{('../js/calendar/clndr.js')}}"></script>
-<script src="{{('../js/calendar/evnt.calendar.init.js')}}"></script>
-<script src="{{('../js/calendar/moment-2.2.1.js')}}"></script>
+<script src="{{asset('../js/calendar/clndr.js')}}"></script>
+<script src="{{asset('../js/calendar/evnt.calendar.init.js')}}"></script>
+<script src="{{asset('../js/calendar/moment-2.2.1.js')}}"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
 
 <!--common scripts for all pages-->
-<script src="{{('../js/scripts.js')}}"></script>
+<script src="{{asset('../js/scripts.js')}}"></script>
 
 <!--Dashboard Charts-->
-<script src="{{('../js/dashboard-chart-init.js')}}"></script>
+<script src="{{asset('../js/dashboard-chart-init.js')}}"></script>
 
 
 </body>

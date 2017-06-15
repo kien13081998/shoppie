@@ -4,9 +4,20 @@ namespace shoppie\Http\Controllers;
 use Input;
 use shoppie\Products;
 use Illuminate\Http\Request;
+use DispatchesJobs, ValidatesRequests;
 
 class ProductController extends Controller
 {
+
+
+
+  /**
+   * {@inheritdoc}
+   */
+  // protected function formatValidationErrors(Validator $validator)
+  // {
+  //     return $validator->errors()->all();
+  // }
     /**
      * Display a listing of the resource.
      *
@@ -39,16 +50,25 @@ class ProductController extends Controller
     {
 
         $this->validate($request, [
-          'name'=> 'required',
-          'detail'=> 'required',
-          'size'=> 'required',
-          'images'=> 'required',
-          'color'=> 'required',
-          'quantity'=> 'required',
-          'sale'=> 'required',
-          'price'=> 'required',
+          'name'=> 'required|string|max:255',
+          'detail'=> 'required|string|max:555',
+          'size'=> 'required|string|',
+          'images' => 'required',
+          'color'=> 'required|string',
+          'quantity'=> 'required|string',
+          'sale'=> 'required|string',
+          'price'=> 'required|string',
         ]);
-        $products = Products::create(Input::all());
+        $file = $request->file('images');
+        $name = time().$file->getClientOriginalName();
+        $file->move('images/client', $name);
+
+   $project->photo = "images/client/{$name}";
+        $products = $request->intersect(['name', 'detail','size','images','color','quantity','sale','price']);
+        // or $product = $required->all();
+        // print_r($products);
+        // exit;
+        $products = Products::create($products);
         return redirect('products');
     }
 

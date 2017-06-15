@@ -19,23 +19,37 @@
                 <tr>
                   <th>name</th>
                   <th>details</th>
+                  <th>size</th>
+                  <th>images</th>
+                  <th>color</th>
+                  <th>quantity</th>
+                  <th>sale</th>
+                  <th>price</th>
                   <th>cong cu</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($news as $k => $v ): ?>
+                  <?php foreach ($product as $v ): ?>
                     <tr>
                       <td>{!! $v['name'] !!}</td>
                       <td>{!! $v['detail'] !!}</td>
+                      <td>{!! $v['size'] !!}</td>
+                      <td>{!! $v['images'] !!}</td>
+                      <td>{!! $v['color'] !!}</td>
+                      <td>{!! $v['quantity'] !!}</td>
+                      <td>{!! $v['sale'] !!}</td>
+                      <td>{!! $v['price'] !!}</td>
+
                     <td>
-                      <a href="news/edit/{!! $v['id'] !!}">edit</a>
-                      <a href="news/destroy/{!! $v['id']!!}">delete</a>
-                      <a href="news/show/{!! $v['id']!!}">show</a>
+                      <a href="product/edit/{!! $v['id'] !!}">edit</a>
+                      <a href="product/destroy/{!! $v['id']!!}">delete</a>
+                      <a href="product/show/{!! $v['id']!!}">show</a>
 
                     </td>
                   </tr>
-                  <?php  endforeach; ?>
+                <?php  endforeach; ?>
+
                 </tbody>
             </table>
         </section>

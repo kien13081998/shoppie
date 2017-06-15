@@ -1,7 +1,7 @@
 @extends('layouts.layout_admin')
 @section('content')
-<div class="container">
-    <form class="form-signin1" action="{{url('news/create')}}" role="form" method="post" enctype="multipart/form-data">
+<div class="">
+    <form class="form-signin1" action="{{url('../news/create')}}" role="form" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
         <div class="login-wrap{{ $errors->has('name') ? ' has-error' : '' }}">
             <!-- <input type="text" autofocus="" placeholder="project" class="form-control" name="project"> -->
@@ -43,7 +43,7 @@
             </label> -->
             <br>
             <button type="submit" class="btn btn-lg btn-login btn-block btn btn-primary" name="submit" value="submit" style="background:#6BC5A4;">
-                <i class="fa fa-check"></i>
+                <i class="fa fa-check">Create</i>
             </button>
         </div>
     </form>
