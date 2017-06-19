@@ -20,21 +20,19 @@
                 <tr>
                   <th>id</th>
                   <th>name</th>
-                  <th>images</th>
-                  <th>detail</th>
+                  <th>status[(0/an|1/hien)]</th>
                 </tr>
                 </thead>
                 <tbody>
                   <?php
                   // echo "<pre>";
-                  // print_r($news);
+                  // print_r($categories);
                   // echo "</pre>";
-                    // foreach($news as $k => $v ): ?>
+                    // foreach($categories as $k => $v ): ?>
                     <tr>
-                      <td>{!! $news->id !!}</td>
-                      <td>{!! $news->name !!}</td>
-                      <td>{!! $news->images !!}</td>  
-                      <td>{!! $news->detail !!}</td>
+                      <td>{!! $categories->id !!}</td>
+                      <td>{!! $categories->name !!}</td>
+                      <td>{!! $categories->status !!}</td>
                     </tr>
                     <?php //endforeach; ?>
                 </tbody>

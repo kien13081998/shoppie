@@ -85,21 +85,25 @@
                   </span>
               @endif
             </div>
-            <!-- <div class="row_form">
+            <div class="row_form{{ $errors->has('status') ? ' has-error' : '' }}">
               <div class="form-group">
-                <h5>status</h5>
+                <h5>categories</h5>
                 <div class="col-lg-10">
                   <div class="radios">
+                  <?php foreach ($categories as $value): ?>
                       <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="0" id="radio-01" name="status"> hiện
+                          <input type="radio" value="{!! $value['id'] !!}" name="categories_id"> {!! $value['name']!!}
                       </label>
-                      <label for="radio-02" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="1" id="radio-02" name="status">  ẩn
-                      </label>
+                    <?php endforeach; ?>
                   </div>
+                  @if ($errors->has('status'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('status') }}</strong>
+                      </span>
+                  @endif
                 </div>
               </div>
-            </div> -->
+            </div>
              <!-- <label class="checkbox">
                 <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
             </label> -->

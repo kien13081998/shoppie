@@ -27,24 +27,28 @@
                   <th>quantity</th>
                   <th>sale</th>
                   <th>price</th>
+                  <th>
+                    categories
+                  <?php foreach ($categories as $key => $value): ?>
+                  [(id->{!! $value['id'] !!}/{!! $value['name'] !!})]-
+                  <?php endforeach; ?></th>
+
 
                 </tr>
                 </thead>
                 <tbody>
-                  <?php
-                    foreach($products as $k => $v ): ?>
                     <tr>
-                      <td>{!! $v['id'] !!}</td>
-                      <td>{!! $v['name'] !!}</td>
-                      <td>{!! $v['size'] !!}</td>
-                      <td>{!! $v['images'] !!}</td>
-                      <td>{!! $v['color'] !!}</td>
-                      <td>{!! $v['quantity'] !!}</td>
-                      <td>{!! $v['sale'] !!}</td>
-                      <td>{!! $v['price'] !!}</td>
-                    <td>
+                      <td>{!! $products->id !!}</td>
+                      <td>{!! $products->name !!}</td>
+                      <td>{!! $products->detail !!}</td>
+                      <td>{!! $products->size !!}</td>
+                      <td>{!! $products->images !!}</td>
+                      <td>{!! $products->color !!}</td>
+                      <td>{!! $products->quantity !!}</td>
+                      <td>{!! $products->sale !!}</td>
+                      <td>{!! $products->price !!}</td>
+                      <td>{!! $products->categories_id !!}</td>
                     </tr>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
         </section>

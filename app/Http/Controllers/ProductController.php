@@ -3,8 +3,10 @@
 namespace shoppie\Http\Controllers;
 use Input;
 use shoppie\Products;
+use shoppie\Categories;
 use Illuminate\Http\Request;
 use DispatchesJobs, ValidatesRequests;
+use Illuminate\Http\UploadedFile;
 
 class ProductController extends Controller
 {
@@ -25,9 +27,19 @@ class ProductController extends Controller
      */
     public function index()
     {
-      $products = products::all();
 
-      return view('products.list')->with('products' , $products);
+      $categories = Categories::all();
+      $products = Products::all();
+      return view('products.list')->with('products' , $products)->with('categories', $categories);
+    }
+    public function indexByCategories($name){
+
+      $categories = Categories::with('products')->whereName($name)
+      ->first();
+      return view('products.index')
+          ->with('categories', $categories)
+          ->with('products', $categories->products);
+
     }
 
     /**
@@ -35,9 +47,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Categories $categories)
     {
-          return view('products.create');
+          $categories = Categories::all();
+          return view('products.create')->with('categories', $categories);
     }
 
     /**
@@ -46,30 +59,30 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Categories $categories)
     {
 
+      $categories_id = $categories->id;
         $this->validate($request, [
           'name'=> 'required|string|max:255',
           'detail'=> 'required|string|max:555',
-          'size'=> 'required|string|',
-          'images' => 'required',
+          'size'=> 'required|string',
+          //'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           'color'=> 'required|string',
           'quantity'=> 'required|string',
           'sale'=> 'required|string',
-          'price'=> 'required|string',
+          'price'=> 'required|string'
         ]);
         $file = $request->file('images');
-        $name = time().$file->getClientOriginalName();
-        $file->move('images/client', $name);
-
-   $project->photo = "images/client/{$name}";
-        $products = $request->intersect(['name', 'detail','size','images','color','quantity','sale','price']);
-        // or $product = $required->all();
+        $file->move(Storage_path('uploads/products'));
+        //$products = $request->intersect(['name', 'detail','size','images','color','quantity','sale','price']);
+        // print_r($products);
+        // exit;
+        $products = $request->all();
         // print_r($products);
         // exit;
         $products = Products::create($products);
-        return redirect('products');
+        return redirect('product');
     }
 
     /**
@@ -80,7 +93,8 @@ class ProductController extends Controller
      */
     public function show(Products $products)
     {
-        return view('products.show')->with('products', $products);
+        $categories = Categories::all();
+        return view('products.show')->with('products', $products)->with('categories', $categories);
     }
 
     /**
@@ -89,9 +103,10 @@ class ProductController extends Controller
      * @param  \shoppie\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit(Products $products, Categories $categories)
     {
-        return view('products.edit')->with('products', $products);
+        $categories = Categories::all();
+        return view('products.edit')->with('products', $products)->with('categories', $categories);
     }
 
     /**
@@ -103,6 +118,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Products $products)
     {
+      $id = $products->id;
+      $products = Products::find($id);
       $this->validate($request, [
         'name'=> 'required',
         'detail'=> 'required',
@@ -112,10 +129,12 @@ class ProductController extends Controller
         'quantity'=> 'required',
         'sale'=> 'required',
         'price'=> 'required',
+        'categories_id' => 'required|string'
       ]);
-      $products->update(Input::all());
+      $products->update($request->all( ));
+      //$products->update(Input::all());
 
-      return redirect('products');
+      return redirect('product');
     }
 
     /**

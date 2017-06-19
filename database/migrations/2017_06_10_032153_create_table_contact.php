@@ -19,7 +19,7 @@ class CreateTableContact extends Migration
             $table->char('email', 100);
             $table->string('message', 400);
             $table->string('telephone', 11);
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

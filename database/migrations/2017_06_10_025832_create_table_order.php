@@ -15,11 +15,11 @@ class CreateTableOrder extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('unit_price', 13, 2);
             $table->decimal('total_price', 13, 2);
-            $table->integer('status');
+            $table->string('status');
             $table->string('type',50);
             $table->string('note');
             $table->timestamps();

@@ -19,7 +19,7 @@
                 <tr>
                   <th>name</th>
                   <th>details</th>
-                  <th>cong cu</th>
+                  <th>tool</th>
 
                 </tr>
                 </thead>

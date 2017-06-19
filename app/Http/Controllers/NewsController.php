@@ -2,9 +2,11 @@
 
 namespace shoppie\Http\Controllers;
 
+use update;
 use Input;
 use shoppie\News;
 use Illuminate\Http\Request;
+use DB, Session, Crypt, Hash;
 
 class NewsController extends Controller
 {
@@ -40,12 +42,12 @@ class NewsController extends Controller
     {
       $this->validate($request, [
         'name' => 'required|string|max:255',
-        'detail' => 'required|string|max:555'
+        'detail' => 'required|string|min:55'
           ]);
-        $news = $request->intersect(['name', 'detail']);
+        $file = $request->file('images');
+        $file->move(Storage_path('uploads/news'));
+        $news = $request->all();;
         $news = News::create($news);
-        // print_r($news);
-        // exit;
       return redirect('news');
     }
 
@@ -72,10 +74,8 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        // echo '</pre>'    ;
-        // print_r($news);
-        // echo '</pre>';
-        // exit;
+        // $id = $news->id;
+        // $News = News::find($id);
         return view('news.edit')->with('news', $news);
     }
 
@@ -88,12 +88,20 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
+      $id= $news->id;
+      $news = News::find($id);
       $this->validate($request, [
         'name' => 'required|string|max:255',
-        'detail' => 'required|string|max:555'
+        'detail' => 'required|string|min:55'
       ]);
-      $news = $request->intersect(['name', 'detail']);
-      $news->update($news);
+      $file = $request->file('images');
+      $file->move(Storage_path('uploads/news'));
+      // $news = $request->intersect(['name', 'detail']);
+      //print_r($news);
+      //exit;
+      $news->update($request->all());
+       return redirect('news');
+
     }
 
     /**

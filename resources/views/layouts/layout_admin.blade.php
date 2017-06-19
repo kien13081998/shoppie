@@ -44,11 +44,11 @@
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <a href="index.html"><img src="{{asset('../images/logo.png')}}" alt=""></a>
+            <a href="../../admin"><img src="{{asset('../images/logo.png')}}" alt=""></a>
         </div>
 
         <div class="logo-icon text-center">
-            <a href="index.html"><img src="{{asset('../images/logo_icon.png')}}" alt=""></a>
+            <a href="../../admin"><img src="{{asset('../images/logo_icon.png')}}" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
 
@@ -87,10 +87,16 @@
                         <li><a href="javascript:history.back()/">list</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>Products</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-th-list"></i> <span>Products</span></a>
                     <ul class="sub-menu-list">
                       <li><a href="../../product/create">create</a></li>
-                      <li><a href="../../product">show</a></li>
+                      <li><a href="../../product">list</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>categories</span></a>
+                    <ul class="sub-menu-list">
+                      <li><a href="../../categories/create">create</a></li>
+                      <li><a href="../../categories">list</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>News</span></a>

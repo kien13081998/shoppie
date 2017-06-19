@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
+  public function Categories()
+  {
+      return $this->belongsTo('shoppie\Categories');
+  }
   protected $fillable = [
       'name',
       'detail',
@@ -16,6 +20,8 @@ class Products extends Model
       'parent',
       'sale',
       'price',
-
+      'categories_id'
   ];
+
+
 }

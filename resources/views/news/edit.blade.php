@@ -1,7 +1,7 @@
 @extends('layouts.layout_admin')
 @section('content')
 <div class="">
-    <form class="form-signin1" action="{{url('../news/update/$news->id')}}" method="post" role="form" enctype="multipart/form-data">
+    <form class="form-signin1" action="{{url('../news/update/'.$news->id)}}" method="post" role="form" enctype="multipart/form-data">
       {{ csrf_field() }}
         <div class="login-wrap">
             <div class="row_form{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -19,6 +19,15 @@
               @if ($errors->has('detail'))
                   <span class="help-block">
                       <strong>{{ $errors->first('detail') }}</strong>
+                  </span>
+              @endif
+            </div>
+            <div class="row_form{{ $errors->has('images') ? ' has-error' : '' }}">
+              <h5>images</h5>
+              <input type="file"  class="form-control" name="images" value=""/>
+              @if ($errors->has('images'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('images') }}</strong>
                   </span>
               @endif
             </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCategory extends Migration
+class CreateTableCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,8 @@ class CreateTableCategory extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kid');
-            $table->string('womer');
-            $table->string('men');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->string('name',255);
+            $table->string('status',25);
             $table->timestamps();
         });
     }

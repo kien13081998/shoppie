@@ -1,7 +1,6 @@
-<!--body wrapper start-->
 @extends('layouts.layout_admin')
 @section('content')
-
+<!--body wrapper start-->
 <div class="wrapper">
 <div class="row">
 <div class="col-sm-12">
@@ -18,25 +17,25 @@
             <table class="table table-bordered table-striped table-condensed">
                 <thead>
                 <tr>
-                  <th>id</th>
                   <th>name</th>
-                  <th>images</th>
-                  <th>detail</th>
+                  <th>status[(0/an|1/hien)]</th>
+                  <th>tool</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                  <?php
-                  // echo "<pre>";
-                  // print_r($news);
-                  // echo "</pre>";
-                    // foreach($news as $k => $v ): ?>
+                  <?php foreach ($categories as $k => $v ): ?>
                     <tr>
-                      <td>{!! $news->id !!}</td>
-                      <td>{!! $news->name !!}</td>
-                      <td>{!! $news->images !!}</td>  
-                      <td>{!! $news->detail !!}</td>
-                    </tr>
-                    <?php //endforeach; ?>
+                      <td>{!! $v['name'] !!}</td>
+                      <td>{!! $v['status'] !!}</td>
+                    <td>
+                      <a href="categories/edit/{!! $v['id'] !!}">edit</a>
+                      <a href="categories/destroy/{!! $v['id']!!}">delete</a>
+                      <a href="categories/show/{!! $v['id']!!}">show</a>
+
+                    </td>
+                  </tr>
+                  <?php  endforeach; ?>
                 </tbody>
             </table>
         </section>
