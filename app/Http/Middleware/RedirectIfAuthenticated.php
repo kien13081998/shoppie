@@ -4,6 +4,8 @@ namespace shoppie\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Authuser;
+
 
 class RedirectIfAuthenticated
 {
@@ -23,4 +25,5 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
+    
 }

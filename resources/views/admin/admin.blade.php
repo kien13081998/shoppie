@@ -1,14 +1,9 @@
 @extends('layouts.layout_admin')
 @section('content')
-<h3>
-		Dashboard
-</h3>
-<ul class="breadcrumb">
-		<li>
-				<a href="#">Dashboard</a>
-		</li>
-		<li class="active"> My Dashboard </li>
-</ul>
+		<h3>
+				Wecome Admin
+		</h3>
+<br>
 <div class="state-info">
 		<section class="panel">
 				<div class="panel-body">

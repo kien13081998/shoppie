@@ -47,15 +47,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, [
-        'name' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-        'level' => 'required',
-
-      ]);
-      $news = News::create(Input::all());
-      return redirect('news');
+        //
     }
 
     /**

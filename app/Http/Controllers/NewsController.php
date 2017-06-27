@@ -17,7 +17,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-      $news = News::all();
+      $news = News::orderBy('id', 'DESC')->get();
 
       return view('news.list')->with('news' , $news);
     }
@@ -42,13 +42,16 @@ class NewsController extends Controller
     {
       $this->validate($request, [
         'name' => 'required|string|max:255',
-        'detail' => 'required|string|min:55'
+        'detail' => 'required|string|min:5',
+        'intro_short' => 'required|string|min:10'
           ]);
-        $file = $request->file('images');
-        $file->move(Storage_path('uploads/news'));
-        $news = $request->all();;
-        $news = News::create($news);
-      return redirect('news');
+          $file = $request->file('images');
+          $name = $file->getClientOriginalName();
+          $file->move('upload/news', $name);
+          $news = $request->all();
+          $news['images']= "upload/news/{$name}";
+          News::create($news);
+      return redirect('news/list');
     }
 
     /**
@@ -92,15 +95,16 @@ class NewsController extends Controller
       $news = News::find($id);
       $this->validate($request, [
         'name' => 'required|string|max:255',
-        'detail' => 'required|string|min:55'
+        'detail' => 'required|string|min:5',
+        'intro_short' => 'required|string|min:10'
       ]);
       $file = $request->file('images');
-      $file->move(Storage_path('uploads/news'));
-      // $news = $request->intersect(['name', 'detail']);
-      //print_r($news);
-      //exit;
-      $news->update($request->all());
-       return redirect('news');
+      $name = $file->getClientOriginalName();
+      $file->move('upload/news', $name);
+      $data = $request->all();
+      $data['images']= "upload/news/{$name}";
+      $news->update($data);
+       return redirect('news/list');
 
     }
 
@@ -113,6 +117,6 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
       $news->delete();
-      return redirect('news');
+      return redirect('news/list');
     }
 }

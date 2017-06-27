@@ -11,6 +11,7 @@
                 <span class="tools pull-right">
                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                     <a href="javascript:;" class="fa fa-times"></a>
+                    <a href="{{ url('/news/list') }}">Back to the overview</a>
                  </span>
     </header>
     <div class="panel-body">
@@ -20,6 +21,7 @@
                 <tr>
                   <th>id</th>
                   <th>name</th>
+                  <th>intro short</th>
                   <th>images</th>
                   <th>detail</th>
                 </tr>
@@ -33,7 +35,8 @@
                     <tr>
                       <td>{!! $news->id !!}</td>
                       <td>{!! $news->name !!}</td>
-                      <td>{!! $news->images !!}</td>  
+                      <td>{!! $news->intro_short !!}</td>
+                      <td>{!! $news->images !!}</td>
                       <td>{!! $news->detail !!}</td>
                     </tr>
                     <?php //endforeach; ?>

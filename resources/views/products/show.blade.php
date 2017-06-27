@@ -2,18 +2,18 @@
 @extends('layouts.layout_admin')
 @section('content')
 
-<div class="wrapper">
-<div class="row">
-<div class="col-sm-12">
+<div class="login-wrap form-signin1">
+
 <section class="panel">
     <header class="panel-heading">
         Responsive table
                 <span class="tools pull-right">
                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                     <a href="javascript:;" class="fa fa-times"></a>
+                    <a href="{{ url('/product/list') }}">Back to the overview</a>
                  </span>
     </header>
-    <div class="panel-body">
+    <div class="panel-body row">
         <section id="unseen">
             <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -22,6 +22,8 @@
                   <th>name</th>
                   <th>detail</th>
                   <th>size</th>
+                  <th>intro short</th>
+                  <th>Brand</th>
                   <th>images</th>
                   <th>color</th>
                   <th>quantity</th>
@@ -32,8 +34,6 @@
                   <?php foreach ($categories as $key => $value): ?>
                   [(id->{!! $value['id'] !!}/{!! $value['name'] !!})]-
                   <?php endforeach; ?></th>
-
-
                 </tr>
                 </thead>
                 <tbody>
@@ -42,6 +42,8 @@
                       <td>{!! $products->name !!}</td>
                       <td>{!! $products->detail !!}</td>
                       <td>{!! $products->size !!}</td>
+                      <td>{!! $products->intro_short !!}</td>
+                      <td>{!! $products->brand !!}</td>
                       <td>{!! $products->images !!}</td>
                       <td>{!! $products->color !!}</td>
                       <td>{!! $products->quantity !!}</td>
@@ -54,7 +56,6 @@
         </section>
     </div>
 </section>
-</div>
 </div>
 </div>
 @stop

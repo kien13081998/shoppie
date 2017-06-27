@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
+         //Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,7 +177,6 @@ return [
         // shoppie\Providers\BroadcastServiceProvider::class,
         shoppie\Providers\EventServiceProvider::class,
         shoppie\Providers\RouteServiceProvider::class,
-
     ],
 
     /*
@@ -192,7 +191,7 @@ return [
     */
 
     'aliases' => [
-
+      //'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'App' => Illuminate\Support\Facades\App::class,

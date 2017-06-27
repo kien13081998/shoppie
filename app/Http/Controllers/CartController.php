@@ -6,97 +6,43 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('cart');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-      Cart::associate('Product','App')->add($request->id, $request->name, 1, $request->price);
-  return redirect('cart')->withSuccessMessage('Item was added to your cart!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    //  public function store(Request $request)
-    //     {
-     //
-    //     if(isset(Auth::user()->name)){
-    //     if (Cart::search([‘id’ => $request->id])) {
-    //     return redirect(‘cart’)->withSuccessMessage(‘Item is already in your cart!’);
-    //     }
-     //
-    //     Cart::associate(‘Product’,’App’)->add($request->id, $request->name, 1, $request->price);
-    //     return redirect(‘cart’)->withSuccessMessage(‘Item was added to your cart!’);
-    //     }else{
-    //     Cart::destroy();
-    //     return redirect(‘cart’)->withErrorMessage(‘您尚未登入, 請先登入’);
-    //     }
-     //
-    //     }
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-      Cart::remove($id);
-  return redirect('cart')->withSuccessMessage('Item has been removed!');
-    }
+  public function store($id)
+ {
+     if (Request::ajax()) {
+         $productBuy=\App\ShopProduct::where('id', $id)->first();
+         Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
+         $productBuy->product->price]);
+         return response()->json(['count'=>Cart::count()]);
+     };
+ }
+ public function show()
+ {
+     $content=Cart::content();
+     $subtotal=Cart::subtotal();
+     return view('cart/shopping_cart')->with('content', $content)->with('subtotal', $subtotal);
+ }
+ public function delete($rowId)
+ {
+     Cart::remove($rowId);
+     return redirect('cart/show')->withSuccess('Cat has been updated.');
+ }
+ public function update()
+ {
+     if (Request::ajax()) {
+         $id=Request::get('id') ;
+         $qty=Request::get('qty') ;
+         Cart::update($id, $qty);
+         return response()->json(['count'=>Cart::count()]);
+     }
+ }
+ public function addCart(Request $request){
+    // if (Request::ajax()) {
+    //   $this->validate($request, [
+    //     'name' => 'required|string|max:255',
+    //     'detail' => 'required|string|min:5',
+    //     'intro_short' => 'required|string|min:10'
+    //       ]);
+    return response()->json(['price'=> $request->get('price')]);
+    //};
+ }
 }

@@ -7,25 +7,29 @@
     <meta name="description" content="Modern Online Store">
     <meta name="keywords" content="Shoppie, Modern Online Store">
     <meta name="author" content="http://adamantium.sk/">
-    <meta property="og:image" content="images/facebook-like-image.jpg">
+    <meta property="og:image" content="{{asset('../../images/facebook-like-image.jpg')}}">
+
+
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/unsemantic.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/font-awesome/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('js/juicy/css/juicy.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('js/juicy/css/themes/shoppie/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../css/unsemantic.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../css/responsive.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../css/font-awesome/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../js/fancybox/jquery.fancybox-1.3.4.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../js/juicy/css/juicy.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../js/juicy/css/themes/shoppie/style.css')}}" type="text/css">
     <!--[if IE 7]>
             <link rel="stylesheet" href="css/font-awesome/css/font-awesome-ie7.min.css">
             <![endif]-->
-    <link rel="stylesheet" href="{{asset('css/colors/red.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/base.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/layout.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/pages/homepage.css')}}" type="text/css">
-    <link rel="shortcut icon" href="{{asset('images/icons/favicon.ico')}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('images/icons/apple-touch-icon-152.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('images/icons/apple-touch-icon-120.png')}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('images/icons/apple-touch-icon.png')}}">
-    <link rel="apple-touch-icon" href="{{asset('images/icons/apple-touch-icon.png')}}">
+    <link rel="stylesheet" href="{{asset('.././css/colors/red.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../css/base.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../css/layout.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('../../css/pages/homepage.css')}}" type="text/css">
+    <link rel="shortcut icon" href="{{asset('../../images/icons/favicon.ico')}}">
+
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('../../images/icons/apple-touch-icon-152.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('../../images/icons/apple-touch-icon-120.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
     <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-29358822-1']);
@@ -52,10 +56,10 @@
     <div class="top-menu-left">
     <ul>
     <li>
-    <a href="blog.html" class="dark-color">Blog</a>
+    <a href="../../blog" class="dark-color">Blog</a>
     </li>
     <li>
-    <a href="about-us.html" class="dark-color">About Us</a>
+    <a href="../../about" class="dark-color">About Us</a>
     </li>
     <li>
     <a href="my-account.html" class="dark-color">My Account</a>
@@ -93,35 +97,7 @@
     </form>
     </li>
     <li>
-    <a href="register.html" class="dark-color">Register</a>
-    </li>
-    <li id="languages-box-holder">
-    <a href="#" class="dark-color">
-    EN <i class="icon-caret-down"></i>
-    </a>
-
-    <ul class="languages-box popup-box cream-bg">
-    <li class="arrow-top"><span class="shadow cream-bg"></span></li>
-    <li class="focusor-top"></li>
-    <li>
-    <a href="#" class="dark-color">
-    <i class="icon-lang-en"></i>
-    English
-    </a>
-    </li>
-    <li>
-    <a href="#" class="dark-color">
-    <i class="icon-lang-de"></i>
-    German
-    </a>
-    </li>
-    <li>
-    <a href="#" class="dark-color">
-    <i class="icon-lang-fr"></i>
-    French
-    </a>
-    </li>
-    </ul>
+    <a href="../../register" class="dark-color">Register</a>
     </li>
     </ul>
     </div>
@@ -130,8 +106,8 @@
 
     <div class="header-middle grid-container light-gradient">
     <div class="grid-100">
-    <a href="homepage.html" class="header-logo grid-20" title="Shoppie">
-    <img src="images/img-shoppie.png" alt="Shoppie"/>
+    <a href="../../home" class="header-logo grid-20" title="Shoppie">
+    <img src="{{asset('../images/img-shoppie.png')}}" alt="Shoppie"/>
     </a>
     <div class="grid-80 remove-whitespaces">
     <div class="header-middle-box">
@@ -152,74 +128,17 @@
     </div>
     <div class="header-middle-box last-box hide-on-mobile hide-on-tablet">
     <div class="header-cart" id="header-cart">
-    <a href="cart.html" class="text-input input-round dark-color light-bg">
+    <a href="" class="text-input input-round dark-color light-bg">
     <strong class="active-color">
-    <i class="icon-shopping-cart">&nbsp;</i>
+    <i class="icon-shopping-cart" >&nbsp;</i>
     39
     </strong>
     items
     &nbsp;|&nbsp;
-    <strong class="active-color">
-    954,00 &euro;
+    <strong class="active-color" id="show_item">
+    $ &euro;
     </strong>
     </a>
-
-    <ul class="popup-box header-quick-cart cream-bg">
-    <li class="arrow-top"><span class="shadow cream-bg"></span></li>
-    <li class="focusor-top"></li>
-    <li class="quick-cart-item light-bg-hover transition-all">
-    <a href="#" class="quick-cart-remove circle-button middle-bg active-bg-hover"><span class="minus"></span></a>
-    <a href="#" class="quick-cart-add circle-button middle-bg active-bg-hover"><span class="plus"></span></a>
-    <a href="cart.html" class="quick-cart-left dark-color">
-    <span class="quick-cart-image"><img src="images/photos/quick-cart-item.jpg" alt="Pablo Coelho Men’s Suit Jacket"/></span>
-    <span class="quick-cart-name">Pablo Coelho Men’s Suit Jacket</span>
-    </a>
-    <a href="cart.html" class="quick-cart-right dark-color">
-    3 x
-    <strong class="active-color">125,90 &euro;</strong>
-    </a>
-    </li>
-    <li class="list-divider"></li>
-    <li class="quick-cart-item light-bg-hover transition-all">
-    <a href="#" class="quick-cart-remove circle-button middle-bg active-bg-hover"><span class="minus"></span></a>
-    <a href="#" class="quick-cart-add circle-button middle-bg active-bg-hover"><span class="plus"></span></a>
-    <a href="cart.html" class="quick-cart-left dark-color">
-    <span class="quick-cart-image"><img src="images/photos/quick-cart-item.jpg" alt="Pablo Coelho Men’s Suit Jacket"/></span>
-    <span class="quick-cart-name">Pablo Coelho Men’s Suit Jacket</span>
-    </a>
-    <a href="cart.html" class="quick-cart-right dark-color">
-    3 x
-    <strong class="active-color">125,90 &euro;</strong>
-    </a>
-    </li>
-    <li class="list-divider"></li>
-    <li class="quick-cart-item light-bg-hover transition-all">
-    <a href="#" class="quick-cart-remove circle-button middle-bg active-bg-hover"><span class="minus"></span></a>
-    <a href="#" class="quick-cart-add circle-button middle-bg active-bg-hover"><span class="plus"></span></a>
-    <a href="cart.html" class="quick-cart-left dark-color">
-    <span class="quick-cart-image"><img src="images/photos/quick-cart-item.jpg" alt="Pablo Coelho Men’s Suit Jacket"/></span>
-    <span class="quick-cart-name">Pablo Coelho Men’s Suit Jacket</span>
-    </a>
-    <a href="cart.html" class="quick-cart-right dark-color">
-    3 x
-    <strong class="active-color">125,90 &euro;</strong>
-    </a>
-    </li>
-    <li class="list-divider"></li>
-    <li class="quick-cart-total">
-    <span class="quick-cart-left dark-color">Total</span>
-    <span class="quick-cart-right active-color">954,00 &euro;</span>
-    </li>
-    <li class="list-divider"></li>
-    <li class="quick-cart-buttons">
-    <a href="cart.html" class="button-small light-color middle-gradient dark-gradient-hover">
-    Go to Cart
-    </a>
-    <a href="checkout-step-1.html" class="button-small light-color active-gradient dark-gradient-hover">
-    Check out
-    </a>
-    </li>
-    </ul>
     </div>
     </div>
     </div>
@@ -234,34 +153,32 @@
     <a href="#menu-mobile" class="main-menu-item click-slide"><i class="icon-reorder"></i></a>
     </li>
     <li class="middle-color light-hover">
-    <a href="homepage.html" class="main-menu-item"><i class="icon-home"></i></a>
+    <a href="../../home" class="main-menu-item"><i class="icon-home"></i></a>
     </li>
     <li class="main-menu-cart active-color light-hover">
     <a href="cart.html" class="main-menu-item">
     <i class="icon-shopping-cart">&nbsp;</i>
     39
     &nbsp;|&nbsp;
-    954,00 &euro;
+    <strong class="active-color" id="show_item">
+    $ &euro;
+  </strong>
     </a>
     </li>
     </ul>
 
     <ul class="main-menu-desktop dark-gradient transition-all" id="menu-mobile">
     <li class="middle-color light-hover home">
-    <a href="homepage.html" class="main-menu-item transition-all"><i class="icon-home"></i></a>
+    <a href="../../home" class="main-menu-item transition-all"><i class="icon-home"></i></a>
     </li>
     <li class="middle-color light-hover back">
     <a href="#menu-mobile" class="main-menu-item click-slide"><i class="icon-chevron-left"></i></a>
     </li>
+    <?php foreach ($categories as $key => $vsl): ?>
     <li class="light-color active-hover">
-    <a href="products-grid.html" class="main-menu-item transition-all">Women</a>
+    <a href="../../product/{!! $vsl['name'] !!}" class="main-menu-item transition-all">{!! $vsl['name'] !!}</a>
     </li>
-    <li class="light-color active-hover">
-    <a href="products-list.html" class="main-menu-item transition-all">Men</a>
-    </li>
-    <li class="light-color active-hover">
-    <a href="products-grid.html" class="main-menu-item transition-all">Kids</a>
-    </li>
+  <?php endforeach; ?>
     <li class="light-color active-hover">
     <a href="products-list.html" class="main-menu-item transition-all">Shoes</a>
     </li>
@@ -276,7 +193,7 @@
     <span class="mega-menu-title active-color clearfix">E-shop pages</span>
     <ul class="mega-menu-list">
     <li>
-    <a href="homepage.html" class="dark-color active-hover">
+    <a href="../home" class="dark-color active-hover">
     Homepage
     </a>
     </li>
@@ -377,10 +294,10 @@
     </ul>
     </li>
     <li class="light-color active-hover">
-    <a href="products-grid.html" class="main-menu-item transition-all">What’s new</a>
+    <a href="../../news" class="main-menu-item transition-all">What’s new</a>
     </li>
     <li class="active-color dark-hover">
-    <a href="products-list.html" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
+    <a href="../../list/product" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
 
     <ul class="mega-menu cream-bg full-width">
     <li class="mega-menu-active cream-gradient"></li>
@@ -422,7 +339,7 @@
     <li class="mega-menu-box">
     <span class="mega-menu-title active-color clearfix">This week</span>
     <a href="products-detail.html" title="50% Winter sale" class="mega-menu-banner">
-    <img class="with-shadow" src="images/photos/img-menu-teaser2.jpg" alt="50% Winter sale"/>
+    <img class="with-shadow" src="{{asset('../../images/photos/img-menu-teaser2.jpg')}}" alt="50% Winter sale"/>
     <span class="header-font banner-text-white banner-size-1">
     <strong>50%</strong><br/>
     Winter sale
@@ -432,7 +349,7 @@
     <li class="mega-menu-box">
     <span class="mega-menu-title active-color clearfix">Inspiration</span>
     <a href="products-detail.html" title="New 2014 collection Zara Lauren" class="mega-menu-banner">
-    <img class="with-shadow" src="images/photos/img-menu-teaser3.jpg" alt="New 2014 collection Zara Lauren"/>
+    <img class="with-shadow" src="{{asset('../../images/photos/img-menu-teaser3.jpg')}}" alt="New 2014 collection Zara Lauren"/>
     <span class="header-font banner-text-white banner-size-2">
     <strong>
     New 2014<br/>
@@ -519,10 +436,10 @@
     <p class="middle-color">
     Lorem ipsum dolor sit amet, de consectetur adipiscing elit
     </p>
-    <a href="#"><img src="images/icons/icon-visa-e.png" alt="Visa Electron"/></a>
-    <a href="#"><img src="images/icons/icon-mastercard.png" alt="MasterCard"/></a>
-    <a href="#"><img src="images/icons/icon-paypal.png" alt="PayPal"/></a>
-    <a href="#"><img src="images/icons/icon-visa.png" alt="Visa"/></a>
+    <a href="#"><img src="{{asset('../images/icons/icon-visa-e.png')}}" alt="Visa Electron"/></a>
+    <a href="#"><img src="{{asset('../images/icons/icon-mastercard.png')}}" alt="MasterCard"/></a>
+    <a href="#"><img src="{{asset('../images/icons/icon-paypal.png')}}" alt="PayPal"/></a>
+    <a href="#"><img src="{{asset('../images/icons/icon-visa.png')}}" alt="Visa"/></a>
     </div>
     <div class="grid-50 tablet-grid-50">
     <h3 class="light-color">
@@ -563,6 +480,10 @@
     </a>
     </div>
     </div>
+    <script src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/myscript.js')}}">
+
+    </script>
     </footer>
   </body>
 </html>

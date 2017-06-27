@@ -2,9 +2,11 @@
 
 namespace shoppie;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\Admin as Authenticatable;
 
-class Admin extends Model
+
+class Admin extends Authenticatable
 {
     use Notifiable;
 

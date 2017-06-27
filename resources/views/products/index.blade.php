@@ -2,25 +2,32 @@
 @section('content')
 
 <div class="wrapper">
+  <th><a href="{{ url('/product/list') }}">Back to the overview</a></th>
+  
   <div class="row">
   <div class="col-sm-12">
     <table class="table table-bordered table-striped table-condensed">
+      <?php foreach ($products as $v): ?>
       <thead>
-        <?php foreach ($products as $v): ?>
-        <tr>
+      <tr>
         <th>
-          <a href="../../product/show/{!! $v['id']!!}"><strong>{{ $v['name'] }}</strong>
+          <a href="../product/show/{!! $v['id']!!}"><strong>{{ $v['name'] }}</strong>
           </a>
         </th>
+          <th>
+            <a href="../product/edit/{!! $v['id'] !!}">edit</a>
+            <a href="../product/destroy/{!! $v['id']!!}">delete</a>
+            <a href="../product/show/{!! $v['id']!!}">show</a>
+          </th>
       </tr>
-      <?php endforeach; ?>
       </thead>
       <tbody>
         <tr>
-          <td>
-          {{ $v['categories']->name }}
-          </td>
+          <h3>
+            <strong>{{ $v['categories']->name }}</strong>
+          </h3>
         </tr>
+      <?php endforeach; ?>
       </tbody>
   </table>
   </div>

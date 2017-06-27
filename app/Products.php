@@ -16,8 +16,9 @@ class Products extends Model
       'size',
       'images',
       'color',
+      'intro_short',
+      'brand',
       'quantity',
-      'parent',
       'sale',
       'price',
       'categories_id'

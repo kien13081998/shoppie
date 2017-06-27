@@ -18,6 +18,8 @@ body {
     font-size: 14px;
 }
 
+
+
 input, select, textarea {
     font-family: 'Open Sans', sans-serif;
     color: #767676;
@@ -47,9 +49,16 @@ hr {
     border-color: #ddd;
 }
 
+
 /*-------------------------------
             LOGIN STYLES
 -------------------------------*/
+
+.row {
+  box-sizing: border-box;
+    width: 100%;
+    float: left;
+}
 
 .login-body {
     background: #65cea7 url("../images/login-bg.jpg") no-repeat fixed;

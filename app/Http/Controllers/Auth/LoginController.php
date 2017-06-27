@@ -3,7 +3,7 @@
 namespace shoppie\Http\Controllers\Auth;
 
 use shoppie\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\AuthenticatesAdmins;
 
 class LoginController extends Controller
 {
@@ -18,7 +18,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesAdmins;
 
     /**
      * Where to redirect users after login.

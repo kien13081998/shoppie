@@ -8,7 +8,8 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>{{ config('app.name', 'shoppie') }}</title>
+  <!-- <title>{{ config('app.name', 'shoppie') }}</title> -->
+  <title>Admin</title>
 
   <!--icheck-->
   <link href="{{asset('../js/iCheck/skins/minimal/minimal.css')}}" rel="stylesheet">
@@ -75,12 +76,6 @@
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <!-- <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li> -->
-                <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Admin</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="">create</a></li>
-                        <li><a href="">list</a></li>
-                    </ul>
-                </li>
                 <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Users</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="">create</a></li>
@@ -90,19 +85,33 @@
                 <li class="menu-list"><a href=""><i class="fa fa-th-list"></i> <span>Products</span></a>
                     <ul class="sub-menu-list">
                       <li><a href="../../product/create">create</a></li>
-                      <li><a href="../../product">list</a></li>
+                      <li><a href="../../product/list">list</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>categories</span></a>
                     <ul class="sub-menu-list">
                       <li><a href="../../categories/create">create</a></li>
-                      <li><a href="../../categories">list</a></li>
+                      <li><a href="../../categories/list">list</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>News</span></a>
                     <ul class="sub-menu-list">
                       <li><a href="../../news/create">create</a></li>
-                      <li><a href="../../news">list</a></li>
+                      <li><a href="../../news/list">list</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Blog</span></a>
+                    <ul class="sub-menu-list">
+                      <li><a href="../../blog/create">create</a></li>
+                      <li><a href="../../blog/list">list</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>About US</span></a>
+                    <ul class="sub-menu-list">
+                      <li><a href="../../about_us/create">create</a></li>
+                      <li><a href="../../about_us/list">list</a></li>
 
                     </ul>
                 </li>
@@ -166,8 +175,8 @@
                     </ul>
                 </li> -->
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-in"></i> <span>Logout admin</span></a></li>
-                         <li><a href=""><i class="fa fa-sign-in"></i> <span>Login page</span></a></li>
+                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-in"></i> <span>Logout</span></a></li>
+                         <li><a href="../../home"><i class="fa fa-sign-in"></i> <span>Login page</span></a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
@@ -213,9 +222,7 @@
         <!--body wrapper end-->
 
         <!--footer section start-->
-        <footer>
-            <!-- 2014 &copy; AdminEx by ThemeBucket -->
-        </footer>
+
         <!--footer section end-->
 
 
@@ -263,7 +270,7 @@
 <script src="{{asset('../js/scripts.js')}}"></script>
 
 <!--Dashboard Charts-->
-<script src="{{asset('../js/dashboard-chart-init.js')}}"></script>
+<!-- <script src="{{asset('../js/dashboard-chart-init.js')}}"></script> -->
 
 
 </body>
