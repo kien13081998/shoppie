@@ -8,9 +8,15 @@ use shoppie\Categories;
 use shoppie\News;
 use shoppie\Abouts;
 use shoppie\Blogs;
+use shoppie\Users;
 
 class ShowControler extends Controller
 {
+      public function myaccount(Users $users){
+
+        $categories = Categories::all();
+        return view('user.myaccount')->with('categories', $categories)->with('users',$users);
+      }
       public function cart(){
 
         $categories = Categories::all();
@@ -52,14 +58,14 @@ class ShowControler extends Controller
       }
        public function news()
       {
-        $products = Products::orderBy('id', 'DESC')->take(4)->get();
+        $products = Products::orderBy('id', 'DESC')->take(6)->get();
         $categories = Categories::all();
         $news = News::orderBy('id', 'DESC')->take(5)->get();
         return view('shoppie.news')->with('news' , $news)->with('categories', $categories)->with('products',$products);
       }
       public function news_detail(News $news){
         $categories = Categories::all();
-        $products = Products::orderBy('id', 'DESC')->take(4)->get();
+        $products = Products::orderBy('id', 'DESC')->take(6)->get();
         return view('shoppie.news_detail')->with('news', $news)->with('categories', $categories)->with('products' ,$products);
 
       }

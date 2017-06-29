@@ -16,7 +16,7 @@
 <div class="sidebar cream-gradient grid-25 transition-all" id="sidebar-mobile">
 
 <div class="sidebar-box cream-gradient">
-<h2 class="header-font active-color">You have visited</h2>
+<h2 class="header-font active-color">Products</h2>
 <ul class="sidebar-list">
   <?php foreach ($products as $key => $value): ?>
 
@@ -27,7 +27,7 @@
 {!! $value['name'] !!}
 <strong class="active-color">{!! $value['price'] !!}</strong>
 </span>
-<img src="{{asset('/').'/'.$value['images']}}" alt="Pablo Coelho jacket"/>
+<img src="{{asset('/').'/'.$value['images']}}"  style="height:25px;"alt="Pablo Coelho jacket"/>
 </a>
 </li>
 <?php endforeach; ?>
@@ -41,7 +41,7 @@
 <div class="content-page content-holder grid-100">
 
 <a href="{{asset('/').'/'.$news->images}}" class="fancybox thumbnail light-bg margin-bottom" title="Tommy Mancini brings the Summer Collection 2013">
-<img src="{{asset('/').'/'.$news->images}}" alt="Tommy Mancini brings the Summer Collection 2013"/>
+<img src="{{asset('/').'/'.$news->images}}" style="height:250px;" alt="Tommy Mancini brings the Summer Collection 2013"/>
 <span class="thumbnail-arrow light-color active-border"><i class="icon-zoom-in"></i></span>
 </a>
 

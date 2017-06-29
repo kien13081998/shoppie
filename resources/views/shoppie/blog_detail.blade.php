@@ -28,7 +28,7 @@
 {!! $valp['name'] !!}
 <strong class="active-color">Price:{!! $valp['price'] !!}</strong>
 </span>
-<img src="{{asset('/').'/'.$valp['images']}}" alt="Pablo Coelho jacket"/>
+<img src="{{asset('/').'/'.$valp['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
 </li>
 <?php endforeach; ?>
@@ -48,6 +48,8 @@
 {!! $valn['name']!!}
 <small class="middle-color">{!! $valn['updated_at']!!}</small>
 </span>
+<img src="{{asset('/').'/'.$valn['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
+
 </a>
 </li>
 <?php endforeach; ?>
@@ -60,8 +62,8 @@
 <div class="with-shadow grid-100 light-bg">
 <div class="content-page content-holder grid-100">
 
-<a href="{{asset('/').'/'.$blogs->images}}" class="fancybox thumbnail light-bg margin-bottom" title="Tommy Mancini brings the Summer Collection 2013">
-<img src="{{asset('/').'/'.$blogs->images}}" alt="Tommy Mancini brings the Summer Collection 2013"/>
+<a href="{{asset('/').'/'.$blogs->images}}" class="fancybox thumbnail light-bg margin-bottom"  title="Tommy Mancini brings the Summer Collection 2013">
+<img src="{{asset('/').'/'.$blogs->images}}" style="height:250px;" alt="Tommy Mancini brings the Summer Collection 2013"/>
 <span class="thumbnail-arrow light-color active-border"><i class="icon-zoom-in"></i></span>
 </a>
 

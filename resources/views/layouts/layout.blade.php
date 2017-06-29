@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{{asset('../../images/icons/apple-touch-icon-120.png')}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
     <link rel="apple-touch-icon" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-29358822-1']);
                 _gaq.push(['_trackPageview']);
@@ -40,7 +40,7 @@
                     ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
                 })();
-            </script>
+            </script> -->
 
     <!--[if lt IE 9]>
             <script src="js/html5shim.js"></script>
@@ -52,7 +52,7 @@
 
     <nav class="top-menu grid-container hide-on-tablet hide-on-mobile">
     <div class="grid-100">
-    <div class="fb-like" data-href="https://www.facebook.com/adamantium.solutions" data-width="120" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    <!-- <div class="fb-like" data-href="https://www.facebook.com/adamantium.solutions" data-width="120" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> -->
     <div class="top-menu-left">
     <ul>
     <li>
@@ -61,9 +61,11 @@
     <li>
     <a href="../../about" class="dark-color">About Us</a>
     </li>
+    <?php //if($this->session->id){?>
     <li>
-    <a href="my-account.html" class="dark-color">My Account</a>
+    <a href="/my-account/1" class="dark-color">My Account</a>
     </li>
+    <?php //}  ?>
     </ul>
     </div>
     <div class="top-menu-right">
@@ -97,7 +99,7 @@
     </form>
     </li>
     <li>
-    <a href="../../register" class="dark-color">Register</a>
+    <a href="/user/register" class="dark-color">Register</a>
     </li>
     </ul>
     </div>

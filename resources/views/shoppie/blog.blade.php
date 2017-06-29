@@ -27,7 +27,7 @@
 {!! $vp['name'] !!}
 <strong class="active-color">Price:{!! $vp['price'] !!}</strong>
 </span>
-<img src="{{asset('/').'/'.$vp['images']}}" alt="Pablo Coelho jacket"/>
+<img src="{{asset('/').'/'.$vp['images']}}"style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
 </li>
 <?php endforeach; ?>
@@ -49,7 +49,7 @@
 {!! $vn['name'] !!}
 <small class="middle-color"></small>
 </span>
-<!-- <img src="{{asset('/').'/'.$vn['images']}}" style="with:20px;" alt="Pablo Coelho jacket"/> -->
+<img src="{{asset('/').'/'.$vn['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
 </li>
 <?php endforeach; ?>

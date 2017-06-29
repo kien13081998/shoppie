@@ -28,7 +28,7 @@
 <span>
 {!! $v_l['name'] !!}
 </span>
-<!-- <img src="{{asset('/').'/'.$v_l['images']}}" alt="Pablo Coelho jacket"/> -->
+<img src="{{asset('/').'/'.$v_l['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
 <ul class="product-popup popup-right popup-box light-bg">
 <li class="arrow"><span class="shadow light-bg"></span></li>

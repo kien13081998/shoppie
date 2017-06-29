@@ -12,13 +12,10 @@ class ProductController extends Controller
 
 
 
-  /**
-   * {@inheritdoc}
-   */
-  // protected function formatValidationErrors(Validator $validator)
-  // {
-  //     return $validator->errors()->all();
-  // }
+        public function __construct()
+      {
+        $this->middleware('auth');
+      }
     /**
      * Display a listing of the resource.
      *
@@ -75,7 +72,7 @@ class ProductController extends Controller
         ]);
 
         $file = $request->file('images');
-        $name = $file->getClientOriginalName();
+        $name = time() . '.' . $file->getClientOriginalName();
         $file->move('upload/products', $name);
         $data = $request->all();
         $data['images']= "upload/products/{$name}";
@@ -131,14 +128,10 @@ class ProductController extends Controller
         'categories_id' => 'required'
       ]);
       $file = $request->file('images');
-      $name = $file->getClientOriginalName();
+      $name = time() . '.' . $file->getClientOriginalName();
       $file->move('upload/products', $name);
       $data['images']= "upload/products/{$name}";
       $data = $request->all();
-      echo "<pre>";
-      print_r($data);
-      echo "</pre>";
-      exit;
       $products->update($data);
       return redirect('product/list');
     }

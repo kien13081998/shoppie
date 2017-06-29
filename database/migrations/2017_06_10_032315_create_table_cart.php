@@ -18,7 +18,9 @@ class CreateTableCart extends Migration
             $table->decimal('unit_price', 13, 2);
             $table->decimal('total_price', 13, 2);
             $table->string('qty');
-             $table->timestamps();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

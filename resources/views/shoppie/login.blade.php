@@ -248,4 +248,4 @@ Copyrigh&copy; 2016 <a href="http://adamantium.sk/" title="Adamantium Solutions"
 <script type='text/javascript' src='http://adamantium.sk/wp-content/plugins/contact-form-7/scripts.js?ver=3.0.2.1'></script>
 <script type="text/javascript"> Cufon.now(); </script>
 </body>
-</html> 
+</html>

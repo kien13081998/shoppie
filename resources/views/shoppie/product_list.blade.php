@@ -22,14 +22,14 @@
 {!! $va['name'] !!}
 <strong class="active-color">{!! $va['price'] !!}</strong>
 </span>
-<!-- <img src="{{asset('/').'/'.$va['images']}}" alt="Pablo Coelho jacket"/> -->
+<img src="{{asset('/').'/'.$va['images']}}"  style="height:45px;" alt="Pablo Coelho jacket"/>
 </a>
 <ul class="product-popup popup-right popup-box light-bg">
 <li class="arrow"><span class="shadow light-bg"></span></li>
 <li class="focusor"></li>
 <li class="clearfix">
 <div class="product-popup-top">
-<a href="../../product/detail/{!! $va['id'] !!}">
+<a href="/product/detail/{!! $va['id'] !!}">
 <img src="{{asset('/').'/'.$va['images']}}" alt="Buy Pablo Coelho Jacket">
 </a>
 </div>
@@ -82,13 +82,13 @@ Spring collection
 
 <div class="product-wide light-bg clearfix">
 <div class="grid-15 tablet-grid-20 mobile-grid-35 product-img-holder">
-<a class="product-img" href="../../product/{!! $value['id']!!}">
+<a class="product-img" href="/product/detail/{!! $value['id']!!}">
 <img src="{{asset('/').'/'.$value['images']}}" alt="Pablo Coelho jacket"/>
 </a>
 </div>
 <div class="grid-50 tablet-grid-45 mobile-grid-65 product-description">
 <h3 class="product-title subheader-font">
-<a href="../../product/{!! $value['id']!!}" class="dark-color active-hover">
+<a href="/product/detail/{!! $value['id']!!}" class="dark-color active-hover">
 <strong>{!! $value['name'] !!}</strong>
 </a>
 </h3>

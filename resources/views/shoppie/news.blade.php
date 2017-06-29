@@ -26,7 +26,7 @@
 {!! $va['name'] !!}
 <strong class="active-color">{!! $va['price'] !!}</strong>
 </span>
-<!-- <img src="{{asset('/').'/'.$va['images']}}" alt="Pablo Coelho jacket"/> -->
+<img src="{{asset('/').'/'.$va['images']}}"  style="height:25px;"alt="Pablo Coelho jacket"/>
 </a>
 <ul class="product-popup popup-right popup-box light-bg">
 <li class="arrow"><span class="shadow light-bg"></span></li>

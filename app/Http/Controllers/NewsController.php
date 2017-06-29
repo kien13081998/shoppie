@@ -10,6 +10,11 @@ use DB, Session, Crypt, Hash;
 
 class NewsController extends Controller
 {
+
+        public function __construct()
+      {
+        $this->middleware('auth');
+      }
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +51,7 @@ class NewsController extends Controller
         'intro_short' => 'required|string|min:10'
           ]);
           $file = $request->file('images');
-          $name = $file->getClientOriginalName();
+          $name = time() . '.' . $file->getClientOriginalName();
           $file->move('upload/news', $name);
           $news = $request->all();
           $news['images']= "upload/news/{$name}";
@@ -99,7 +104,7 @@ class NewsController extends Controller
         'intro_short' => 'required|string|min:10'
       ]);
       $file = $request->file('images');
-      $name = $file->getClientOriginalName();
+      $name = time() . '.' . $file->getClientOriginalName();
       $file->move('upload/news', $name);
       $data = $request->all();
       $data['images']= "upload/news/{$name}";
