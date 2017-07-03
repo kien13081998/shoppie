@@ -1,11 +1,15 @@
 <?php
 namespace shoppie\Http\Controllers;
+
+use update;
 use Input;
 use shoppie\Products;
 use shoppie\Categories;
 use Illuminate\Http\Request;
 use DispatchesJobs, ValidatesRequests;
 use Illuminate\Http\UploadedFile;
+use DB, Session, Crypt, Hash;
+
 
 class ProductController extends Controller
 {
@@ -111,30 +115,48 @@ class ProductController extends Controller
      * @param  \shoppie\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $products ,Categories $categories)
     {
       $id = $products->id;
       $products = Products::find($id);
+      if ($request->hasFile('images')) {
       $this->validate($request, [
         'name'=> 'required|string|max:255',
-        'detail'=> 'required|string:min:5',
+        'detail'=> 'required|string|min:5',
         'size'=> 'required|string',
-        'intro_short'=>'required|string|min:50',
+        'intro_short'=>'required|string|min:30',
         'brand' => 'required|string',
         'color'=> 'required',
         'quantity'=> 'required',
         'sale'=> 'required|string',
-        'price'=> 'required',
+        'price'=> 'required|string',
         'categories_id' => 'required'
       ]);
       $file = $request->file('images');
       $name = time() . '.' . $file->getClientOriginalName();
       $file->move('upload/products', $name);
+      $data = $request->all();
       $data['images']= "upload/products/{$name}";
+      $products->update($data);
+      return redirect('product/list');
+    } else{
+      $this->validate($request, [
+        'name'=> 'required|string|max:255',
+        'detail'=> 'required|string|min:5',
+        'size'=> 'required|string',
+        'intro_short'=>'required|string|min:30',
+        'brand' => 'required|string',
+        'color'=> 'required',
+        'quantity'=> 'required',
+        'sale'=> 'required|string',
+        'price'=> 'required',
+      ]);
+
       $data = $request->all();
       $products->update($data);
       return redirect('product/list');
     }
+  }
 
     /**
      * Remove the specified resource from storage.

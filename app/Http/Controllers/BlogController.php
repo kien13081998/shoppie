@@ -48,7 +48,7 @@ class BlogController extends Controller
         'intro_short' => 'required|string|min:10'
           ]);
           $file = $request->file('images');
-          $name = $file->getClientOriginalName();
+          $name = time() . '.' .$file->getClientOriginalName();
           $file->move('upload/blog', $name);
           $blog = $request->all();
           $blog['images']= "upload/blog/{$name}";
@@ -91,18 +91,30 @@ class BlogController extends Controller
     {
       $id= $blogs->id;
       $blogs = Blogs::find($id);
+      if ($request->hasFile('images')) {
       $this->validate($request, [
         'name' => 'required|string|max:255',
         'detail' => 'required|string|min:5',
         'intro_short' => 'required|string|min:10'
       ]);
       $file = $request->file('images');
-      $name = $file->getClientOriginalName();
+      $name = time() . '.' .$file->getClientOriginalName();
       $file->move('upload/blog', $name);
       $data = $request->all();
-      $data['images']= "upload/blog/{$name}";
-      $blogs->update($data);
+        $data['images']= "upload/blog/{$name}";
+        $blogs->update($data);
        return redirect('blog/list');
+     }else {
+       # code...
+       $this->validate($request, [
+         'name' => 'required|string|max:255',
+         'detail' => 'required|string|min:5',
+         'intro_short' => 'required|string|min:10'
+       ]);
+       $data = $request->all();
+       $blogs->update($data);
+      return redirect('blog/list');
+     }
     }
 
     /**

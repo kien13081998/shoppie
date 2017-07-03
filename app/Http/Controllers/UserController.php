@@ -2,13 +2,13 @@
 
 namespace shoppie\Http\Controllers;
 
-
+use shoppie\Input;
 use shoppie\Categories;
 use shoppie\Users;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use DispatchesJobs, ValidatesRequests;
-
+use Session;
 
 
 class UserController extends Controller
@@ -33,27 +33,54 @@ class UserController extends Controller
       }
 
         public  function login() {
-
-          $email = Input::get('email');
-          $password = Input::get('password');
-
-          if (Auth::attempt(array('email' => $email, 'password' => $password)))
-          {
-              return Redirect::to('/index');
-          } else {
-              return Redirect::to('/login');
+          $email = $_POST['email'];
+          $password = $_POST['password'];
+          $result = "";
+          if ($email && $password) {
+            $result = Users::getUser($email, $password);
+            if($result){
+              Session::Set('users', $result);
+              return response()->json([true, Session::get('users')])
+            }
           }
+            return response()->json([false, Session::get('users')]);     
       }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+     public function create_user()
+     {
+       return view('user.create');
+
+     }
+
+     public function create_store(Request $request)
+     {
+       $this->validate($request, [
+         'last_name'=> 'required|string|max:255',
+         'first_name'=> 'required|string|max:255',
+         'email' => 'required|string|email|max:255|unique:users',
+         'password' => 'required|string|min:5|confirmed',
+         'phone'=> 'required|max:13',
+         'city'=> 'required|string|max:255',
+         'street'=> 'required|string|max:255'
+       ]);
+       $file = $request->file('images');
+       $name = time() . '.' . $file->getClientOriginalName();
+       $file->move('upload/users', $name);
+       $data = $request->all();
+       $data['password']= bcrypt('password');
+       $data['images']= "upload/users/{$name}";
+       Users::create($data);
+       return redirect('user/list');
+
+     }
     public function create(Categories $categories)
     {
       $categories = Categories::orderBy('id', 'DESC')->take(3)->get();
       return view('user.register')->with('categories', $categories);
-
     }
 
     /**
@@ -81,24 +108,14 @@ class UserController extends Controller
       $data['images']= "upload/users/{$name}";
       Users::create($data);
       // return redirect('user/login');
-      return '213sad';
+      $Session = $request->session()->all();
+      // echo "<pre>";
+      // print_r($Session);
+      // echo "</pre>";
+      // exit;
+      return redirect('/home')->with('Session', $Session);
 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \shoppie\Users  $users
-     * @return \Illuminate\Http\Response
-     */
-     public function authenticate()
-     {
-         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-             // Authentication passed...
-             return redirect()->intended('dashboard');
-         }
-     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -109,9 +126,45 @@ class UserController extends Controller
     {
       $categories = Categories::all();
       return view('user.edit')->with('users', $users)->with('categories', $categories);
-
     }
+    public function edit_user(Users $users){
+      return view('user.edit_user')->with('users', $users);
+    }
+    public function update_user(Request $request, Users $users){
 
+      $id = $users->id;
+      $users = Users::find($id);
+      if ($request->hasFile('images')) {
+      $this->validate($request, [
+        'last_name'=> 'required|string|max:255',
+        'first_name'=> 'required|string|max:255',
+        'phone'=> 'required|max:13',
+        'city'=> 'required|string|max:255',
+        'street'=> 'required|string|max:255'
+      ]);
+      $file = $request->file('images');
+      $name = time() . '.' . $file->getClientOriginalName();
+      $file->move('upload/users', $name);
+      $data = $request->all();
+      $data['password']= bcrypt('password');
+      $data['images']= "upload/users/{$name}";
+      $users->update($data);
+      return redirect('user/list');
+    }else {
+      # code...
+      $this->validate($request, [
+        'last_name'=> 'required|string|max:255',
+        'first_name'=> 'required|string|max:255',
+        'phone'=> 'required|max:13',
+        'city'=> 'required|string|max:255',
+        'street'=> 'required|string|max:255'
+      ]);
+      $data = $request->all();
+      $data['password']= bcrypt('password');
+      $users->update($data);
+      return redirect('user/list');
+    }
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -121,9 +174,26 @@ class UserController extends Controller
      */
     public function update(Request $request, Users $users)
     {
-      // if ($file="") {
         $id = $users->id;
         $users = Users::find($id);
+        if ($request->hasFile('images')) {
+        $this->validate($request, [
+          'last_name'=> 'required|string|max:255',
+          'first_name'=> 'required|string|max:255',
+          'phone'=> 'required|max:13',
+          'city'=> 'required|string|max:255',
+          'street'=> 'required|string|max:255'
+        ]);
+        $file = $request->file('images');
+        $name = time() . '.' . $file->getClientOriginalName();
+        $file->move('upload/users', $name);
+        $data = $request->all();
+        $data['password']= bcrypt('password');
+        $data['images']= "upload/users/{$name}";
+        $users->update($data);
+        return "!!!";
+      }else {
+        # code...
         $this->validate($request, [
           'last_name'=> 'required|string|max:255',
           'first_name'=> 'required|string|max:255',
@@ -132,30 +202,10 @@ class UserController extends Controller
           'street'=> 'required|string|max:255'
         ]);
         $data = $request->all();
+        $data['password']= bcrypt('password');
         $users->update($data);
-          return "!@#";
-
-      // } else {
-      //   $id = $users->id;
-      //   $users = Users::find($id);
-      //   $this->validate($request, [
-      //     'last_name'=> 'required|string|max:255',
-      //     'first_name'=> 'required|string|max:255',
-      //     'email' => 'required|string|email|max:255|unique:users',
-      //     'password' => 'required|string|min:5|confirmed',
-      //     'phone'=> 'required|max:13',
-      //     'city'=> 'required|string|max:255',
-      //     'street'=> 'required|string|max:255'
-      //   ]);
-      //   $file = $request->file('images');
-      //   $name = time() . '.' . $file->getClientOriginalName();
-      //   $file->move('upload/users', $name);
-      //   $data = $request->all();
-      //   $data['password']= bcrypt('password');
-      //   $data['images']= "upload/users/{$name}";
-      //   $users->update($data);
-      //   return "!!!";
-      // }
+        return "!!@@!";
+      }
 
 
     }
@@ -184,6 +234,14 @@ class UserController extends Controller
         $data['password']= bcrypt('password');
         $users->update($data);
           return "!!wdas!";
+        }
+        public function list(){
+          $users = Users::orderBy('id', 'DESC')->get();
+          return view('user.list')->with('users' , $users);
+          }
+        public function logout() {
+          Auth::logout(); // logout user
+          return Redirect::to('login'); //redirect back to login
         }
 
 }

@@ -23,8 +23,8 @@ class CreateTableProduct extends Migration
             $table->string('images');
             $table->string('color');
             $table->string('quantity');
-            $table->decimal('sale', 10, 0);
-            $table->decimal('price', 10, 0);
+            $table->string('sale');
+            $table->string('price');
             $table->unsignedInteger('categories_id')->nullable();
             $table->foreign('categories_id')->references('id')->on('categories');
             $table->timestamps();

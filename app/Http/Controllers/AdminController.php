@@ -21,21 +21,4 @@ class AdminController extends Controller
          return view('admin/admin');
      }
 
-
-    public function index()
-    {
-      $admin = admin::all();
-
-      return view('admin.list')->with('admin' , $admin);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('admin.create');
-    }
 }

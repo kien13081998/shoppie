@@ -23,7 +23,7 @@
               <tr>
                 <tr>
                   <td><?php foreach ($categories as $key => $value): ?>
-                    <a href="../../product/categories/{!! $value['name'] !!}"> |{!! $value['name'] !!}|</a>
+                    <a href="/product/categories/{!! $value['name'] !!}"> |{!! $value['name'] !!}|</a>
                   <?php endforeach; ?></td>
                 </tr>
               </tr>
@@ -63,8 +63,6 @@
                   <td>{!! $v['color'] !!}</td>
                   <td>{!! $v['sale'] !!}</td>
                   <td>{!! $v['price'] !!}</td>
-                  <!-- <td>{!! $v['categories_id'] !!}</td> -->
-
                 <td>
                   <a href="../product/edit/{!! $v['id'] !!}">edit</a>
                   <a href="../product/destroy/{!! $v['id']!!}">delete</a>

@@ -78,7 +78,7 @@ Your personal details
 Your adress
 </h2>
 <div class="form-input">
-<label for="street" class="middle-color">Street <span class="active-color">*</span></label>
+<label for="street" class="middle-color">Street and address <span class="active-color">*</span></label>
 <input type="text" class="text-input dark-color light-bg{{ $errors->has('street') ? ' has-error' : '' }}" name="street" id="street" value="{{ old('street') }}"/>
 @if ($errors->has('street'))
     <span class="help-block">

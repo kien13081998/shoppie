@@ -51,7 +51,7 @@ class CategoriesController extends Controller
           ]);
         $categories = $request->intersect(['name', 'status']);
         $categories = Categories::create($categories);
-      return redirect('categories');
+      return redirect('categories/list');
     }
 
     /**

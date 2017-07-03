@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('content')
 <section class="page-content">
-
 <div class="page-block page-tabs-block cream-bg grid-container">
 
 <div class="page-tabs grid-100 shoppie-tabs">

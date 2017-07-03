@@ -4,8 +4,8 @@
 
 <div class="page-block page-block-top light-bg grid-container">
 <div class="breadcrumbs grid-100 middle-color">
-<a href="homepage.html" class="dark-color active-hover">Home</a>
-<a href="about-us.html" class="dark-color active-hover">My account</a>
+<a href="/home" class="dark-color active-hover">Home</a>
+<a href="/my-account" class="dark-color active-hover">My account</a>
 <strong class="active-color">John Doe</strong>
 </div>
 </div>
@@ -26,11 +26,11 @@
 </li>
 <li class="sidebar-divider"></li>
 <li>
-<a href="register.html" class="dark-color active-hover">Edit account</a>
+<a href="/user/edit/{!! $users->id !!}" class="dark-color active-hover">Edit account</a>
 </li>
 <li class="sidebar-divider"></li>
 <li>
-<a href="my-account.html" class="dark-color active-hover">Password</a>
+<a href="/user/password/edit/{!! $users->id !!}" class="dark-color active-hover">Password</a>
 </li>
 <li class="sidebar-divider"></li>
 <li class="sidebar-divider"></li>

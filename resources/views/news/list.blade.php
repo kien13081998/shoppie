@@ -10,7 +10,6 @@
                 <span class="tools pull-right">
                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                     <a href="javascript:;" class="fa fa-times"></a>
-                    <a href="{{ url('/news/list') }}">Back to the overview</a>
                  </span>
     </header>
     <div class="panel-body">

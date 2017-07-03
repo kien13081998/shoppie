@@ -98,19 +98,30 @@ class NewsController extends Controller
     {
       $id= $news->id;
       $news = News::find($id);
-      $this->validate($request, [
-        'name' => 'required|string|max:255',
-        'detail' => 'required|string|min:5',
-        'intro_short' => 'required|string|min:10'
-      ]);
-      $file = $request->file('images');
-      $name = time() . '.' . $file->getClientOriginalName();
-      $file->move('upload/news', $name);
-      $data = $request->all();
-      $data['images']= "upload/news/{$name}";
-      $news->update($data);
-       return redirect('news/list');
 
+      if ($request->hasFile('images')) {
+        $this->validate($request, [
+          'name' => 'required|string|max:255',
+          'detail' => 'required|string|min:5',
+          'intro_short' => 'required|string|min:10'
+        ]);
+        $file = $request->file('images');
+        $name = time() . '.' . $file->getClientOriginalName();
+        $file->move('upload/news', $name);
+        $data = $request->all();
+        $data['images']= "upload/news/{$name}";
+        $news->update($data);
+         return redirect('news/list');
+      }else {
+        $this->validate($request, [
+          'name' => 'required|string|max:255',
+          'detail' => 'required|string|min:5',
+          'intro_short' => 'required|string|min:10'
+        ]);
+          $data = $request->all();
+          $news->update($data);
+          return redirect('news/list');
+      }
     }
 
     /**

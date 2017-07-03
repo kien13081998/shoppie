@@ -57,15 +57,7 @@
 
             <!-- visible to small devices only -->
             <div class="visible-xs hidden-sm hidden-md hidden-lg">
-                <!-- <div class="media logged-user">
-                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
-                    <div class="media-body">
-                        <h4><a href="#">John Doe</a></h4>
-                        <span>"Hello There..."</span>
-                    </div>
-                </div> -->
-
-                <h5 class="left-nav-title">Account Information</h5>
+                  <h5 class="left-nav-title">Account Information</h5>
                 <ul class="nav nav-pills nav-stacked custom-nav">
                   <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
                   <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
@@ -78,8 +70,8 @@
                 <!-- <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li> -->
                 <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Users</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="">create</a></li>
-                        <li><a href="javascript:history.back()/">list</a></li>
+                        <li><a href="/user/create">create</a></li>
+                        <li><a href="/user/list">list</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-th-list"></i> <span>Products</span></a>
@@ -101,14 +93,14 @@
 
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Blog</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Blog</span></a>
                     <ul class="sub-menu-list">
                       <li><a href="../../blog/create">create</a></li>
                       <li><a href="../../blog/list">list</a></li>
 
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>About US</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>About US</span></a>
                     <ul class="sub-menu-list">
                       <li><a href="../../about_us/create">create</a></li>
                       <li><a href="../../about_us/list">list</a></li>

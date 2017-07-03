@@ -1,9 +1,9 @@
 @extends('layouts.layout_admin')
 @section('content')
-    <form class="form-signin1" action="{{url('../product/update/'.$products->id)}}" role="form"  method="post" enctype="multipart/form-data">
+<div class="">
+    <form class="form-signin1" action="{{url('/product/update/'.$products->id)}}" role="form"  method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
-        <div class="login-wrap{{ $errors->has('name') ? ' has-error' : '' }}">
-            <!-- <input type="text" autofocus="" placeholder="project" class="form-control" name="project">  -->
+        <div class="login-wrap">
             <div class="row_form{{ $errors->has('name') ? ' has-error' : '' }}">
               <h4>Name</h4>
               <input type="text"   class="form-control" name="name"value="{!! $products->name !!}"/>
@@ -33,6 +33,17 @@
               @if ($errors->has('brand'))
                   <span class="help-block">
                       <strong>{{ $errors->first('brand') }}</strong>
+                  </span>
+              @endif
+            </input>
+
+            </div>
+            <div class="row_form{{ $errors->has('detail') ? ' has-error' : '' }}">
+              <h4>Details</h4>
+              <input type="text"  class="form-control" name="detail" value="{!! $products->detail !!}"/>
+              @if ($errors->has('detail'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('detail') }}</strong>
                   </span>
               @endif
             </input>
@@ -84,7 +95,8 @@
             </div>
             <div class="row_form{{ $errors->has('color') ? ' has-error' : '' }}">
                 <h4>Color</h4>
-                    <select class="col-lg-12" name="color" value="">
+                    <select class="col-lg-12" name="color">
+                      <option value="{!! $products->color!!}">{!! $products->color!!}</option>
                       <option value="Brown">Brown</option>
                       <option value="Blue">Blue</option>
                       <option value="Red">Red</option>
@@ -134,9 +146,9 @@
             <div class="row_form{{ $errors->has('categories') ? ' has-error' : '' }}">
                   <div class="radios">
                     <h4>Categories</h4>
-                  <?php foreach ($categories as $value): ?>
+                  <?php foreach ($categories as $val): ?>
                       <label class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="{!! $value['id'] !!}" name="categories_id"> {!! $value['name']!!}
+                          <input type="radio" value="{!! $val['id'] !!}" name="categories_id"> {!! $val['name']!!}
 
                           @if ($errors->has('categories'))
                               <span class="help-block">
@@ -150,9 +162,11 @@
 
                   </div>
             </div>
+            <br>
             <button type="submit" class="btn btn-lg btn-login btn-block btn btn-primary" name="submit" value="submit" style="background:#6BC5A4;">
-                <i class="fa fa-check"></i>
+                <i class="fa fa-check">Create</i>
             </button>
+            <br>
         </div>
     </form>
 </div>

@@ -61,7 +61,7 @@
     <li>
     <a href="../../about" class="dark-color">About Us</a>
     </li>
-    <?php //if($this->session->id){?>
+    
     <li>
     <a href="/my-account/1" class="dark-color">My Account</a>
     </li>
