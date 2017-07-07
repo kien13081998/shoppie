@@ -77,9 +77,9 @@ Spring collection
 </ul>
 </div>
 </div>
-<div class="grid-100">
-  <?php foreach ($products as $key => $value): ?>
+<?php foreach ($products as $key => $value): ?>
 
+<div class="grid-100">
 <div class="product-wide light-bg clearfix">
 <div class="grid-15 tablet-grid-20 mobile-grid-35 product-img-holder">
 <a class="product-img" href="/product/detail/{!! $value['id']!!}">
@@ -92,7 +92,7 @@ Spring collection
 <strong>{!! $value['name'] !!}</strong>
 </a>
 </h3>
-<a href="" class="product-category middle-color dark-hover">Product for {!!$categories->name!!}</a>
+<a href="products-grid.html" class="product-category middle-color dark-hover">Product for {!!$categories->name!!}</a>
 <p class="dark-color hide-on-mobile">{!! $value['intro_short'] !!}</p>
 </div>
 <div class="grid-35 tablet-grid-35 hide-on-mobile product-actions">
@@ -105,33 +105,16 @@ Spring collection
 </div>
 <div class="clear"></div>
 <div class="button-dual light-color transition-all">
+  {{ csrf_field() }}
 <a href="cart.html" class="button-dual-left middle-gradient dark-gradient-hover addcart" data-pid="{!! $value['id']!!}" data-price="{!!$value['price']!!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-{{ csrf_field() }}
-<!-- <ul class="button-dual-submenu">
-<li>
-<a href="wishlist.html" class="light-color middle-bg dark-bg-hover transition-color">
-Add to favorites
-<i class="icon-heart"></i>
-</a>
-</li>
-<li>
-<a href="compare.html" class="dual-submenu-last light-color middle-bg dark-bg-hover transition-color">
-Add to compare
-<i class="icon-signal"></i>
-</a>
-</li>
-</ul> -->
+</div>
 </div>
 </div>
 </div>
 <?php endforeach; ?>
 
-</div>
 <div class="grid-100">
 <a class="button-block middle-color dark-hover light-bg middle-border" onclick="Products.loadMoreProducts($(this).parent(), this, 3); return false" href="components/productsContentWide.html">
 <strong>Load more clothes</strong> &nbsp; <i class="icon-repeat"></i>

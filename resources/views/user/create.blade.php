@@ -26,7 +26,7 @@
 
             </div>
             <div class="row_form{{ $errors->has('email') ? ' has-error' : '' }}">
-              <h4>Brand</h4>
+              <h4>email</h4>
               <input type="email"  class="form-control" name="email"/>
               @if ($errors->has('email'))
                   <span class="help-block">

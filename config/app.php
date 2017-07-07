@@ -191,7 +191,7 @@ return [
     */
 
     'aliases' => [
-      //'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'App' => Illuminate\Support\Facades\App::class,

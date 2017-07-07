@@ -8,43 +8,12 @@ use shoppie\Users;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use DispatchesJobs, ValidatesRequests;
-use Session;
-
+use DB, Session, scrypt , Hash;
+use Illuminate\Support\Facades\Crypt;
+use update;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-        public   function index(Categories $categories) {
-          // if (Auth::check())
-          // {
-          //    return View::make('index');
-          //     // Người dùng đã đăng nhập
-          // }else if(){
-          //     return View::make('user/login');
-          // }else{
-
-            $categories = Categories::all();
-            return view('user.login')->with('categories', $categories);
-          //}
-      }
-
-        public  function login() {
-          $email = $_POST['email'];
-          $password = $_POST['password'];
-          $result = "";
-          if ($email && $password) {
-            $result = Users::getUser($email, $password);
-            if($result){
-              Session::Set('users', $result);
-              return response()->json([true, Session::get('users')])
-            }
-          }
-            return response()->json([false, Session::get('users')]);     
-      }
     /**
      * Show the form for creating a new resource.
      *
@@ -65,13 +34,15 @@ class UserController extends Controller
          'password' => 'required|string|min:5|confirmed',
          'phone'=> 'required|max:13',
          'city'=> 'required|string|max:255',
-         'street'=> 'required|string|max:255'
+         'street'=> 'required|string|max:255',
+         'images' => 'required'
        ]);
        $file = $request->file('images');
        $name = time() . '.' . $file->getClientOriginalName();
        $file->move('upload/users', $name);
        $data = $request->all();
-       $data['password']= bcrypt('password');
+       $datapassword= $data['password'];
+       $data['password'] =  hash('sha256', $datapassword);
        $data['images']= "upload/users/{$name}";
        Users::create($data);
        return redirect('user/list');
@@ -98,22 +69,19 @@ class UserController extends Controller
         'password' => 'required|string|min:5|confirmed',
         'phone'=> 'required|max:13',
         'city'=> 'required|string|max:255',
-        'street'=> 'required|string|max:255'
+        'street'=> 'required|string|max:255',
+        'images' => 'required'
+
       ]);
       $file = $request->file('images');
       $name = time() . '.' . $file->getClientOriginalName();
       $file->move('upload/users', $name);
       $data = $request->all();
-      $data['password']= bcrypt('password');
+      $datapassword= $data['password'];
+      $data['password'] =  hash('sha256', $datapassword);
       $data['images']= "upload/users/{$name}";
       Users::create($data);
-      // return redirect('user/login');
-      $Session = $request->session()->all();
-      // echo "<pre>";
-      // print_r($Session);
-      // echo "</pre>";
-      // exit;
-      return redirect('/home')->with('Session', $Session);
+      return redirect('/user/login');
 
     }
     /**
@@ -122,11 +90,6 @@ class UserController extends Controller
      * @param  \shoppie\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
-    {
-      $categories = Categories::all();
-      return view('user.edit')->with('users', $users)->with('categories', $categories);
-    }
     public function edit_user(Users $users){
       return view('user.edit_user')->with('users', $users);
     }
@@ -146,7 +109,8 @@ class UserController extends Controller
       $name = time() . '.' . $file->getClientOriginalName();
       $file->move('upload/users', $name);
       $data = $request->all();
-      $data['password']= bcrypt('password');
+      $datapassword= $data['password'];
+      $data['password'] =  hash('sha256', $datapassword);
       $data['images']= "upload/users/{$name}";
       $users->update($data);
       return redirect('user/list');
@@ -160,7 +124,8 @@ class UserController extends Controller
         'street'=> 'required|string|max:255'
       ]);
       $data = $request->all();
-      $data['password']= bcrypt('password');
+      $datapassword= $data['password'];
+      $data['password'] =  hash('sha256', $datapassword);
       $users->update($data);
       return redirect('user/list');
     }
@@ -172,6 +137,11 @@ class UserController extends Controller
      * @param  \shoppie\Users  $users
      * @return \Illuminate\Http\Response
      */
+     public function edit(Users $users)
+     {
+       $categories = Categories::orderBy('id', 'DESC')->take(3)->get();
+       return view('user.edit')->with('users', $users)->with('categories', $categories);
+     }
     public function update(Request $request, Users $users)
     {
         $id = $users->id;
@@ -188,7 +158,8 @@ class UserController extends Controller
         $name = time() . '.' . $file->getClientOriginalName();
         $file->move('upload/users', $name);
         $data = $request->all();
-        $data['password']= bcrypt('password');
+        $datapassword= $data['password'];
+        $data['password'] =  hash('sha256', $datapassword);
         $data['images']= "upload/users/{$name}";
         $users->update($data);
         return "!!!";
@@ -202,7 +173,8 @@ class UserController extends Controller
           'street'=> 'required|string|max:255'
         ]);
         $data = $request->all();
-        $data['password']= bcrypt('password');
+        $datapassword= $data['password'];
+        $data['password'] =  hash('sha256', $datapassword);
         $users->update($data);
         return "!!@@!";
       }
@@ -218,7 +190,7 @@ class UserController extends Controller
      */
     public function editpassword(Users $users)
     {
-      $categories = Categories::all();
+      $categories = Categories::orderBy('id', 'DESC')->take(3)->get();
       return view('user.editpassword')->with('users', $users)->with('categories', $categories);
     }
     public function updatepassword(Request $request, Users $users)
@@ -231,7 +203,7 @@ class UserController extends Controller
 
         ]);
         $data = $request->all();
-        $data['password']= bcrypt('password');
+        $data['password']= Hash::make('secret');
         $users->update($data);
           return "!!wdas!";
         }
@@ -239,9 +211,10 @@ class UserController extends Controller
           $users = Users::orderBy('id', 'DESC')->get();
           return view('user.list')->with('users' , $users);
           }
-        public function logout() {
-          Auth::logout(); // logout user
-          return Redirect::to('login'); //redirect back to login
+        public function destroy(Users $users)
+        {
+          $users->delete();
+          return redirect('user/list');
         }
 
 }

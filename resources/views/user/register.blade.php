@@ -42,7 +42,7 @@ Your personal details
 </div>
 <div class="form-input">
 <label for="images" class="middle-color">avatar <span class="active-color">*</span></label>
-<input type="file" class="text-input dark-color light-bg{{ $errors->has('images') ? ' has-error' : '' }}" name="images" id="images" value="{{ old('images') }}"/>
+<input type="file" class="text-input dark-color light-bg{{ $errors->has('images') ? ' has-error' : '' }}" name="images" id="images" value="{{ old('images') }}" required/>
 @if ($errors->has('images'))
     <span class="help-block">
         <strong>{{ $errors->first('images') }}</strong>

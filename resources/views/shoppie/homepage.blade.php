@@ -5,28 +5,28 @@
 
 <div class="page-tabs grid-100 shoppie-tabs">
 <h2 class="header-font">
-<a class="light-color active-hover dark-gradient cream-gradient-hover transition-color" href="#products-new">
-<span class="hide-on-mobile">New Products</span>
+<a class="light-color active-hover dark-gradient cream-gradient-hover transition-color" href="#products-kid">
+<span class="hide-on-mobile">New Products Kid</span>
 <i class="icon-thumbs-up hide-on-desktop hide-on-tablet"></i>
 </a>
 </h2>
 <h2 class="header-font">
-<a class="light-color active-hover dark-gradient cream-gradient-hover transition-color" href="#products-size-big">
-<span class="hide-on-mobile">Size Big</span>
+<a class="light-color active-hover dark-gradient cream-gradient-hover transition-color" href="#products-women">
+<span class="hide-on-mobile">New Products Women</span>
 <i class="icon-heart hide-on-desktop hide-on-tablet"></i>
 </a>
 </h2>
 <h2 class="header-font">
-<a class="light-color active-hover dark-gradient cream-gradient-hover transition-color" href="#products-size-small">
-<span class="hide-on-mobile">Size Small</span>
+<a class="light-color active-hover dark-gradient cream-gradient-hover transition-color" href="#products-men">
+<span class="hide-on-mobile">New Products Men</span>
 <i class="icon-star hide-on-desktop hide-on-tablet"></i>
 </a>
 </h2>
 </div>
 <div class="page-tabs-holder">
 
-<div class="page-tab" id="products-new">
-<?php foreach ($products_new as $value): ?>
+<div class="page-tab" id="products-kid">
+<?php foreach ($products_kid as $value): ?>
 <div class="grid-25 tablet-grid-50">
 <div class="product-box light-bg">
 <a class="product-img" href="../product/detail/{!! $value['id'] !!}">
@@ -65,8 +65,8 @@ Add to cart <i class="icon-shopping-cart"></i>
 </div>
 </div>
 
-<div class="page-tab" id="products-size-big">
-<?php foreach ($products_size_big as $val): ?>
+<div class="page-tab" id="products-women">
+<?php foreach ($products_women as $val): ?>
 <div class="grid-25 tablet-grid-50">
 <div class="product-box light-bg">
 <a class="product-img" href="../product/detail/{!! $val['id'] !!}">
@@ -108,9 +108,9 @@ Add to cart <i class="icon-shopping-cart"></i>
 </div>
 </div>
 
-<div class="page-tab" id="products-size-small">
+<div class="page-tab" id="products-men">
 
-<?php foreach ($products_size_small as $v): ?>
+<?php foreach ($products_men as $v): ?>
 <div class="grid-25 tablet-grid-50">
 <div class="product-box light-bg">
 <a class="product-img" href="../product/detail/{!! $v['id'] !!}">

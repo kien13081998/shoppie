@@ -76,7 +76,7 @@ return [
 
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Users::class,
+            'model' => shoppie\Users::class,
         ],
     ],
 

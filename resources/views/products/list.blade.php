@@ -46,9 +46,7 @@
             <thead>
             <tr>
               <th>name</th>
-              <th>quantity</th>
               <th>intro short</th>
-              <th>Color</th>
               <th>sale</th>
               <th>price</th>
               <th>tool</th>
@@ -58,9 +56,7 @@
               <?php foreach ($products as $k => $v ): ?>
                 <tr style="max-width:20px; ">
                   <td>{!! $v['name'] !!}</td>
-                  <td>{!! $v['quantity'] !!}</td>
                   <td>{!! $v['intro_short'] !!}</td>
-                  <td>{!! $v['color'] !!}</td>
                   <td>{!! $v['sale'] !!}</td>
                   <td>{!! $v['price'] !!}</td>
                 <td>

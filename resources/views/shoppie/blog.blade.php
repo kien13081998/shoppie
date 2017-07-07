@@ -5,8 +5,8 @@
 
 <div class="page-block page-block-top light-bg grid-container">
 <div class="breadcrumbs grid-100 middle-color">
-<a href="homepage.html" class="dark-color active-hover">Home</a>
-<a href="blog.html" class="dark-color active-hover">Blog</a>
+<a href="/home" class="dark-color active-hover">Home</a>
+<a href="/blog" class="dark-color active-hover">Blog</a>
 <strong class="active-color">Summer</strong>
 </div>
 </div>

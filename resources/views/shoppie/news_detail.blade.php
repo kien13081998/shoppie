@@ -52,9 +52,9 @@
 Casual, Fashion, Vintage
 </a>
 <div class="blog-details middle-color clearfix">
-<a class="middle-color dark-hover uppercase" href="blog-detail.html">{!! $value['updated_at'] !!}</a> |
-<a class="middle-color dark-hover" href="blog-detail.html#comments">4 comments</a> |
-<a class="middle-color active-hover" href="blog-detail.html"><i class="icon-heart"></i> 151</a>
+<a class="middle-color dark-hover uppercase" href="blog-detail.html">{!! $news->updated_at !!}</a> |
+<a class="middle-color dark-hover" href="">4 comments</a> |
+<a class="middle-color active-hover" href=""><i class="icon-heart"></i> 151</a>
 <div class="blog-details-share hide-on-mobile uppercase">
 Share this post
 <a href="https://www.facebook.com/adamantium.solutions" class="middle-color dark-hover transition-color" target="_blank">

@@ -30,6 +30,9 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{{asset('../../images/icons/apple-touch-icon-120.png')}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
     <link rel="apple-touch-icon" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
+
+    <link href="{{asset('../css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('../css/style-responsive.css')}}" rel="stylesheet">
     <!-- <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-29358822-1']);
@@ -61,46 +64,29 @@
     <li>
     <a href="../../about" class="dark-color">About Us</a>
     </li>
-    
-    <li>
-    <a href="/my-account/1" class="dark-color">My Account</a>
-    </li>
-    <?php //}  ?>
+
+
     </ul>
     </div>
     <div class="top-menu-right">
     <ul>
     <li>
-    <a href="log-in.html" class="dark-color" onclick="Global.clickShowToggle('#quick-login'); return false;">
-    <i class="icon-off"></i>
-    Log In
+    @if(Session::get('id'))
+    <li>
+    <a href="/my-account/" class="dark-color">My Account</a>
+    </li>
+    <li>
+    <a href="/logout/" class="dark-color">Log out</a>
+    </li>
+    @else
+    <a href="/user/login" class="dark-color" onclick="Global.clickShowToggle('#quick-login'); return false;">
+      <i class="icon-off"> Log in</i>
     </a>
-
-    <form action="http://adamantium.sk/shoppie/html/log-in.html" method="POST">
-    <ul class="popup-box quick-login cream-bg" id="quick-login">
-    <li class="arrow-top"><span class="shadow cream-bg"></span></li>
-    <li class="close-button">
-    <a href="#" class="circle-button middle-bg active-bg-hover" onclick="Global.clickShowToggle('#quick-login'); return false;"><span class="cancel"></span></a>
-    </li>
-    <li>
-    <input class="text-input dark-color light-bg" type="text" name="email" placeholder="your email">
-    </li>
-    <li>
-    <input class="text-input dark-color light-bg" type="password" name="password" placeholder="enter password">
-    </li>
-    <li class="clearfix">
-    <a href="forgotten.html" class="forgotten-link middle-color float-left">Have you forgotten<br/> your password?</a>
-    <button class="button-small button-with-icon float-right light-color middle-gradient dark-gradient-hover" type="submit">
-    Log in
-    <span><i class="icon-angle-right"></i></span>
-    </button>
-    </li>
-    </ul>
-    </form>
     </li>
     <li>
     <a href="/user/register" class="dark-color">Register</a>
     </li>
+    @endif
     </ul>
     </div>
     </div>
@@ -119,14 +105,7 @@
     </form>
     </div>
     <div class="header-middle-box header-compare remove-whitespaces hide-on-mobile">
-    <!-- <a href="compare.html" class="dark-color">
-    <i class="icon-signal middle-color">&nbsp;</i>
-    Compare (<strong>3</strong>)
-    </a>
-    <a href="wishlist.html" class="dark-color">
-    <i class="icon-heart middle-color">&nbsp;</i>
-    Wish list (<strong>7</strong>)
-    </a> -->
+
     </div>
     <div class="header-middle-box last-box hide-on-mobile hide-on-tablet">
     <div class="header-cart" id="header-cart">
@@ -187,181 +166,12 @@
     <li class="light-color active-hover">
     <a href="products-grid.html" class="main-menu-item transition-all">Sport</a>
     </li>
-    <li class="light-color active-hover">
-    <a href="products-list.html" class="main-menu-item transition-all">Template pages</a>
-    <ul class="mega-menu cream-bg">
-    <li class="mega-menu-active cream-gradient"></li>
-    <li class="mega-menu-box">
-    <span class="mega-menu-title active-color clearfix">E-shop pages</span>
-    <ul class="mega-menu-list">
-    <li>
-    <a href="../home" class="dark-color active-hover">
-    Homepage
-    </a>
-    </li>
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    Products grid listing
-    </a>
-    </li>
-    <li>
-    <a href="products-list.html" class="dark-color active-hover">
-    Products table listing
-    </a>
-    </li>
-    <li>
-    <a href="products-detail.html" class="dark-color active-hover">
-    Product detail page
-    </a>
-    </li>
-    <li>
-    <a href="compare.html" class="dark-color active-hover">
-    Compare products
-    </a>
-    </li>
-    <li>
-    <a href="wishlist.html" class="dark-color active-hover">
-    Wishlist page
-    </a>
-    </li>
-    <li>
-    <a href="my-account.html" class="dark-color active-hover">
-    My account
-    </a>
-    </li>
-    </ul>
-    <ul class="mega-menu-list">
-    <li>
-    <a href="cart.html" class="dark-color active-hover">
-    Shopping cart
-    </a>
-    </li>
-    <li>
-    <a href="checkout-step-1.html" class="dark-color active-hover">
-    Checkout step 1
-    </a>
-    </li>
-    <li>
-    <a href="checkout-step-2.html" class="dark-color active-hover">
-    Checkout step 2
-    </a>
-    </li>
-    <li>
-    <a href="checkout-step-3.html" class="dark-color active-hover">
-    Checkout step 3
-    </a>
-    </li>
-    <li>
-    <a href="checkout-step-4.html" class="dark-color active-hover">
-    Checkout step 4
-    </a>
-    </li>
-    <li>
-    <a href="checkout-step-5.html" class="dark-color active-hover">
-    Checkout step 5
-    </a>
-    </li>
-    <li>
-    <a href="register.html" class="dark-color active-hover">
-    Registration
-    </a>
-    </li>
-    </ul>
-    </li>
-    <li class="mega-menu-box">
-    <span class="mega-menu-title active-color clearfix">Common pages</span>
-    <ul class="mega-menu-list">
-    <li>
-    <a href="about-us.html" class="dark-color active-hover">
-    About us
-    </a>
-    </li>
-    <li>
-    <a href="blog.html" class="dark-color active-hover">
-    Blog listing
-    </a>
-    </li>
-    <li>
-    <a href="blog-detail.html" class="dark-color active-hover">
-    Blog detail
-    </a>
-    </li>
-    <li>
-    <a href="contact.html" class="dark-color active-hover">
-    Contact us
-    </a>
-    </li>
-    </ul>
-    </li>
-    </ul>
-    </li>
+
     <li class="light-color active-hover">
     <a href="../../news" class="main-menu-item transition-all">What’s new</a>
     </li>
     <li class="active-color dark-hover">
     <a href="../../list/product" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
-
-    <ul class="mega-menu cream-bg full-width">
-    <li class="mega-menu-active cream-gradient"></li>
-    <li class="mega-menu-box">
-    <span class="mega-menu-title active-color clearfix">Best value</span>
-    <ul class="mega-menu-list">
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    Premium Quality products
-    </a>
-    </li>
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    Conscious – Sustainable Style
-    </a>
-    </li>
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    New this Spring
-    </a>
-    </li>
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    New Arrivals Divided
-    </a>
-    </li>
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    Ladies' Spring Preview
-    </a>
-    </li>
-    <li>
-    <a href="products-grid.html" class="dark-color active-hover">
-    Gift Of The Week
-    </a>
-    </li>
-    </ul>
-    </li>
-    <li class="mega-menu-box">
-    <span class="mega-menu-title active-color clearfix">This week</span>
-    <a href="products-detail.html" title="50% Winter sale" class="mega-menu-banner">
-    <img class="with-shadow" src="{{asset('../../images/photos/img-menu-teaser2.jpg')}}" alt="50% Winter sale"/>
-    <span class="header-font banner-text-white banner-size-1">
-    <strong>50%</strong><br/>
-    Winter sale
-    </span>
-    </a>
-    </li>
-    <li class="mega-menu-box">
-    <span class="mega-menu-title active-color clearfix">Inspiration</span>
-    <a href="products-detail.html" title="New 2014 collection Zara Lauren" class="mega-menu-banner">
-    <img class="with-shadow" src="{{asset('../../images/photos/img-menu-teaser3.jpg')}}" alt="New 2014 collection Zara Lauren"/>
-    <span class="header-font banner-text-white banner-size-2">
-    <strong>
-    New 2014<br/>
-    collection
-    </strong><br/>
-    Zara Lauren
-    </span>
-    </a>
-    </li>
-    </ul>
     </li>
     </ul>
     </nav>
@@ -433,10 +243,10 @@
     <div class="grid-50 grid-parent">
     <div class="grid-50 tablet-grid-50">
     <h3 class="light-color subheader-font">
-    <strong>Payment</strong>
+    <strong> Payment</strong>
     </h3>
     <p class="middle-color">
-    Lorem ipsum dolor sit amet, de consectetur adipiscing elit
+    Lorem ipsum dolor sit amet\, de consectetur adipiscing elit
     </p>
     <a href="#"><img src="{{asset('../images/icons/icon-visa-e.png')}}" alt="Visa Electron"/></a>
     <a href="#"><img src="{{asset('../images/icons/icon-mastercard.png')}}" alt="MasterCard"/></a>

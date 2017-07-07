@@ -21,7 +21,7 @@
   <?php foreach ($products as $va): ?>
 <li class="sidebar-divider"></li>
 <li class="popup-outside-trigger">
-<a href="../../product/detail/{!! $va['id'] !!}" class="sidebar-product dark-color active-hover">
+<a href="../../product/detail/{!! $va['id'] !!}"  class="sidebar-product dark-color active-hover">
 <span>
 {!! $va['name'] !!}
 <strong class="active-color">{!! $va['price'] !!}</strong>
@@ -60,7 +60,7 @@
 <div class="blog-list clearfix">
 <div class="blog-list-image grid-40 tablet-grid-40">
 <a href="news/detail/{!! $news_a['id'] !!}" class="thumbnail light-bg">
-<img src="{{asset('/').'/'.$news_a['images']}}" alt="Why is the Christmas so important"/>
+<img src="{{asset('/').'/'.$news_a['images']}}" alt="Why is the Christmas so important" style="height:200px;"/>
 <!-- <span class="thumbnail-arrow light-color active-border"><i class="icon-zoom-in"></i></span> -->
 </a>
 </div>

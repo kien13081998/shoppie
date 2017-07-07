@@ -66,11 +66,8 @@ class ProductController extends Controller
         $this->validate($request, [
           'name'=> 'required|string|max:255',
           'detail'=> 'required|string|min:5',
-          'size'=> 'required|string',
-          'color'=> 'required|string',
-          'intro_short'=>'required|string|min:50',
+          'intro_short'=>'required|string|max:255',
           'brand' => 'required|string',
-          'quantity'=> 'required|string',
           'sale'=> 'required|string',
           'price'=> 'required|string'
         ]);
@@ -123,11 +120,8 @@ class ProductController extends Controller
       $this->validate($request, [
         'name'=> 'required|string|max:255',
         'detail'=> 'required|string|min:5',
-        'size'=> 'required|string',
         'intro_short'=>'required|string|min:30',
         'brand' => 'required|string',
-        'color'=> 'required',
-        'quantity'=> 'required',
         'sale'=> 'required|string',
         'price'=> 'required|string',
         'categories_id' => 'required'
@@ -143,11 +137,8 @@ class ProductController extends Controller
       $this->validate($request, [
         'name'=> 'required|string|max:255',
         'detail'=> 'required|string|min:5',
-        'size'=> 'required|string',
         'intro_short'=>'required|string|min:30',
         'brand' => 'required|string',
-        'color'=> 'required',
-        'quantity'=> 'required',
         'sale'=> 'required|string',
         'price'=> 'required',
       ]);

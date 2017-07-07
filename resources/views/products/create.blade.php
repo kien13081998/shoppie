@@ -60,17 +60,7 @@
             </input>
 
             </div>
-            <div class="row_form{{ $errors->has('quantity') ? ' has-error' : '' }}">
-              <h4>Quantity</h4>
-              <input type="text"  class="form-control" name="quantity"/>
-              @if ($errors->has('quantity'))
-                  <span class="help-block">
-                      <strong>{{ $errors->first('quantity') }}</strong>
-                  </span>
-              @endif
-            </input>
 
-            </div>
             <div class="row_form{{ $errors->has('sale') ? ' has-error' : '' }}">
               <h4>Sale</h4>
               <input type="text"  class="form-control" name="sale"/>
@@ -92,54 +82,6 @@
               @endif
             </input>
 
-            </div>
-            <div class="row_form{{ $errors->has('size') ? ' has-error' : '' }}">
-                <h4>Size</h4>
-                  <div class="radios">
-                      <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="XS" id="radio-01" name="size"> XS
-                      </label>
-                      <label for="radio-02" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="S" id="radio-02" name="size"> S
-                      </label>
-                      <label for="radio-03" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="M" id="radio-03" name="size"> M
-                      </label>
-                      <label for="radio-04" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="L" id="radio-04" name="size"> L
-                      </label>
-                      <label for="radio-05" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="XL" id="radio-05" name="size">  XL
-                      </label>
-                      <label for="radio-06" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="XXL" id="radio-06" name="size">  XXL
-                      </label>
-                      @if ($errors->has('size'))
-                          <span class="help-block">
-                              <strong>{{ $errors->first('size') }}</strong>
-                          </span>
-                      @endif
-
-                </div>
-            </div>
-            <div class="row_form{{ $errors->has('color') ? ' has-error' : '' }}">
-                <h4>Color</h4>
-                    <select class="col-lg-12" name="color">
-                      <option value="Brown">Brown</option>
-                      <option value="Blue">Blue</option>
-                      <option value="Red">Red</option>
-                      <option value="Green">Green</option>
-                      <option value="Black">Black</option>
-                      <option value="White">White</option>
-                      <option value="Yellow">Yellow</option>
-                      <option value="Magenta">Magenta</option>
-                      <option value="Cyan">Cyan</option>
-                    </select>
-                      @if ($errors->has('color'))
-                          <span class="help-block">
-                              <strong>{{ $errors->first('color') }}</strong>
-                          </span>
-                      @endif
             </div>
             <br>
             <div class="row_form{{ $errors->has('categories') ? ' has-error' : '' }}">

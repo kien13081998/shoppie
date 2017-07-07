@@ -21,12 +21,9 @@
                   <th>id</th>
                   <th>name</th>
                   <th>detail</th>
-                  <th>size</th>
                   <th>intro short</th>
                   <th>Brand</th>
                   <th>images</th>
-                  <th>color</th>
-                  <th>quantity</th>
                   <th>sale</th>
                   <th>price</th>
                   <th>
@@ -41,12 +38,9 @@
                       <td>{!! $products->id !!}</td>
                       <td>{!! $products->name !!}</td>
                       <td>{!! $products->detail !!}</td>
-                      <td>{!! $products->size !!}</td>
                       <td>{!! $products->intro_short !!}</td>
                       <td>{!! $products->brand !!}</td>
                       <td>{!! $products->images !!}</td>
-                      <td>{!! $products->color !!}</td>
-                      <td>{!! $products->quantity !!}</td>
                       <td>{!! $products->sale !!}</td>
                       <td>{!! $products->price !!}</td>
                       <td>{!! $products->categories_id !!}</td>
