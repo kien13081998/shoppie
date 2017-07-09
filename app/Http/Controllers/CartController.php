@@ -38,9 +38,14 @@ class CartController extends Controller
  public function addCart(Request $request){
    if (Request::ajax()) {
        $productBuy=\App\Products::where('id', $id)->first();
-       Carts::create(['id' =>$productBuy->products->id, 'name' =>$productBuy->products->name, 'qty' => 1, 'price' =>
-       $productBuy->products->price]);
-       return 'asd';
+       $userBuy=\App\Users::where('id',$id)->first();
+         Order::create([
+             'id' =>$productBuy->products->id,
+             'qty' =>,
+             'total_price' =>$productBuy->products->price
+          ]);
+         return 'asd';
+       }
       //  return response()->json(['count'=>Cart::count()]);
    };
     // return response()->json(['price'=> $request->get('price')]);

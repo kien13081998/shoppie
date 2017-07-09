@@ -15,11 +15,8 @@
 
 
 //admin
-Route::get('/', function () {
-    return redirect('/admin');
-});
-Route::get('user', function () {
-    return redirect('/user');
+Route::get('', function () {
+    return redirect('/home');
 });
 //user of admin
 Route::get('/user/list', 'UserController@list');
@@ -93,11 +90,15 @@ Route::get('/admin', 'AdminController@login')->name('admin');
 
 //page
 Route::get('/home', 'ShowControler@home');
+Route::get('/contact', 'ShowControler@contact');
+Route::get('/shoes', 'ShowControler@shoes');
+Route::get('/trousers', 'ShowControler@trousers');
 Route::get('/news', 'ShowControler@news');
+Route::get('/sale', 'ShowControler@sale');
 Route::get('/about', 'ShowControler@about');
 Route::get('/blog', 'ShowControler@blog');
 Route::get('/product/{name}', 'ShowControler@product_name');
 Route::get('/product/detail/{products}', 'ShowControler@product_detail')->where('id', '[0-9]+');
 Route::get('/blog/detail/{blogs}', 'ShowControler@blog_detail')->where('id', '[0-9]+');
 Route::get('/news/detail/{news}', 'ShowControler@news_detail')->where('id', '[0-9]+');
-Route::get('/my-account/', 'ShowControler@myaccount');
+Route::get('/my-account', 'ShowControler@myaccount');

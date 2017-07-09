@@ -48,11 +48,27 @@
 
 </ul>
 </div>
+<div class="sidebar-box sidebar-bottom cream-gradient">
+<h2 class="header-font active-color">Newsletters signup</h2>
+<form method="POST" action="http://adamantium.sk/shoppie/html/homepage.html">
+<ul class="sidebar-list">
+<li class="sidebar-divider"></li>
+<li>
+Lorem Ipsum is simply dummy text of the printing and typesetting
+</li>
+<li>
+<input type="text" name="email" class="text-input input-no-margin dark-color light-bg" placeholder="Enter your email...">
+</li>
+<li class="align-center">
+<button type="submit" class="button-small light-color middle-gradient dark-gradient-hover">Subscribe</button>
+</li>
+</ul>
+</form>
+</div>
 </div>
 
 <div class="content-with-sidebar grid-75">
 <div class="with-shadow grid-100 light-bg">
-<div class="content-page grid-100">
 <h1 class="active-color header-font with-border full">News</h1>
 
 <?php foreach ($news as $key => $news_a): ?>
@@ -88,7 +104,8 @@
 </div>
 <?php endforeach; ?>
 </div>
-</div>
+<div class="pager align-right light-gradient middle-color middle-border active-hover active-border-hover">
+{{ $news->links()  }}
 </div>
 </div>
 </section>

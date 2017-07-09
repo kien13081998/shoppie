@@ -5,8 +5,8 @@
 
 <div class="page-block page-block-top light-bg grid-container">
 <div class="breadcrumbs grid-100 middle-color">
-<a href="homepage.html" class="dark-color active-hover">Home</a>
-<a href="about-us.html" class="dark-color active-hover">About us</a>
+<a href="/home" class="dark-color active-hover">Home</a>
+<a href="/about" class="dark-color active-hover">About us</a>
 <strong class="active-color">All about shopping</strong>
 </div>
 </div>
@@ -46,7 +46,11 @@
 </div>
 </div>
 </div>
+<div class="pager align-right light-gradient middle-color middle-border active-hover active-border-hover">
+{{ $abouts->links()  }}
 </div>
+</div>
+
 </section>
 
 @stop

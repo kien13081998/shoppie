@@ -7,47 +7,162 @@
     <meta name="description" content="Modern Online Store">
     <meta name="keywords" content="Shoppie, Modern Online Store">
     <meta name="author" content="http://adamantium.sk/">
-    <meta property="og:image" content="{{asset('../../images/facebook-like-image.jpg')}}">
+    <meta property="og:image" content="{{asset('/images/facebook-like-image.jpg')}}">
 
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../css/unsemantic.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../css/responsive.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../css/font-awesome/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../js/fancybox/jquery.fancybox-1.3.4.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../js/juicy/css/juicy.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../js/juicy/css/themes/shoppie/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/unsemantic.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/responsive.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/font-awesome/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/js/fancybox/jquery.fancybox-1.3.4.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/js/juicy/css/juicy.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/js/juicy/css/themes/shoppie/style.css')}}" type="text/css">
     <!--[if IE 7]>
             <link rel="stylesheet" href="css/font-awesome/css/font-awesome-ie7.min.css">
             <![endif]-->
-    <link rel="stylesheet" href="{{asset('.././css/colors/red.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../css/base.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../css/layout.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('../../css/pages/homepage.css')}}" type="text/css">
-    <link rel="shortcut icon" href="{{asset('../../images/icons/favicon.ico')}}">
+    <link rel="stylesheet" href="{{asset('/css/colors/red.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/base.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/layout.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/pages/homepage.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/pages/compare.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/pages/product-detail.css')}}" type="text/css">
 
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('../../images/icons/apple-touch-icon-152.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('../../images/icons/apple-touch-icon-120.png')}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
-    <link rel="apple-touch-icon" href="{{asset('../../images/icons/apple-touch-icon.png')}}">
+    <link rel="shortcut icon" href="{{asset('/images/icons/favicon.ico')}}">
 
-    <link href="{{asset('../css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('../css/style-responsive.css')}}" rel="stylesheet">
-    <!-- <script type="text/javascript">
-                var _gaq = _gaq || [];
-                _gaq.push(['_setAccount', 'UA-29358822-1']);
-                _gaq.push(['_trackPageview']);
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('/images/icons/apple-touch-icon-152.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('/images/icons/apple-touch-icon-120.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('/images/icons/apple-touch-icon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('/images/icons/apple-touch-icon.png')}}">
+    <style media="screen">
+    .row {
+      box-sizing: border-box;
+        width: 100%;
+        float: left;
+    }
+    .login-body {
+        background: #65cea7 url("../../images/login-bg.jpg") no-repeat fixed;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
 
-                (function() {
-                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                })();
-            </script> -->
+    .form-signin {
+        max-width: 330px;
+        margin: 100px auto;
+        background: #fff;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
 
-    <!--[if lt IE 9]>
-            <script src="js/html5shim.js"></script>
-            <![endif]-->
+    .form-signin .form-signin-heading {
+        margin: 0;
+        padding: 25px 15px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+    }
+
+    .sign-title {
+        font-size: 24px;
+        color: #fff;
+        position: absolute;
+        top: -60px;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+    }
+
+    .form-signin .checkbox {
+        margin-bottom: 14px;
+        font-size: 13px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+        color: #fff;
+        font-weight: normal;
+        font-family: 'Open Sans', sans-serif;
+        position: absolute;
+        bottom: -50px;
+        width: 100%;
+        left: 0;
+    }
+
+    .form-signin .checkbox a, .form-signin .checkbox a:hover {
+        color: #fff;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }
+
+    .form-signin input[type="text"], .form-signin input[type="password"] {
+        margin-bottom: 15px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border: 1px solid #eaeaec;
+        background: #eaeaec;
+        box-shadow: none;
+        font-size: 12px;
+    }
+
+    .form-signin .btn-login {
+        background: #6bc5a4;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-family: 'Open Sans', sans-serif;
+        margin: 20px 0 5px;
+        padding: 5px;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        font-size: 30px;
+    }
+
+    .form-signin .btn-login:hover {
+        background: #688ac2;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .form-signin p {
+        text-align: left;
+        color: #b6b6b6;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .form-signin a, .form-signin a:hover {
+        color: #6bc5a4;
+    }
+
+    .form-signin a:hover {
+        text-decoration: underline;
+    }
+
+    .login-wrap {
+        padding: 20px;
+        position: relative;
+    }
+    .registration {
+        color: #c7c7c7;
+        text-align: center;
+        margin-top: 15px;
+    }
+    </style>
   </head>
   <body class="body-background2 content-font dark-color">
 
@@ -117,7 +232,7 @@
     items
     &nbsp;|&nbsp;
     <strong class="active-color" id="show_item">
-    $ &euro;
+    &euro;
     </strong>
     </a>
     </div>
@@ -127,27 +242,6 @@
     </div>
 
     <nav class="main-menu grid-container" id="main-menu">
-    <div class="mobile-overlay"></div>
-
-    <ul class="main-menu-mobile">
-    <li class="middle-color light-hover">
-    <a href="#menu-mobile" class="main-menu-item click-slide"><i class="icon-reorder"></i></a>
-    </li>
-    <li class="middle-color light-hover">
-    <a href="../../home" class="main-menu-item"><i class="icon-home"></i></a>
-    </li>
-    <li class="main-menu-cart active-color light-hover">
-    <a href="cart.html" class="main-menu-item">
-    <i class="icon-shopping-cart">&nbsp;</i>
-    39
-    &nbsp;|&nbsp;
-    <strong class="active-color" id="show_item">
-    $ &euro;
-  </strong>
-    </a>
-    </li>
-    </ul>
-
     <ul class="main-menu-desktop dark-gradient transition-all" id="menu-mobile">
     <li class="middle-color light-hover home">
     <a href="../../home" class="main-menu-item transition-all"><i class="icon-home"></i></a>
@@ -155,23 +249,30 @@
     <li class="middle-color light-hover back">
     <a href="#menu-mobile" class="main-menu-item click-slide"><i class="icon-chevron-left"></i></a>
     </li>
-    <?php foreach ($categories as $key => $vsl): ?>
     <li class="light-color active-hover">
-    <a href="../../product/{!! $vsl['name'] !!}" class="main-menu-item transition-all">{!! $vsl['name'] !!}</a>
-    </li>
-  <?php endforeach; ?>
-    <li class="light-color active-hover">
-    <a href="products-list.html" class="main-menu-item transition-all">Shoes</a>
+    <a href="/product/KID" class="main-menu-item transition-all">Kid</a>
     </li>
     <li class="light-color active-hover">
-    <a href="products-grid.html" class="main-menu-item transition-all">Sport</a>
+    <a href="/product/WOMEN" class="main-menu-item transition-all">Women</a>
+    </li>
+    <li class="light-color active-hover">
+    <a href="/product/MEN" class="main-menu-item transition-all">Men</a>
+    </li>
+    <li class="light-color active-hover">
+    <a href="/shoes" class="main-menu-item transition-all">Shoes</a>
+    </li>
+    <li class="light-color active-hover">
+    <a href="/trousers" class="main-menu-item transition-all">Trousers</a>
     </li>
 
     <li class="light-color active-hover">
-    <a href="../../news" class="main-menu-item transition-all">What’s new</a>
+    <a href="/news" class="main-menu-item transition-all">What’s new</a>
     </li>
     <li class="active-color dark-hover">
-    <a href="../../list/product" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
+    <a href="/sale" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
+    </li>
+    <li class="light-color active-hover">
+    <a href="/contact" class="main-menu-item transition-all">Contact</a>
     </li>
     </ul>
     </nav>
@@ -292,7 +393,7 @@
     </a>
     </div>
     </div>
-    <script src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
+    <script src="{{asset('/js/jquery-1.11.0.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/myscript.js')}}">
 
     </script>

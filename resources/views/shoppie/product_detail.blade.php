@@ -14,7 +14,42 @@
 <div class="sidebar-shadow push-25"></div>
 
 <div class="sidebar grid-25 cream-gradient transition-all" id="sidebar-mobile">
-
+  <div class="sidebar-box sidebar-top cream-gradient">
+  <nav class="submenu">
+  <ul class="expandable-menu">
+  <li class="align-right back">
+  <a href="#sidebar-mobile" class="dark-color active-hover click-slide"><i class="icon-chevron-right"></i></a>
+  </li>
+  <li class="expanded">
+  <a href="/product/WOMEN" class="dark-color active-hover">Women</a>
+  </li>
+  <li class="sidebar-divider"></li>
+  <li>
+  <a href="/product/MEN" class="dark-color active-hover">Men</a>
+  </li>
+  <li class="sidebar-divider"></li>
+  <li>
+  <a href="/product/KID" class="dark-color active-hover">Kids</a>
+  </li>
+  <li class="sidebar-divider"></li>
+  <li>
+  <a href="/shoes" class="dark-color active-hover">Shoes</a>
+  </li>
+  <li class="sidebar-divider"></li>
+  <li>
+  <a href="/trousers" class="dark-color active-hover">Trousers</a>
+  </li>
+  <li class="sidebar-divider"></li>
+  <li>
+  <a href="/news" class="dark-color active-hover">What’s new</a>
+  </li>
+  <li class="sidebar-divider"></li>
+  <li>
+  <a href="/sale" class="dark-color active-hover">Sale</a>
+  </li>
+  </ul>
+  </nav>
+  </div>
 
 
 <div class="sidebar-box cream-gradient">
@@ -42,7 +77,7 @@
 <li class="clearfix">
 <div class="product-popup-top">
 <a href="products-detail.html">
-<img src="images/photos/img-product3.jpg" alt="Buy Pablo Coelho Jacket">
+<img src="{{asset('images/photos/img-product3.jpg')}}" alt="Buy Pablo Coelho Jacket">
 </a>
 </div>
 <div class="product-popup-divider"></div>
@@ -78,16 +113,15 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 <div class="product-detail cream-gradient grid-container">
   <div class="ribbon-small ribbon-green">
   <div class="ribbon-inner">
-  <span class="ribbon-text">Top rated</span>
+  <span class="ribbon-text">Sale off</span>
   <span class="ribbon-aligner"></span>
   </div>
   </div>
-
-<div class="product-images grid-40 tablet-grid-40 juicy-wrapper">
-<ul id="product-gallery" class="juicy-slider middle-border">
+<div class="product-images grid-35 tablet-grid-35 juicy-wrapper">
+<ul id="product-gallery" class="">
 <li>
-<a href="images/photos/product-detail-1-big.jpg" class="fancybox" target="_blank">
-<img class="juicy-bg" src="{{asset('/').'/'.$products->images}}" data-thumb="images/photos/product-detail-1-thumb.jpg" alt=""/>
+<a href="{{asset('/').$products->images}}" class="fancybox" target="_blank">
+<img src="{{asset('/').$products->images }}" data-thumb="{{asset('/').$products->images }}" style=" height:215px;" alt=""/>
 </a>
 </li>
 </ul>
@@ -132,7 +166,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 <strong>{!! $products->sale !!}</strong>
 </div>
 </div>
-<form action="http://adamantium.sk/shoppie/html/cart.html" method="POST">
+<form action="" method="POST">
 <div class="product-options clearfix">
 <label for="product-size" class="dark-color hide-on-mobile">Size</label>
 <div class="custom-selectbox dark-color light-gradient active-hover">
@@ -163,11 +197,29 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 <div class="product-options clearfix">
 <label for="product-quantity" class="hide-on-mobile">Quantity</label>
 <input type="text" id="product-quantity" name="product-quantity" class="product-quantity text-input dark-color light-bg" value="1" onclick="$(this).select()">
+@if(Session::get('id'))
+<div class="button-dual light-color transition-all">
+<button type="submit" class="addcart button-dual-left middle-gradient dark-gradient-hover"  data-pid="{!! $products->id !!}" data-uid="Session::get('id')" data-price="{!! $products->sale !!}">
+<a href="cart" class="addcart">
+Add to cart <i class="icon-shopping-cart"></i>
+</a>
+</button>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
+</div>
+@else
 <div class="button-dual light-color transition-all">
 <button type="submit" class="button-dual-left middle-gradient dark-gradient-hover">
-Add to cart <i class="icon-shopping-cart"></i>
+<a href="/user/login">
+Login To Buy <i class="icon-shopping-cart"></i>
+</a>
 </button>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
 </div>
+@endif
 </div>
 </form>
 </div>
@@ -175,12 +227,6 @@ Add to cart <i class="icon-shopping-cart"></i>
 
 <div class="product-detail-tabs grid-100 light-bg">
 <div class="page-tabs shoppie-tabs">
-<h2 class="header-font">
-<a class="middle-color active-hover light-bg transition-color" href="#tab-description">
-<span class="hide-on-mobile">Description</span>
-<i class="icon-align-left hide-on-desktop hide-on-tablet"></i>
-</a>
-</h2>
 <h2 class="header-font">
 <a class="middle-color active-hover light-bg transition-color" href="#tab-reviews">
 <span class="hide-on-mobile">Reviews</span>
@@ -255,38 +301,8 @@ customers
 </dd>
 </dl>
 </div>
-<!-- <div class="grid-33 tablet-grid-33 mobile-grid-100 product-review-count">
-<table>
-<tr>
-<td>
-<strong class="active-color">158</strong>
-</td>
-<td>of customers recommends</td>
-</tr>
-<tr>
-<td>
-<strong class="active-color">2756</strong>
-</td>
-<td>customers already purchased</td>
-</tr>
-</table>
-<a class="button-small light-color middle-gradient dark-gradient-hover" href="#">
-Write a review
-</a>
-</div> -->
 </div>
-<div class="pager align-right light-gradient middle-color middle-border active-hover active-border-hover">
-<a class="pager-page" href="#"><i class="icon-double-angle-left"></i></a>
-<a class="pager-page" href="#"><i class="icon-angle-left"></i></a>
-<a class="pager-page" href="#">1</a>
-<a class="pager-page selected" href="#">2</a>
-<a class="pager-page" href="#">3</a>
-<a class="pager-page hide-on-mobile" href="#">4</a>
-....
-<a class="pager-page" href="#">29</a>
-<a class="pager-page" href="#"><i class="icon-angle-right"></i></a>
-<a class="pager-page" href="#"><i class="icon-double-angle-right"></i></a>
-</div>
+
 </div>
 </div>
 
@@ -294,6 +310,12 @@ Write a review
   <?php foreach ($product_list as $key => $p_l): ?>
 <div class="grid-25 tablet-grid-25">
 <div class="product-box light-bg transition-all">
+  <div class="ribbon-small ribbon-red">
+  <div class="ribbon-inner">
+  <span class="ribbon-text">Sale Off</span>
+  <span class="ribbon-aligner"></span>
+  </div>
+  </div>
 <a class="product-img" href="../../product/detail/{!! $p_l['id'] !!}">
 <span><img src="{{asset('/').'/'.$p_l['images']}}" alt="Pablo Coelho jacket"/></span>
 </a>
@@ -318,6 +340,7 @@ Write a review
 </div>
 <?php endforeach; ?>
 </div>
+{{ $product_list->links() }}
 </div>
 </div>
 </div>

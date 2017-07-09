@@ -29,6 +29,12 @@
 <?php foreach ($products_kid as $value): ?>
 <div class="grid-25 tablet-grid-50">
 <div class="product-box light-bg">
+  <div class="ribbon-small ribbon-green">
+  <div class="ribbon-inner">
+  <span class="ribbon-text">Sale off</span>
+  <span class="ribbon-aligner"></span>
+  </div>
+  </div>
 <a class="product-img" href="../product/detail/{!! $value['id'] !!}">
 <span><img src="{{asset('/').'/'.$value['images']}}" alt="Pablo Coelho jacket"/></span>
 </a>
@@ -38,7 +44,7 @@
 <strong>{!!$value['name']!!}</strong>
 </a>
 </h3>
-<a href="products-grid.html" class="product-category middle-color dark-hover">Women’s Suit Jacket</a>
+<a href="" class="product-category middle-color dark-hover">{!! $value->categories->name !!}’s Suit Jacket</a>
 <div class="product-bottom">
 <div class="product-stars voting-stars stars-small">
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
@@ -48,11 +54,25 @@
 <strong>{!! $value['sale'] !!}</strong>
 </div>
 <div class="clear"></div>
+@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
-<a href="cart.html" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $value['id']!!}" data-price="{!!$value['price']!!}">
+<a href="cart" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $value['id']!!}" data-uid="Session::get('id')" data-price="{!! $value['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
 </div>
+@else
+<div class="button-dual light-color transition-all">
+<a href="/user/login" class="button-dual-left middle-gradient dark-gradient-hover">
+Login To By<i class="icon-shopping-cart"></i>
+</a>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
+</div>
+@endif
 </div>
 </div>
 </div>
@@ -69,6 +89,12 @@ Add to cart <i class="icon-shopping-cart"></i>
 <?php foreach ($products_women as $val): ?>
 <div class="grid-25 tablet-grid-50">
 <div class="product-box light-bg">
+  <div class="ribbon-small ribbon-green">
+  <div class="ribbon-inner">
+  <span class="ribbon-text">Sale off</span>
+  <span class="ribbon-aligner"></span>
+  </div>
+  </div>
 <a class="product-img" href="../product/detail/{!! $val['id'] !!}">
 <span><img src="{{asset('/').'/'.$val['images']}}" alt="Pablo Coelho jacket"/></span>
 </a>
@@ -78,7 +104,7 @@ Add to cart <i class="icon-shopping-cart"></i>
 <strong>{!! $val['name'] !!}</strong>
 </a>
 </h3>
-<a href="products-grid.html" class="product-category middle-color dark-hover">Women’s Suit Jacket</a>
+<a href="" class="product-category middle-color dark-hover">{!! $val->categories->name !!}’s Suit Jacket</a>
 <div class="product-bottom">
 <div class="product-stars voting-stars stars-small">
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
@@ -88,14 +114,25 @@ Add to cart <i class="icon-shopping-cart"></i>
 <strong>{!! $val['sale'] !!}</strong>
 </div>
 <div class="clear"></div>
+@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
-<a href="cart.html" class="addcart  button-dual-left middle-gradient dark-gradient-hover"  data-pid="{!! $val['id']!!}" data-price="{!! $val['price']!!}">
+<a href="cart.html" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $val['id']!!}" data-uid="Session::get('id')" data-price="{!! $val['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">
 <i class="icon-angle-down"></i>
 </a>
 </div>
+@else
+<div class="button-dual light-color transition-all">
+<a href="/user/login" class="button-dual-left middle-gradient dark-gradient-hover">
+Login To By<i class="icon-shopping-cart"></i>
+</a>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
+</div>
+@endif
 </div>
 </div>
 </div>
@@ -113,6 +150,12 @@ Add to cart <i class="icon-shopping-cart"></i>
 <?php foreach ($products_men as $v): ?>
 <div class="grid-25 tablet-grid-50">
 <div class="product-box light-bg">
+  <div class="ribbon-small ribbon-green">
+  <div class="ribbon-inner">
+  <span class="ribbon-text">Sale off</span>
+  <span class="ribbon-aligner"></span>
+  </div>
+  </div>
 <a class="product-img" href="../product/detail/{!! $v['id'] !!}">
 <span><img src="{{asset('/').'/'.$v['images']}}" alt="Pablo Coelho jacket"/></span>
 </a>
@@ -122,7 +165,7 @@ Add to cart <i class="icon-shopping-cart"></i>
 <strong>{!! $v['name'] !!}</strong>
 </a>
 </h3>
-<a href="products-grid.html" class="product-category middle-color dark-hover">Women’s Suit Jacket</a>
+<a href="" class="product-category middle-color dark-hover">{!! $v->categories->name !!}’s Suit Jacket</a>
 <div class="product-bottom">
 <div class="product-stars voting-stars stars-small">
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
@@ -132,11 +175,25 @@ Add to cart <i class="icon-shopping-cart"></i>
 <strong>{!! $v['sale'] !!}</strong>
 </div>
 <div class="clear"></div>
+@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
-<a href="cart.html" class="addcart button-dual-left middle-gradient dark-gradient-hover"  data-pid="{!! $v['id']!!}" data-price="{!!$v['price']!!}">
+<a href="cart.html" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $v['id']!!}" data-uid="Session::get('id')" data-price="{!! $v['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
 </div>
+@else
+<div class="button-dual light-color transition-all">
+<a href="/user/login" class="button-dual-left middle-gradient dark-gradient-hover">
+Login To By<i class="icon-shopping-cart"></i>
+</a>
+<a class="button-dual-right middle-gradient dark-gradient-hover">
+<i class="icon-angle-down"></i>
+</a>
+</div>
+@endif
 </div>
 </div>
 </div>

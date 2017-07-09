@@ -42,6 +42,14 @@
             </table>
         </section>
     </div>
+    <!-- <div class="container">
+        @foreach ($news as $new)
+            {{ $new->name }}
+        @endforeach
+    </div> -->
+
+    {{ $news->links() }}
+    </div>
 </section>
 </div>
 </div>

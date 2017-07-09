@@ -17,8 +17,7 @@ class CreateTableOrder extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('product_id')->nullable();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->string('total_price');
             $table->timestamps();
         });
     }

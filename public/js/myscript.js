@@ -20,4 +20,15 @@ $(document).ready(function(){
       }
     );
   })
+
+  // $(document).on('click','.addcart',function(e){
+  //   e.precentDefault();
+  //   $ var uid = $(this).data('uid');
+  //   $ var pid = $(this).data('pid');
+  //   $.post(
+  //     '/cart/addcart',
+  //     {pid:pid,uid:uid,_token:$('input[name="_token"]').val()},
+  //   )
+  //
+  // })
 });

@@ -11,9 +11,8 @@ class Orders extends Model
   {
       return $this->belongsTo('shoppie\Users');
   }
-  public function Order_detail()
+  public function Order_products()
   {
-      return $this->hasMany('shoppie\Order_product');
+      return $this->hasMany('shoppie\Order_products');
   }
-
 }

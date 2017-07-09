@@ -22,11 +22,6 @@
       </tr>
       </thead>
       <tbody>
-        <tr>
-          <h3>
-            <strong>{{ $v['categories']->name }}</strong>
-          </h3>
-        </tr>
       <?php endforeach; ?>
       </tbody>
   </table>

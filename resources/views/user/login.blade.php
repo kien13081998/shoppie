@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-<!-- <div class="container"> -->
 
     <form class="form-signin" role="form" action="{{url('/user/login')}}" method="POST">
       {{ csrf_field() }}
@@ -10,21 +9,21 @@
             {{ session('error') }}
             </div>
             @endif
-            <input type="text" class="form-control{{ $errors->has('email') ? ' has-error' : '' }}" placeholder="Email" name="email" value="" required autofocus>
+            <input type="text" class="form-control {{ $errors->has('email') ? ' has-error' : '' }}" placeholder="Email" name="email" value="" required autofocus>
             @if ($errors->has('email'))
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
           </input>
-            <input type="password" id="password" class="form-control{{ $errors->has('password') ? ' has-error' : '' }}" placeholder="Password" name="password" required>
+            <input type="password" id="password" class="form-control {{ $errors->has('password') ? ' has-error' : '' }}" placeholder="Password" name="password" required>
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>
                 </span>
             @endif
           </input>
-            <button class="btn btn-lg btn-login btn-block btn btn-primary" type="submit">
+            <button class="btn btn-lg btn-login btn-block btn" type="submit">
                 <i class="fa fa-check"></i>
             </button>
 
@@ -34,16 +33,15 @@
                     Signup
                 </a>
             </div>
-            <!-- <label class="checkbox">
+            <label class="checkbox">
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
                 <span class="pull-right">
                     <a data-toggle="modal" href="{{ route('password.request') }}" class="btn btn-link"> Forgot Password?</a>
 
                 </span>
-            </label> -->
+            </label>
 
         </div>
     </form>
 
-<!-- </div> -->
 @stop

@@ -22,7 +22,7 @@ class Products extends Model
   }
   public function Order_products()
   {
-      return $this->hasOne('shoppie\Order_products');
+      return $this->hasMany('shoppie\Order_products');
   }
 
 }

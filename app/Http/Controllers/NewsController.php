@@ -8,6 +8,7 @@ use shoppie\News;
 use Illuminate\Http\Request;
 use DB, Session, Crypt, Hash;
 
+
 class NewsController extends Controller
 {
 
@@ -22,7 +23,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-      $news = News::orderBy('id', 'DESC')->get();
+      $news = News::orderBy('id', 'DESC')->paginate(2);
 
       return view('news.list')->with('news' , $news);
     }

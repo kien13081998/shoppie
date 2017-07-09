@@ -17,6 +17,7 @@ class CreateTableOrderProduct extends Migration
             $table->increments('id');
             $table->unsignedInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
+            $table->string('qty');
             $table->unsignedInteger('product_id')->nullable();
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
