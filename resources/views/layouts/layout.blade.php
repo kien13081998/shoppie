@@ -223,17 +223,24 @@
 
     </div>
     <div class="header-middle-box last-box hide-on-mobile hide-on-tablet">
-    <div class="header-cart" id="header-cart">
-    <a href="" class="text-input input-round dark-color light-bg">
-    <strong class="active-color">
-    <i class="icon-shopping-cart" >&nbsp;</i>
-    39
+    <div class="header-cart {{ $errors->has('error') ? ' has-error' : '' }}" id="header-cart">
+      @if (session('error'))
+      <div class="alert alert-success">
+      {{ session('error') }}
+      </div>
+      @endif
+    <a href="/cart" class="text-input input-round dark-color light-bg">
+      <strong class="active-color">
+        <i class="icon-shopping-cart" >&nbsp;</i>
+      </strong>
+    <strong class="active-color" id="show_qty">
+      0
     </strong>
     items
     &nbsp;|&nbsp;
-    <strong class="active-color" id="show_item">
-    &euro;
+    <strong class="active-color" id="show_item">0
     </strong>
+    &#36;
     </a>
     </div>
     </div>
@@ -268,11 +275,11 @@
     <li class="light-color active-hover">
     <a href="/news" class="main-menu-item transition-all">What’s new</a>
     </li>
-    <li class="active-color dark-hover">
-    <a href="/sale" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
-    </li>
     <li class="light-color active-hover">
-    <a href="/contact" class="main-menu-item transition-all">Contact</a>
+      <a href="/sale" class="main-menu-item transition-all">Sale</a>
+    </li>
+    <li class="active-color dark-hover">
+    <a href="/contact" class="main-menu-item transition-all"><i class="icon-star"></i> Contact</a>
     </li>
     </ul>
     </nav>

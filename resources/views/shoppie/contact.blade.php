@@ -5,52 +5,14 @@
 
 <div class="page-block page-block-top light-bg grid-container">
 <div class="breadcrumbs grid-100 middle-color">
-<a href="homepage.html" class="dark-color active-hover">Home</a>
-<a href="about-us.html" class="dark-color active-hover">About us</a>
+<a href="/home" class="dark-color active-hover">Home</a>
 <strong class="active-color">Contact</strong>
 </div>
 </div>
 
 <div class="page-block page-block-bottom cream-bg grid-container">
-<div class="sidebar-shadow push-25"></div>
-
-<div class="sidebar grid-25 cream-gradient transition-all" id="sidebar-mobile">
-
-<div class="sidebar-box sidebar-top cream-gradient">
-<nav class="submenu">
-<ul class="expandable-menu">
-<li class="align-right back">
-<a href="#sidebar-mobile" class="dark-color active-hover click-slide"><i class="icon-chevron-right"></i></a>
-</li>
-<li>
-<a href="about-us.html" class="dark-color active-hover">All about shopping</a>
-</li>
-<li class="sidebar-divider"></li>
-<li>
-<a href="about-us.html" class="dark-color active-hover">Postage</a>
-</li>
-<li class="sidebar-divider"></li>
-<li>
-<a href="about-us.html" class="dark-color active-hover">Delivery and payment</a>
-</li>
-<li class="sidebar-divider"></li>
-<li>
-<a href="about-us.html" class="dark-color active-hover">Terms and conditions</a>
-</li>
-<li class="sidebar-divider"></li>
-<li>
-<a href="contact.html" class="dark-color active-hover selected">Contact</a>
-</li>
-<li class="sidebar-divider"></li>
-<li>
-<a href="about-us.html" class="dark-color active-hover">Career</a>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-
-<div class="content-with-sidebar grid-75">
+<div class="sidebar-shadow push-100"></div>
+<div class="content-with-sidebar grid-100">
 <div class="with-shadow grid-100 light-bg">
 <div class="content-page grid-100">
 <h1 class="active-color header-font with-border full">Contact</h1>

@@ -3,52 +3,32 @@
 namespace shoppie\Http\Controllers;
 
 use Illuminate\Http\Request;
+use shoppie\Users;
+use shoppie\Products;
+use shoppie\Orders;
+use shoppie\Order_products;
+use Session;
+use DB;
 
 class CartController extends Controller
 {
- //  public function store($id)
- // {
- //     if (Request::ajax()) {
- //         $productBuy=\App\ShopProduct::where('id', $id)->first();
- //         Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
- //         $productBuy->product->price]);
- //         return response()->json(['count'=>Cart::count()]);
- //     };
- // }
- // public function show()
- // {
- //     $content=Cart::content();
- //     $subtotal=Cart::subtotal();
- //     return view('cart/shopping_cart')->with('content', $content)->with('subtotal', $subtotal);
- // }
- // public function delete($rowId)
- // {
- //     Cart::remove($rowId);
- //     return redirect('cart/show')->withSuccess('Cat has been updated.');
- // }
- // public function update()
- // {
- //     if (Request::ajax()) {
- //         $id=Request::get('id') ;
- //         $qty=Request::get('qty') ;
- //         Cart::update($id, $qty);
- //         return response()->json(['count'=>Cart::count()]);
- //     }
- // }
  public function addCart(Request $request){
-   if (Request::ajax()) {
-       $productBuy=\App\Products::where('id', $id)->first();
-       $userBuy=\App\Users::where('id',$id)->first();
-         Order::create([
-             'id' =>$productBuy->products->id,
-             'qty' =>,
-             'total_price' =>$productBuy->products->price
-          ]);
-         return 'asd';
-       }
-      //  return response()->json(['count'=>Cart::count()]);
-   };
-    // return response()->json(['price'=> $request->get('price')]);
-    //};
+   $productBuy = Products::where('id', $request->pid)->first();
+     $lastid = Orders::create([
+         'user_id' => Session::get('id'),
+         'total_price' => 0
+      ]);
+      $updateorder =  Orders::where('id',$lastid->id)->update(['total_price'=>(floatval($lastid->total_price) + floatval($productBuy->price))]);
+      Order_products::create([
+        'order_id'=> $lastid->id,
+        'product_id'=> $productBuy->id,
+        'qty' => 1
+      ]);
+      $order = Orders::find($lastid->id);
+      return response()->json([
+        'total'=> $order->total_price,
+        'desc' => 1
+      ]);
+   }
  }
 }

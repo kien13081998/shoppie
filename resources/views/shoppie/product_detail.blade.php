@@ -199,6 +199,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 <input type="text" id="product-quantity" name="product-quantity" class="product-quantity text-input dark-color light-bg" value="1" onclick="$(this).select()">
 @if(Session::get('id'))
 <div class="button-dual light-color transition-all">
+  {{ csrf_field() }}
 <button type="submit" class="addcart button-dual-left middle-gradient dark-gradient-hover"  data-pid="{!! $products->id !!}" data-uid="Session::get('id')" data-price="{!! $products->sale !!}">
 <a href="cart" class="addcart">
 Add to cart <i class="icon-shopping-cart"></i>

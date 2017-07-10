@@ -89,6 +89,7 @@ Route::get('/admin', 'AdminController@login')->name('admin');
 
 
 //page
+Route::get('/cart', 'CartController@showcart');
 Route::get('/home', 'ShowControler@home');
 Route::get('/contact', 'ShowControler@contact');
 Route::get('/shoes', 'ShowControler@shoes');

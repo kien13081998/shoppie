@@ -49,6 +49,7 @@ in Stock
   @if(Session::get('id'))
 <div class="button-dual light-color transition-all">
 <button class=" button-dual-left middle-gradient dark-gradient-hover" type="submit">
+  {{ csrf_field() }}
 <a href="addcart" class="addcart" data-pid="{!! $val_sale['id']!!}" data-uid="Session::get('id')" data-price="{!! $val_sale['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>

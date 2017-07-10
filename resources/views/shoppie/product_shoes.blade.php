@@ -159,7 +159,9 @@ Spring collection
 <div class="clear"></div>
 @if(Session::get('id'))
 <div class="button-dual light-color transition-all">
-<a href="cart.html" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $shoes['id']!!}" data-uid="Session::get('id')" data-price="{!! $shoes['sale'] !!}">
+  {{ csrf_field() }}
+
+<a href="cart" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $shoes['id']!!}" data-uid="Session::get('id')" data-price="{!! $shoes['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">

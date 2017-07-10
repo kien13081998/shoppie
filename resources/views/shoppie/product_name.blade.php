@@ -91,7 +91,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 <div class="header-slider juicy-wrapper">
 <ul class="juicy-slider">
 <li>
-<img class="juicy-bg" src="images/photos/img-header-listing.jpg" alt=""/>
+<img class="juicy-bg" src="{{asset('images/photos/img-header-listing.jpg')}}" alt=""/>
 <div style="top: 50px; left: 30px" data-show="at:700 effect:shift-fade direction:left speed:2000 easing:easeOutQuint" data-hide="effect:slide-fade direction:left speed:800" class="juicy-layer subheader-font">
 Young generation
 </div>
@@ -132,6 +132,7 @@ Collection 2013
 <div class="clear"></div>
 @if(Session::get('id'))
 <div class="button-dual light-color transition-all">
+  {{ csrf_field() }}
 <a href="cart" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $v_p['id']!!}" data-uid="Session::get('id')" data-price="{!! $v_p['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
