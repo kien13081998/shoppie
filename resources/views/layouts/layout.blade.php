@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('/css/pages/homepage.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('/css/pages/compare.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('/css/pages/product-detail.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/pages/cart.css')}}" type="text/css">
 
     <link rel="shortcut icon" href="{{asset('/images/icons/favicon.ico')}}">
 
@@ -124,11 +125,10 @@
         font-weight: normal;
         font-family: 'Open Sans', sans-serif;
         margin: 20px 0 5px;
-        padding: 5px;
         -webkit-transition: all 0.3s;
         -moz-transition: all 0.3s;
         transition: all 0.3s;
-        font-size: 30px;
+        font-size: 17px;
     }
 
     .form-signin .btn-login:hover {
@@ -223,14 +223,9 @@
 
     </div>
     <div class="header-middle-box last-box hide-on-mobile hide-on-tablet">
-    <div class="header-cart {{ $errors->has('error') ? ' has-error' : '' }}" id="header-cart">
-      @if (session('error'))
-      <div class="alert alert-success">
-      {{ session('error') }}
-      </div>
-      @endif
-    <a href="/cart" class="text-input input-round dark-color light-bg">
-      <strong class="active-color">
+    <div class="header-cart" id="header-cart">
+    <a href="/show" class="text-input input-round dark-color light-bg">
+      <strong class="active-color" id="cart-count">
         <i class="icon-shopping-cart" >&nbsp;</i>
       </strong>
     <strong class="active-color" id="show_qty">
@@ -243,6 +238,17 @@
     &#36;
     </a>
     </div>
+    <?php if (Session::get('id')): ?>
+
+    <?php else: ?>
+      <div class="{{ $errors->has('err') ? ' has-error' : '' }}">
+        @if (session('err'))
+        <div class="alert alert-success">
+          {{ session('err') }}
+        </div>
+        @endif
+      </div>
+    <?php endif; ?>
     </div>
     </div>
     </div>

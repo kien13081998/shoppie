@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableOrderProduct extends Migration
+class CreateTableOrdersProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class CreateTableOrderProduct extends Migration
     public function up()
     {
         Schema::create('orders_products', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('order_id')->nullable();
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->string('qty');
-            $table->unsignedInteger('product_id')->nullable();
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->timestamps();
+          $table->increments('id');
+          $table->unsignedInteger('order_id')->nullable();
+          $table->foreign('order_id')->references('id')->on('orders');
+          $table->string('qty');
+          $table->unsignedInteger('product_id')->nullable();
+          $table->foreign('product_id')->references('id')->on('products');
+          $table->timestamps();
         });
     }
 

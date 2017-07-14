@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => shoppie\User::class,
+        'model' => shoppie\Users::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

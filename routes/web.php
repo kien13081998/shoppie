@@ -11,11 +11,12 @@
 |
 */
 //LogicException
-// Route::post('/loginasd', 'LoginController@login');
+Auth::routes();
+Route::get('/admin', 'AdminController@login')->name('admin');
 
 
 //admin
-Route::get('', function () {
+Route::get('/', function () {
     return redirect('/home');
 });
 //user of admin
@@ -82,12 +83,14 @@ Route::get('/categories/destroy/{categories}', 'CategoriesController@destroy');
 Route::get('/categories/show/{categories}', 'CategoriesController@show')->where('id', '[0-9]+');
 //end_admin
 //CartController
-Route::post('/cart/addcart','CartController@addCart');
-Auth::routes();
-
-Route::get('/admin', 'AdminController@login')->name('admin');
-
-
+Route::get('/cart/show','CartController@showcart');
+Route::get('/cart-add', 'ShopController@store');
+// route::get('/cart-add-qty/{qty}', 'ShopController@storeQty');
+Route::get('/dat-hang', 'ShopController@order')->name('order');
+Route::get('show', 'ShopController@show')->name('cart');
+Route::put('/cart/{id}/{qty}', 'ShopController@update')->name('shoppingQty');
+Route::get('/cart/delete/{rowId}', 'ShopController@delete')->name('cartDelete');
+Route::get('order/activation/{id}', 'ShopController@activateOrder')->name('activateOrder');
 //page
 Route::get('/cart', 'CartController@showcart');
 Route::get('/home', 'ShowControler@home');

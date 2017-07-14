@@ -48,8 +48,6 @@
 {!! $valn['name']!!}
 <small class="middle-color">{!! $valn['updated_at']!!}</small>
 </span>
-<img src="{{asset('/').'/'.$valn['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
-
 </a>
 </li>
 <?php endforeach; ?>

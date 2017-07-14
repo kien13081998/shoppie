@@ -119,5 +119,9 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+    'from' => [
+        'address' => 'kien13081998@gmail.com',
+        'name' => 'abc',
+    ],
 
 ];

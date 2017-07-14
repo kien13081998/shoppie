@@ -49,7 +49,6 @@
 {!! $vn['name'] !!}
 <small class="middle-color"></small>
 </span>
-<img src="{{asset('/').'/'.$vn['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
 </li>
 <?php endforeach; ?>

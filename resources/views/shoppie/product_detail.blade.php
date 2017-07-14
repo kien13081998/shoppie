@@ -162,11 +162,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 </table>
 </div>
 <div class="product-price active-color grid-45">
-<del class="middle-color">{!! $products->price !!}</del>
-<strong>{!! $products->sale !!}</strong>
+<del class="middle-color">{!! $products->price !!}.&#36;</del>
+<strong>{!! $products->sale !!}.&#36;</strong>
 </div>
 </div>
-<form action="" method="POST">
+<form action="" method="get">
 <div class="product-options clearfix">
 <label for="product-size" class="dark-color hide-on-mobile">Size</label>
 <div class="custom-selectbox dark-color light-gradient active-hover">
@@ -196,12 +196,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 </div>
 <div class="product-options clearfix">
 <label for="product-quantity" class="hide-on-mobile">Quantity</label>
-<input type="text" id="product-quantity" name="product-quantity" class="product-quantity text-input dark-color light-bg" value="1" onclick="$(this).select()">
-@if(Session::get('id'))
+<input type="text" id="product-quantity" name="product-quantity" class="qty product-quantity text-input dark-color light-bg" value="1">
 <div class="button-dual light-color transition-all">
-  {{ csrf_field() }}
-<button type="submit" class="addcart button-dual-left middle-gradient dark-gradient-hover"  data-pid="{!! $products->id !!}" data-uid="Session::get('id')" data-price="{!! $products->sale !!}">
-<a href="cart" class="addcart">
+<button type="submit" class=" button-dual-left middle-gradient dark-gradient-hover"  >
+<a href="cart" class="addshopcart" data-pid="{!! $products->id !!}" data-uid="Session::get('id')" data-price="{!! $products->sale !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 </button>
@@ -209,18 +207,6 @@ Add to cart <i class="icon-shopping-cart"></i>
 <i class="icon-angle-down"></i>
 </a>
 </div>
-@else
-<div class="button-dual light-color transition-all">
-<button type="submit" class="button-dual-left middle-gradient dark-gradient-hover">
-<a href="/user/login">
-Login To Buy <i class="icon-shopping-cart"></i>
-</a>
-</button>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-</div>
-@endif
 </div>
 </form>
 </div>

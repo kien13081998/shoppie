@@ -50,30 +50,19 @@
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
 </div>
 <div class="product-price active-color">
-<del class="light-gradient middle-border dark-color">{!! $value['price'] !!}</del>
-<strong>{!! $value['sale'] !!}</strong>
+<del class="light-gradient middle-border dark-color">{!! $value['price'] !!}.&#36;</del>
+<strong>{!! $value['sale'] !!}.&#36;</strong>
 </div>
 <div class="clear"></div>
-@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
   {{ csrf_field() }}
-<a href="cart" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $value['id']!!}" data-uid="Session::get('id')" data-price="{!! $value['sale'] !!}">
+<a href="cart" class="addshopcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $value['id']!!}" data-uid="{!! Session::get('id') !!}" data-price="{!! $value['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">
 <i class="icon-angle-down"></i>
 </a>
 </div>
-@else
-<div class="button-dual light-color transition-all">
-<a href="/user/login" class="button-dual-left middle-gradient dark-gradient-hover">
-Login To By<i class="icon-shopping-cart"></i>
-</a>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-</div>
-@endif
 </div>
 </div>
 </div>
@@ -111,29 +100,18 @@ Login To By<i class="icon-shopping-cart"></i>
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
 </div>
 <div class="product-price active-color">
-<del class="light-gradient middle-border dark-color">{!! $val['price'] !!}</del>
-<strong>{!! $val['sale'] !!}</strong>
+<del class="light-gradient middle-border dark-color">{!! $val['price'] !!}.&#36;</del>
+<strong>{!! $val['sale'] !!}.&#36;</strong>
 </div>
 <div class="clear"></div>
-@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
-<a href="cart.html" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $val['id']!!}" data-uid="Session::get('id')" data-price="{!! $val['sale'] !!}">
+<a href="cart" class=" addshopcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $val['id']!!}" data-uid="Session::get('id')" data-price="{!! $val['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">
 <i class="icon-angle-down"></i>
 </a>
 </div>
-@else
-<div class="button-dual light-color transition-all">
-<a href="/user/login" class="button-dual-left middle-gradient dark-gradient-hover">
-Login To By<i class="icon-shopping-cart"></i>
-</a>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-</div>
-@endif
 </div>
 </div>
 </div>
@@ -172,29 +150,18 @@ Login To By<i class="icon-shopping-cart"></i>
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
 </div>
 <div class="product-price active-color">
-<del class="light-gradient middle-border dark-color">{!! $v['price'] !!}</del>
-<strong>{!! $v['sale'] !!}</strong>
+<del class="light-gradient middle-border dark-color">{!! $v['price'] !!}.&#36;</del>
+<strong>{!! $v['sale'] !!}.&#36;</strong>
 </div>
 <div class="clear"></div>
-@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
-<a href="cart.html" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $v['id']!!}" data-uid="Session::get('id')" data-price="{!! $v['sale'] !!}">
+<a href="cart" class=" addshopcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $v['id']!!}" data-uid="Session::get('id')" data-price="{!! $v['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">
 <i class="icon-angle-down"></i>
 </a>
 </div>
-@else
-<div class="button-dual light-color transition-all">
-<a href="/user/login" class="button-dual-left middle-gradient dark-gradient-hover">
-Login To By<i class="icon-shopping-cart"></i>
-</a>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-</div>
-@endif
 </div>
 </div>
 </div>

@@ -14,12 +14,12 @@ class CreateTableOrder extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('total_price');
-            $table->string('status');
-            $table->timestamps();
+          $table->increments('id');
+          $table->unsignedInteger('user_id')->nullable();
+          $table->foreign('user_id')->references('id')->on('users');
+          $table->integer('total_price');
+          $table->string('status');
+          $table->timestamps();
         });
     }
 

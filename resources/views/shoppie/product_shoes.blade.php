@@ -22,7 +22,7 @@
 <a href="#sidebar-mobile" class="dark-color active-hover click-slide"><i class="icon-chevron-right"></i></a>
 </li>
 <li class="expanded">
-<a href="/product/WOMEN" class="dark-color active-hover selected">Women</a>
+<a href="/product/WOMEN" class="dark-color active-hover">Women</a>
 </li>
 <li class="sidebar-divider"></li>
 <li>
@@ -62,7 +62,7 @@
 <a href="/product/detail/{!! $coats['id'] !!}" class="sidebar-product dark-color active-hover">
 <span>
 {!! $coats['name']!!}
-<strong class="active-color">{!! $coats['price']!!}</strong>
+<strong class="active-color">{!! $coats['price']!!}.&#36;</strong>
 </span>
 <img src="{{asset('/').'/'.$coats['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
@@ -82,7 +82,6 @@
 <span>
 {!! $news_p['name'] !!}
 </span>
-<img src="{{asset('/').'/'.$news_p['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>
 </li>
 <?php endforeach; ?>
@@ -153,31 +152,20 @@ Spring collection
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
 </div>
 <div class="product-price active-color">
-<del class="light-gradient middle-border dark-color">{!! $shoes['price'] !!}</del>
-<strong>{!! $shoes['sale'] !!}</strong>
+<del class="light-gradient middle-border dark-color">{!! $shoes['price'] !!}.&#36;</del>
+<strong>{!! $shoes['sale'] !!}.&#36;</strong>
 </div>
 <div class="clear"></div>
-@if(Session::get('id'))
 <div class="button-dual light-color transition-all">
   {{ csrf_field() }}
 
-<a href="cart" class=" addcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $shoes['id']!!}" data-uid="Session::get('id')" data-price="{!! $shoes['sale'] !!}">
+<a href="cart" class=" addshopcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $shoes['id']!!}" data-uid="Session::get('id')" data-price="{!! $shoes['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">
 <i class="icon-angle-down"></i>
 </a>
 </div>
-@else
-<div class="button-dual light-color transition-all">
-<a href="/user/login" class=" button-dual-left middle-gradient dark-gradient-hover">
-Login To By<i class="icon-shopping-cart"></i>
-</a>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-</div>
-@endif
 </div>
 </div>
 </div>

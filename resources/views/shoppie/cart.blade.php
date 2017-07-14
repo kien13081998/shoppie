@@ -19,7 +19,11 @@
 <div class="well-box-middle align-center last grid-15 tablet-grid-15 active-color">Total Price</div>
 </div>
 <div class="cart-product-list well-shadow">
-
+  <?php
+   echo "<pre>";
+   print_r($data);
+   echo "</pre>";
+   ?>
 <div class="cart-product well-table light-bg">
 <div class="well-box-middle cart-product-image align-center grid-10 tablet-grid-10">
 <a href="products-detail.html" title="Tommy Mancini">

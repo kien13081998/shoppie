@@ -22,8 +22,8 @@ class CreateTableProduct extends Migration
             $table->string('brand');
             $table->string('images');
             $table->string('color');
-            $table->string('sale');
-            $table->string('price');
+            $table->integer('sale');
+            $table->integer('price');
             $table->unsignedInteger('categories_id')->nullable();
             $table->foreign('categories_id')->references('id')->on('categories');
             $table->timestamps();

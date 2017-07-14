@@ -32,8 +32,8 @@
 16 reviews
 </div>
 <div class="compare-row compare-price active-color">
-<strong>{!! $val_sale['sale'] !!}</strong>
-<del class="middle-color">{!! $val_sale['price'] !!}</del>
+<strong>{!! $val_sale['sale'] !!}.&#36;</strong>
+<del class="middle-color">{!! $val_sale['price'] !!}.&#36;</del>
 </div>
 <div class="compare-row compare-option middle-color">
 {!! $val_sale['sale'] !!}
@@ -46,30 +46,17 @@ in Stock
 
 </div>
 <div class="compare-row compare-action">
-  @if(Session::get('id'))
 <div class="button-dual light-color transition-all">
 <button class=" button-dual-left middle-gradient dark-gradient-hover" type="submit">
   {{ csrf_field() }}
-<a href="addcart" class="addcart" data-pid="{!! $val_sale['id']!!}" data-uid="Session::get('id')" data-price="{!! $val_sale['sale'] !!}">
+<a href="addshopcart" class="addshopcart" data-pid="{!! $val_sale['id']!!}" data-uid="Session::get('id')" data-price="{!! $val_sale['sale'] !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 </button>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
+<a class="button-dual-right middle-gradient dark-gradient-hove">
 <i class="icon-angle-down"></i>
 </a>
 </div>
-@else
-<div class="button-dual light-color transition-all">
-<button class="button-dual-left middle-gradient dark-gradient-hover" type="submit">
-<a href="/user/login" >
-Login To By <i class="icon-shopping-cart"></i>
-</a>
-</button>
-<a class="button-dual-right middle-gradient dark-gradient-hover">
-<i class="icon-angle-down"></i>
-</a>
-</div>
-@endif
 </div>
 </div>
 </div>

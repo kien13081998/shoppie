@@ -2,33 +2,30 @@
 
 namespace shoppie\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Input;
+use Request;
 use shoppie\Users;
 use shoppie\Products;
 use shoppie\Orders;
 use shoppie\Order_products;
 use Session;
 use DB;
+use Join;
+use Cart;
 
 class CartController extends Controller
 {
- public function addCart(Request $request){
-   $productBuy = Products::where('id', $request->pid)->first();
-     $lastid = Orders::create([
-         'user_id' => Session::get('id'),
-         'total_price' => 0
-      ]);
-      $updateorder =  Orders::where('id',$lastid->id)->update(['total_price'=>(floatval($lastid->total_price) + floatval($productBuy->price))]);
-      Order_products::create([
-        'order_id'=> $lastid->id,
-        'product_id'=> $productBuy->id,
-        'qty' => 1
-      ]);
-      $order = Orders::find($lastid->id);
-      return response()->json([
-        'total'=> $order->total_price,
-        'desc' => 1
-      ]);
+   public function showcart(){
+     if (Session::get('id')) {
+       $data = DB::table('orders_products')
+       ->join('orders' , 'orders_products.order_id' , '=' , 'orders.id')
+       ->join('products' , 'orders_products.product_id' , '=' , 'products.id')
+       ->where('user_id', Session::get('id'))
+       ->get();
+       return view('shoppie.cart')->with('data', $data);
+     } else {
+       return Redirect('/home')->with('err', 'login to cart');
+     }
    }
- }
+
 }
