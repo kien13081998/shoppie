@@ -35,7 +35,6 @@
                       <a href="../blog/edit/{!! $v['id'] !!}">edit</a>
                       <a href="../blog/destroy/{!! $v['id']!!}">delete</a>
                       <a href="../blog/show/{!! $v['id']!!}">show</a>
-
                     </td>
                   </tr>
                   <?php  endforeach; ?>

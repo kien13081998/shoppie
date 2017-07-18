@@ -6,7 +6,12 @@
 <div class="page-block page-block-top light-bg grid-container">
 <div class="breadcrumbs grid-100 middle-color">
 <a href="/home" class="dark-color active-hover">Home</a>
-<strong class="active-color">Shopping cart</strong>
+<a href="/show" class="dark-color active-hover">Shopping cart</a>
+<strong class="active-color {{ $errors->has('order') ? ' has-error' : '' }}">
+@if (session('order'))
+  {{ session('order') }}
+@endif
+</strong>
 </div>
 </div>
 

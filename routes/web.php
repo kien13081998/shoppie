@@ -81,21 +81,25 @@ Route::get('/categories/edit/{categories}', 'CategoriesController@edit');
 Route::post('/categories/update/{categories}', 'CategoriesController@update');
 Route::get('/categories/destroy/{categories}', 'CategoriesController@destroy');
 Route::get('/categories/show/{categories}', 'CategoriesController@show')->where('id', '[0-9]+');
+//order
+Route::get('/list-order','OrderController@orderlist');
+Route::get('/list-order-confirmed','OrderController@orderlistnot');
+Route::get('/order/destroy/{orders}','OrderController@destroy');
 //end_admin
 //CartController
-Route::get('/cart/show','CartController@showcart');
-Route::get('/cart-add', 'ShopController@store');
-Route::get('/dat-hang', 'ShopController@order')->name('order');
-Route::get('show', 'ShopController@show')->name('cart');
-Route::put('/cart/{id}/{qty}', 'ShopController@update')->name('shoppingQty');
-Route::get('/cart/delete/{rowId}', 'ShopController@delete')->name('cartDelete');
-Route::get('order/activation/{id}', 'ShopController@activateOrder')->name('activateOrder');
+Route::get('/order-history','OrderController@orderhistory');
+Route::get('/cart-add', 'CartController@store');
+Route::get('/dat-hang', 'CartController@order')->name('order');
+Route::get('show', 'CartController@show')->name('cart');
+Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingQty');
+Route::get('/cart/delete/{rowId}', 'CartController@delete')->name('cartDelete');
+Route::get('order/activation/{id}', 'CartController@activateOrder')->name('activateOrder');
 //page
 Route::get('/search', 'ShowControler@search')->name('search');
 Route::get('/cart', 'CartController@showcart');
 Route::get('/home', 'ShowControler@home');
 Route::get('/contact', 'ShowControler@contact');
-Route::get('/send-contact', 'shopcontroller@sendcontact')->name('send-contact');
+Route::post('/send-contact', 'shopcontroller@sendcontact')->name('send-contact');
 Route::get('/shoes', 'ShowControler@shoes');
 Route::get('/trousers', 'ShowControler@trousers');
 Route::get('/news', 'ShowControler@news');

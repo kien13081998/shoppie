@@ -92,7 +92,7 @@ phone: +425 555 555
 <h2 class="bigger-header with-border subheader-font">
 Contact form
 </h2>
-<form class="content-form margin-bottom" action="{!! route('send-contact') !!}" method="get">
+<form class="content-form margin-bottom" action="{!! route('send-contact') !!}" method="post">
   {{ csrf_field() }}
 <div class="form-input">
 <label for="name" class="middle-color">Name and Surname</label>

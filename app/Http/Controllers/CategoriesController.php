@@ -96,7 +96,7 @@ class CategoriesController extends Controller
       //print_r($categories);
       //exit;
       $categories->update($request->all());
-       return redirect('categories');
+       return redirect('/categories/list');
     }
 
     /**
@@ -108,6 +108,6 @@ class CategoriesController extends Controller
     public function destroy(Categories $categories)
     {
       $categories->delete();
-      return redirect('categories');
+      return redirect('/categories/list');
     }
 }

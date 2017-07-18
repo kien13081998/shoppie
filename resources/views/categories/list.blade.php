@@ -29,9 +29,9 @@
                       <td>{!! $v['name'] !!}</td>
                       <td>{!! $v['status'] !!}</td>
                     <td>
-                      <a href="categories/edit/{!! $v['id'] !!}">edit</a>
-                      <a href="categories/destroy/{!! $v['id']!!}">delete</a>
-                      <a href="categories/show/{!! $v['id']!!}">show</a>
+                      <a href="/categories/edit/{!! $v['id'] !!}">edit</a>
+                      <a href="/categories/destroy/{!! $v['id']!!}">delete</a>
+                      <a href="/categories/show/{!! $v['id']!!}">show</a>
 
                     </td>
                   </tr>

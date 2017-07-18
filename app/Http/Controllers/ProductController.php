@@ -28,7 +28,7 @@ class ProductController extends Controller
     public function index()
     {
 
-      $categories = Categories::all();
+      $categories = Categories::where('status', 0)->get();
       $products = Products::all();
       return view('products.list')->with('products' , $products)->with('categories', $categories);
     }
@@ -49,7 +49,7 @@ class ProductController extends Controller
      */
     public function create(Categories $categories)
     {
-          $categories = Categories::all();
+          $categories = Categories::where('status',0)->get();
           return view('products.create')->with('categories', $categories);
     }
 

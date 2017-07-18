@@ -19,10 +19,10 @@
                 <div class="col-lg-10">
                   <div class="radios">
                       <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="0" id="radio-01" name="status"> AN
+                          <input type="radio" value="1" id="radio-01" name="status"> AN
                       </label>
                       <label for="radio-02" class="label_radio col-lg-6 col-sm-6">
-                          <input type="radio" value="1" id="radio-02" name="status">  Hien
+                          <input type="radio" value="0" id="radio-02" name="status">  Hien
                       </label>
                       @if ($errors->has('status'))
                           <span class="help-block">

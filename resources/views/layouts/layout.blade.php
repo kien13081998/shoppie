@@ -174,10 +174,10 @@
     <div class="top-menu-left">
     <ul>
     <li>
-    <a href="../../blog" class="dark-color">Blog</a>
+    <a href="/blog" class="dark-color">Blog</a>
     </li>
     <li>
-    <a href="../../about" class="dark-color">About Us</a>
+    <a href="/about" class="dark-color">About Us</a>
     </li>
 
 
@@ -194,10 +194,34 @@
     <a href="/logout/" class="dark-color">Log out</a>
     </li>
     @else
-    <a href="/user/login" class="dark-color" onclick="Global.clickShowToggle('#quick-login'); return false;">
-      <i class="icon-off"> Log in</i>
-    </a>
-    </li>
+          <li>
+      <a href="/user/login" class="dark-color" onclick="">
+      <i class="icon-off"></i>
+      Log In
+      </a>
+
+      <!-- <form action="/user/login" method="POST">
+      <ul class="popup-box quick-login cream-bg" id="quick-login">
+      <li class="arrow-top"><span class="shadow cream-bg"></span></li>
+      <li class="close-button">
+      <a href="#" class="circle-button middle-bg active-bg-hover" onclick="Global.clickShowToggle('#quick-login'); return false;"><span class="cancel"></span></a>
+      </li>
+      <li>
+      <input class="text-input dark-color light-bg" type="text" name="email" placeholder="your email">
+      </li>
+      <li>
+      <input class="text-input dark-color light-bg" type="password" name="password" placeholder="enter password">
+      </li>
+      <li class="clearfix">
+      <a href="forgotten.html" class="forgotten-link middle-color float-left">Have you forgotten<br/> your password?</a>
+      <button class="button-small button-with-icon float-right light-color middle-gradient dark-gradient-hover" type="submit">
+      Log in
+      <span><i class="icon-angle-right"></i></span>
+      </button>
+      </li>
+      </ul>
+      </form> -->
+      </li>
     <li>
     <a href="/user/register" class="dark-color">Register</a>
     </li>
@@ -220,6 +244,12 @@
     </form>
     </div>
     <div class="header-middle-box header-compare remove-whitespaces hide-on-mobile">
+      <?php if(Session::get('id')): ?>
+       <a href="/contact" class="dark-color">
+      <i class="icon-heart middle-color">&nbsp;</i>
+      Contact
+      </a>
+    <?php endif; ?>
 
     </div>
     <div class="header-middle-box last-box hide-on-mobile hide-on-tablet">
@@ -281,11 +311,8 @@
     <li class="light-color active-hover">
     <a href="/news" class="main-menu-item transition-all">What’s new</a>
     </li>
-    <li class="light-color active-hover">
-      <a href="/sale" class="main-menu-item transition-all">Sale</a>
-    </li>
-    <li class="active-color dark-hover">
-    <a href="/contact" class="main-menu-item transition-all"><i class="icon-star"></i> Contact</a>
+    <li class="active-color active-hover">
+      <a href="/sale" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
     </li>
     </ul>
     </nav>

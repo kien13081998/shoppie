@@ -54,11 +54,11 @@ $(".sendmessage").click(function (e) {
    var token=$("input[name='_token']").val();
     $.ajax({
         url:'/send-contact/',
-        type:"get",
+        type:"post",
         cache:false,
         data:{name:name,email:email,location:location,message:message,_token:token},
-        success:function(response){
-          result = response.data;
+        success:function(data){
+          console.log(data);
           alert('send message ok');
         }
     });

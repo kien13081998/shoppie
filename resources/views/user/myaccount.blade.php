@@ -35,10 +35,10 @@
 <li class="sidebar-divider"></li>
 <li class="sidebar-divider"></li>
 <li>
-<a href="my-account.html" class="dark-color active-hover">Order history</a>
+<a href="/order-history" class="dark-color active-hover">Order history</a>
 </li>
 <li>
-<a href="/user/destroy/4" class="dark-color active-hover">Logout</a>
+<a href="/logout/" class="dark-color active-hover">Logout</a>
 </li>
 </ul>
 </nav>

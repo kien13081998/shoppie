@@ -149,26 +149,16 @@
                         <li><a href="google_map.html"> Google Map</a></li>
                         <li><a href="vector_map.html"> Vector Map</a></li>
                     </ul>
-                </li>
-                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="profile.html"> Profile</a></li>
-                        <li><a href="invoice.html"> Invoice</a></li>
-                        <li><a href="pricing_table.html"> Pricing Table</a></li>
-                        <li><a href="timeline.html"> Timeline</a></li>
-                        <li><a href="blog_list.html"> Blog List</a></li>
-                        <li><a href="blog_details.html"> Blog Details</a></li>
-                        <li><a href="directory.html"> Directory </a></li>
-                        <li><a href="chat.html"> Chat </a></li>
-                        <li><a href="404.html"> 404 Error</a></li>
-                        <li><a href="500.html"> 500 Error</a></li>
-                        <li><a href="registration.html"> Registration Page</a></li>
-                        <li><a href="lock_screen.html"> Lockscreen </a></li>
-                    </ul>
                 </li> -->
+                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Orders</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="/list-order">List confirmed order</a></li>
+                        <li><a href="/list-order-confirmed">List not confirmed order</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-sign-in"></i> <span>Logout</span></a></li>
-                         <li><a href="../../home"><i class="fa fa-sign-in"></i> <span>Login page</span></a></li>
+                         <li><a href="../../home"><i class="fa fa-sign-in"></i> <span>Page</span></a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
