@@ -195,8 +195,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting
 </div>
 </div>
 <div class="product-options clearfix">
-<label for="product-quantity" class="hide-on-mobile">Quantity</label>
-<input type="text" id="product-quantity" name="product-quantity" class="qty product-quantity text-input dark-color light-bg" value="1">
 <div class="button-dual light-color transition-all">
 <button type="submit" class=" button-dual-left middle-gradient dark-gradient-hover"  >
 <a href="cart" class="addshopcart" data-pid="{!! $products->id !!}" data-uid="Session::get('id')" data-price="{!! $products->sale !!}">

@@ -85,16 +85,17 @@ Route::get('/categories/show/{categories}', 'CategoriesController@show')->where(
 //CartController
 Route::get('/cart/show','CartController@showcart');
 Route::get('/cart-add', 'ShopController@store');
-// route::get('/cart-add-qty/{qty}', 'ShopController@storeQty');
 Route::get('/dat-hang', 'ShopController@order')->name('order');
 Route::get('show', 'ShopController@show')->name('cart');
 Route::put('/cart/{id}/{qty}', 'ShopController@update')->name('shoppingQty');
 Route::get('/cart/delete/{rowId}', 'ShopController@delete')->name('cartDelete');
 Route::get('order/activation/{id}', 'ShopController@activateOrder')->name('activateOrder');
 //page
+Route::get('/search', 'ShowControler@search')->name('search');
 Route::get('/cart', 'CartController@showcart');
 Route::get('/home', 'ShowControler@home');
 Route::get('/contact', 'ShowControler@contact');
+Route::get('/send-contact', 'shopcontroller@sendcontact')->name('send-contact');
 Route::get('/shoes', 'ShowControler@shoes');
 Route::get('/trousers', 'ShowControler@trousers');
 Route::get('/news', 'ShowControler@news');

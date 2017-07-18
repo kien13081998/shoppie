@@ -92,29 +92,26 @@ phone: +425 555 555
 <h2 class="bigger-header with-border subheader-font">
 Contact form
 </h2>
-<form class="content-form margin-bottom" action="#" method="POST">
+<form class="content-form margin-bottom" action="{!! route('send-contact') !!}" method="get">
+  {{ csrf_field() }}
 <div class="form-input">
 <label for="name" class="middle-color">Name and Surname</label>
-<input type="text" class="text-input dark-color light-bg" name="name" id="name" value=""/>
+<input type="text" class="name text-input dark-color light-bg" name="name" id="name" value=""/>
 </div>
 <div class="form-input">
 <label for="email" class="middle-color">E-mail</label>
-<input type="email" class="text-input dark-color light-bg" name="email" id="email" value=""/>
+<input type="email" class="email text-input dark-color light-bg" name="email" id="email" value=""/>
 </div>
 <div class="form-input">
 <label for="location" class="middle-color">Shop location</label>
-<input type="text" class="text-input dark-color light-bg" name="location" id="location" value=""/>
-</div>
-<div class="form-input">
-<label for="subject" class="middle-color">Subject</label>
-<input type="text" class="text-input dark-color light-bg" name="subject" id="subject" value=""/>
+<input type="text" class="location text-input dark-color light-bg" name="location" id="location" value=""/>
 </div>
 <div class="form-input">
 <label for="message" class="middle-color">Message</label>
-<textarea class="textarea-input dark-color light-bg" name="message" id="message"></textarea>
+<textarea class="message textarea-input dark-color light-bg" name="message" id="message"></textarea>
 </div>
 <div class="form-submit">
-<button type="submit" class="button-normal uppercase light-color middle-gradient dark-gradient-hover">Send message</button>
+<button type="submit" class="sendmessage button-normal uppercase light-color middle-gradient dark-gradient-hover">Send message</button>
 </div>
 </form>
 </div>

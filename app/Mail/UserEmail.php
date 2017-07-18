@@ -6,9 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Orders;
+use shoppie\Orders;
+use shoppie\Users;
 use Cart;
-use Users;
 class UserEmail extends Mailable
 {
     use Queueable, SerializesModels;
@@ -19,15 +19,16 @@ class UserEmail extends Mailable
      * @return void
      */
      public $order;
+     public $users;
    /**
     * Create a new message instance.
     *
     * @return void
     */
-   public function __construct(Order $order , Users $users)
+   public function __construct(Orders $order,Users $users)
    {
        $this->order = $order;
-       $this->users = $users
+       $this->users = $users;
    }
     /**
      * Build the message.
@@ -39,12 +40,13 @@ class UserEmail extends Mailable
       $content = Cart::content();
       $subtotal = Cart::subtotal();
       $this->order->activation_link = route('activateOrder', $this->order->id);
-      return $this->markdown('emails.orders.shipped')
+      return $this->view('emails.orders.shipped')
           ->with('subtotal', $subtotal)
           ->with('content', $content)
           ->with([
               'order' => $this->order,
-              'users' = $this->users,
+              'users' => $this->users,
+
           ]);
     }
 }

@@ -38,49 +38,22 @@
 <a href="/product/detail/{!! $contents->id !!}" title="Tommy Mancini" class="header-font dark-color active-hover"><strong>{!! $contents->name !!}</strong></a>
 <a href="/product/detail/{!! $contents->id !!}" title="Women’s Suit Jacket" class="cart-product-category middle-color dark-hover">{!! $contents->options->brand !!}</a>
 </div>
-<div class="cart-product-options">
-<label for="product-color1" class="dark-color">Color</label>
-<div class="custom-selectbox dark-color light-gradient active-hover">
-<select name="product-color[]" id="product-color1">
-<option value="Brown">Brown</option>
-<option value="Blue">Blue</option>
-<option value="Green">Green</option>
-<option value="Yellow">Yellow</option>
-<option value="Magenta" selected="selected">Magenta</option>
-<option value="Cyan">Cyan</option>
-<option value="Black">Black</option>
-<option value="White">White</option>
-<option value="Red">Red</option>
-</select>
-</div>
-<label for="product-size1" class="dark-color">Size</label>
-<div class="custom-selectbox dark-color light-gradient active-hover">
-<select name="product-size[]" id="product-size1">
-<option value="XS">XS</option>
-<option value="S">S</option>
-<option value="M">M</option>
-<option value="L">L</option>
-<option value="XL" selected="selected">XL</option>
-<option value="XXL">XXL</option>
-</select>
 </div>
 </div>
-</div>
-</div>
-<div class="grid-100 grid-parent margin-bottom clearfix">
-<div class="well-box-middle well-border-gradient align-center grid-5 tablet-grid-5">
+<div class="parent grid-100 grid-parent margin-bottom clearfix">
+<div class="quaranty well-box-middle well-border-gradient align-center grid-5 tablet-grid-5">
   {{Form::open(['route'=>['shoppingQty', $contents->id,$contents->qty], 'method'=>'put'])}}
-  <input type="text" name="quantity[40]" class="qty text-input product-quantity dark-color light-bg" value="{!! $contents->qty !!}">
+  <input type="number" name="quantity[40]" class="qty text-input product-quantity dark-color light-bg" value="{!! $contents->qty !!}">
   <a href="#" class="updateCart" id="{!! $contents->rowId  !!}"><img src="{!! asset('/images/update.png') !!}" alt=""></a>
   {{ Form::close() }}
 </div>
-<div class="well-box-middle well-border-gradient align-center grid-10 tablet-grid-10 middle-color">
+<div class="price well-box-middle well-border-gradient align-center grid-10 tablet-grid-10 middle-color">
 <strong>{!! $contents->price,"." !!} <i style="color:red;">&#36;</i></strong>
 </div>
 <div class="well-box-middle align-center last grid-15 tablet-grid-15 active-color">
 <strong>{!! $contents->options->unit_price,"." !!}<i style="color:red;">&#36;</i></strong>
 </div>
-<div class="well-box-middle align-center last grid-15 tablet-grid-15 active-color">
+<div class="total well-box-middle align-center last grid-15 tablet-grid-15 active-color">
 <strong>{!! ($contents->price)*$contents->qty,"." !!}<i style="color:red;">&#36;</i></strong>
 </div>
 <a class="cart-product-remove circle-button dark-bg active-bg-hover hide-on-desktop" href="{{ route('cartDelete',['rowId' => $contents->rowId]) }}"><span class="cancel"></span></a>
@@ -90,17 +63,9 @@
 </div>
 </div>
 <div class=" well-shadow well-box last light-bg align-right">
-<dl class="cart-sub-total middle-color clearfix">
-<dt class="uppercase">Sub total:</dt>
-<dd>{!! ($subtotal) !!} &#36;</dd>
-<dt class="uppercase">Sale off: </dt>
-
- <dd>  &#36;</dd>
-
-</dl>
 <dl class="cart-total clearfix">
 <dt class="uppercase dark-color">Total:</dt>
-<dd class="active-color">{!! ($subtotal) !!} &#36;</dd>
+<dd class="active-color" id="total_order">{!! ($subtotal) !!} &#36;</dd>
 </dl>
 @if(Session::get('id'))
 <a href="/dat-hang" class="shoppingcart button-normal button-with-icon light-color active-gradient dark-gradient-hover" data-userid="{!! Session::get('id') !!}" data-totalprice="{!! $subtotal !!}">

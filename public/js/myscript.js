@@ -21,22 +21,46 @@ $(document).ready(function(){
      }
    });
 });
-$(document).ready(function() {
-    $(".updateCart").click(function (e) {
-        e.preventDefault();
-        var rowId=$(this).attr('id');
-        var qty=$(this).parent().parent().find(".qty").val();
-        var token=$("input[name='_token']").val();
-        $.ajax({
-            url:'/cart/'+rowId+'/'+qty,
-            type:"put",
-            data:{"_token":token,"id":rowId,"qty":qty},
-            success:function (data) {
-              if(data){
-                window.location = "/show"
-                }
-            }
-        });
+$(".updateCart").click(function (e) {
+    e.preventDefault();
+    var obj = this;
+    var rowId=$(this).attr('id');
+    var qty = $(this).prev().val();
+    var token=$("input[name='_token']").val();
+    $.ajax({
+        url:'/cart/'+rowId+'/'+qty,
+        type:"put",
+        data:{"_token":token,"id":rowId,"qty":qty},
+        success:function(data){
+          var price = parseInt($(obj).closest('.quaranty').next().find('strong').text());
+          var row_total = qty*price;
+          $(obj).closest('.parent').find('.total strong').text(row_total+'.$');
+          var t = 0;
+          $('.total').each(function(k,v){
+
+            t+=parseInt($(v).find('strong').text());
+          })
+          $('#sub').text(t+'.$');
+          $('#total_order').text(t+'.$');
+        }
+    });
+});
+$(".sendmessage").click(function (e) {
+    e.preventDefault();
+    var name = $(this).attr('name');
+    var email = $(this).attr('email');
+    var location = $(this).attr('location');
+    var message = $(this).attr('message');
+   var token=$("input[name='_token']").val();
+    $.ajax({
+        url:'/send-contact/',
+        type:"get",
+        cache:false,
+        data:{name:name,email:email,location:location,message:message,_token:token},
+        success:function(response){
+          result = response.data;
+          alert('send message ok');
+        }
     });
 });
 });

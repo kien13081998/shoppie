@@ -214,8 +214,8 @@
     </a>
     <div class="grid-80 remove-whitespaces">
     <div class="header-middle-box">
-    <form class="input-with-submit header-search" action="http://adamantium.sk/shoppie/html/homepage.html" method="POST">
-    <input type="text" class="text-input input-round dark-color light-bg" value="" placeholder="Search...">
+    <form class="search input-with-submit header-search" action="{!! url('/search') !!}" method="get">
+    <input type="text" class="text-input input-round dark-color light-bg" value="" name="key" placeholder="Search...">
     <button type="submit" class="input-round-submit middle-color dark-hover"><i class="icon-search"></i></button>
     </form>
     </div>
@@ -408,8 +408,28 @@
     </div>
     <script src="{{asset('/js/jquery-1.11.0.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/myscript.js')}}">
-
     </script>
+    <!-- <script>
+    $('.search').select2({
+      placeholder: 'Select an item',
+        ajax: {
+          url: '/search',
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.name,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
+    </script> -->
     </footer>
   </body>
 </html>

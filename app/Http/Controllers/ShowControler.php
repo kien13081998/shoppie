@@ -105,8 +105,14 @@ class ShowControler extends Controller
       $categories = Categories::with('products')->whereName($name)->take(9)->first();
       return view('shoppie.product_name')->with('news',$news)->with('Categories', $categories)->with('products', $categories->products);
     }
-    public function contact(){
-
-      return view('shoppie.contact');
-    }
+    public function search(Request $request)
+      {
+          $products = Products::where('name', 'Like', '%' . $request->key . '%')
+              ->simplePaginate(5);
+          return view('search')
+              ->with('products', $products);
+      }
+      public function contact(){
+        return view('shoppie.contact');
+      }
 }

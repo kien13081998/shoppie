@@ -3,7 +3,6 @@
 namespace shoppie\Http\Controllers;
 
 use Input;
-use Illuminate\Http\Request;
 use shoppie\Users;
 use shoppie\Products;
 use shoppie\Orders;
@@ -12,22 +11,26 @@ use Session;
 use DB;
 use Join;
 use Cart;
-use Mail\UserEmail;
+use shoppie\Mail\UserEmail;
+use shoppie\Mail\OrderShipped;
 use Illuminate\Support\Facades\Mail;
+use Request;
 class ShopController extends Controller
 {
 
     public function order(){
+
       $subtotal = Cart::subtotal();
       $user_id =  Session::get('id') ;
+      $Users = Users::where('id',$user_id)->first();
+      $email = $Users->email;
       $Order = new Orders;
       $Order->user_id= $user_id;
       $Order->status = 0;
       $Order->total_price = $subtotal;
       $Order->save();
       $content =Cart::content();
-      $Users = Users::where('id',$user_id)->get();
-      Mail::to($request->email)->send(new UserEmail($Order,$Users));
+      Mail::to($email)->send(new UserEmail($Order,$Users));
       foreach ($content as $contents){
         $Order_products = new Order_products;
         $Order_products->qty = $contents->qty;
@@ -36,7 +39,7 @@ class ShopController extends Controller
         $Order_products->save();
       }
       Cart::destroy();
-      return redirect('/')->withSuccess('Thank you, Order');
+      return redirect('/')->with('order', 'Thank you for ordering, we will send your gmail notification, please confirm');
     }
     public function activateOrder($id)
     {
@@ -44,7 +47,7 @@ class ShopController extends Controller
         $order->status = 1;
         $order->save();
         return redirect('/')
-            ->withSuccess('Thank you check Order.');
+            ->with('order', 'Thank you for ordering.');
     }
     public function store(Request $request){
       if(Request::ajax()){
@@ -64,24 +67,6 @@ class ShopController extends Controller
           ]);
         }
     }
-    // public function storeQty()
-    // {
-    //     if (Request::ajax()) {
-    //         $qty=Request::get('qty') ;
-    //         $productBuy= Products::where('id', Input::get('pid'))->first();
-    //         Cart::add([
-    //           'id' => $productBuy->id,
-    //           'name' => $productBuy->name,
-    //           'qty' => $qty,
-    //           'price' => (floatval($productBuy->sale)),
-    //           'options' => [
-    //             'img' => $productBuy->images,
-    //             'brand' => $productBuy->brand,
-    //             'unit_price' =>(floatval($productBuy->price))]
-    //          ]);
-    //         return response()->json(['count'=>Cart::count()]);
-    //     };
-    // }
     public function update()
     {
         if (Request::ajax()) {
@@ -101,5 +86,16 @@ class ShopController extends Controller
       $content=Cart::content();
       $subtotal=Cart::subtotal();
       return view('shoppie.cart_shop')->with('content', $content)->with('subtotal', $subtotal);
+    }
+    public function sendcontact(){
+      if(Request::ajax()){
+      // $data = Request::get('data');
+      print_r(Request::ajax());
+      exit;
+      // Mail::to('kien13081998@gmail.com')->send(new ContactEmail());
+    }
+    return response()->json([
+       'data'=>Request::get('data'),
+      ]);
     }
 }

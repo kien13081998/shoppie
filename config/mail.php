@@ -56,10 +56,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'kien13081998@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'kien'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
-
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
@@ -123,5 +122,4 @@ return [
         'address' => 'kien13081998@gmail.com',
         'name' => 'abc',
     ],
-
-];
+  ];

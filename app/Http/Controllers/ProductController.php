@@ -67,9 +67,9 @@ class ProductController extends Controller
           'name'=> 'required|string|max:255',
           'detail'=> 'required|string|min:5',
           'intro_short'=>'required|string|max:255',
-          'brand' => 'required|string',
-          'sale'=> 'required|string',
-          'price'=> 'required|string'
+          'brand' => 'required|string|max:25',
+          'sale'=> 'required|string|max:25',
+          'price'=> 'required|string|max:25'
         ]);
 
         $file = $request->file('images');
@@ -78,7 +78,7 @@ class ProductController extends Controller
         $data = $request->all();
         $data['images']= "upload/products/{$name}";
         Products::create($data);
-        return redirect('product/list');
+        return redirect('product/list')->with('error');
     }
 
     /**
@@ -157,6 +157,7 @@ class ProductController extends Controller
      */
     public function destroy(Products $products)
     {
+      $products = Products::find($products->id);
       $products->delete();
       return redirect('product/list');
     }

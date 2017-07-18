@@ -100,6 +100,7 @@ class AboutController extends Controller
      */
     public function destroy(Abouts $abouts)
     {
+      $abouts = Abouts::find($abouts->id);
       $abouts->delete();
       return redirect('about_us/list');
     }

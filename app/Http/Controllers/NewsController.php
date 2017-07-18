@@ -133,6 +133,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
+      $news = News::find($news->id);
       $news->delete();
       return redirect('news/list');
     }

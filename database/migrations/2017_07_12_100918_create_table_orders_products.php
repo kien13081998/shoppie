@@ -18,6 +18,8 @@ class CreateTableOrdersProducts extends Migration
           $table->unsignedInteger('order_id')->nullable();
           $table->foreign('order_id')->references('id')->on('orders');
           $table->string('qty');
+          $table->string('color');
+          $table->string('size');
           $table->unsignedInteger('product_id')->nullable();
           $table->foreign('product_id')->references('id')->on('products');
           $table->timestamps();

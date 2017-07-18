@@ -125,6 +125,7 @@ class BlogController extends Controller
      */
     public function destroy(Blogs $blogs)
     {
+      $blogs = Blogs::find($blogs->id);
       $blogs->delete();
       return redirect('blog/list');
     }
