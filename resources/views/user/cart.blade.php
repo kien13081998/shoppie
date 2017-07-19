@@ -20,6 +20,7 @@
 <div class="well-box-middle align-center last grid-15 tablet-grid-15 active-color">Total Price</div>
 </div>
 
+<?php if ($data == null ): ?>
 <?php foreach ($data as $key => $value): ?>
 <div class="cart-product-list well-shadow">
 <div class="cart-product well-table light-bg">
@@ -58,8 +59,11 @@
 <dd class="active-color">{!! $value->total_price !!}.00 &#36;</dd>
 </dl>
 </div>
-
-<?php if ($data1): ?>
+<?php else: ?>
+  <div class="content-holder grid-100">
+  <h3>You have no transaction history yet</h3>
+</div>
+<?php endif; ?>
 <div class="content-holder grid-100">
   <h3>Not Confirmed order</h3>
 <div class="cart-header well-shadow well-table light-bg margin-bottom hide-on-mobile">
@@ -68,6 +72,7 @@
 <div class="well-box-middle align-center grid-15 tablet-grid-15">Unit Price</div>
 <div class="well-box-middle align-center last grid-15 tablet-grid-15 active-color">Total Price</div>
 </div>
+<?php if ($data1 == null): ?>
 <?php foreach ($data1 as $key => $val): ?>
 <div class="cart-product-list well-shadow">
 <div class="cart-product well-table light-bg">
@@ -111,6 +116,10 @@
   </a>
 </dl>
 </div>
+<?php else: ?>
+  <div class="content-holder grid-100">
+    <h3>You have no transaction history yet</h3>
+  </div>
 <?php endif ?>
 </div>
 </div>

@@ -19,25 +19,29 @@ class CartController extends Controller
 {
   public function order(){
     $subtotal = Cart::subtotal();
-    $user_id =  Session::get('id') ;
-    $Users = Users::where('id',$user_id)->first();
-    $email = $Users->email;
-    $Order = new Orders;
-    $Order->user_id= $user_id;
-    $Order->status = 0;
-    $Order->total_price = $subtotal;
-    $Order->save();
-    $content =Cart::content();
-    Mail::to($email)->send(new UserEmail($Order,$Users));
-    foreach ($content as $contents){
-      $Order_products = new Order_products;
-      $Order_products->qty = $contents->qty;
-      $Order_products->product_id = $contents->id;
-      $Order_products->order_id = $Order->id;
-      $Order_products->save();
-    }
-    Cart::destroy();
-    return redirect('/show')->with('order', 'Thank you for ordering, we will send your gmail notification, please confirm');
+    if ($subtotal == 0) {
+      return redirect('/show')->with('order', 'You have no items in your shopping cart');
+  }
+  $subtotal = Cart::subtotal();
+  $user_id =  Session::get('id') ;
+  $Users = Users::where('id',$user_id)->first();
+  $email = $Users->email;
+  $Order = new Orders;
+  $Order->user_id= $user_id;
+  $Order->status = 0;
+  $Order->total_price = $subtotal;
+  $Order->save();
+  $content =Cart::content();
+  Mail::to($email)->send(new UserEmail($Order,$Users));
+  foreach ($content as $contents){
+    $Order_products = new Order_products;
+    $Order_products->qty = $contents->qty;
+    $Order_products->product_id = $contents->id;
+    $Order_products->order_id = $Order->id;
+    $Order_products->save();
+  }
+  Cart::destroy();
+  return redirect('/show')->with('order', 'Thank you for ordering, we will send your gmail notification, please confirm');
   }
   public function activateOrder($id)
   {

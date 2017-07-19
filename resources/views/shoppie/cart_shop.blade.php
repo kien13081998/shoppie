@@ -73,10 +73,16 @@
 <dd class="active-color" id="total_order">{!! ($subtotal) !!} &#36;</dd>
 </dl>
 @if(Session::get('id'))
+<a href="/home" class="button-normal button-with-icon light-color active-gradient dark-gradient-hover">
+  Keep buying <span><i class="icon-angle-right"></i></span>
+</a>
 <a href="/dat-hang" class="shoppingcart button-normal button-with-icon light-color active-gradient dark-gradient-hover" data-userid="{!! Session::get('id') !!}" data-totalprice="{!! $subtotal !!}">
 Send Order <span><i class="icon-angle-right"></i></span>
 </a>
 @else
+<a href="/home" class="button-normal button-with-icon light-color active-gradient dark-gradient-hover">
+Keep buying <span><i class="icon-angle-right"></i></span>
+</a>
 <a href="/user/login" class="button-normal button-with-icon light-color active-gradient dark-gradient-hover">
 login to by <span><i class="icon-angle-right"></i></span>
 </a>

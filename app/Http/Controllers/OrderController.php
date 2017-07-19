@@ -15,13 +15,13 @@ class OrderController extends Controller
        ->join('orders' , 'orders_products.order_id' , '=' , 'orders.id')
        ->join('products' , 'orders_products.product_id' , '=' , 'products.id')
        ->where('user_id', Session::get('id'))
-       ->where('status', 1)
+       ->where('status','=', '1')
        ->get();
        $data1 = DB::table('orders_products')
        ->join('orders' , 'orders_products.order_id' , '=' , 'orders.id')
        ->join('products' , 'orders_products.product_id' , '=' , 'products.id')
        ->where('user_id', Session::get('id'))
-       ->where('status', 0)
+       ->where('status', '=' , '0')
        ->get();
        return view('user.cart')->with('data', $data)->with('data1', $data1);
    }

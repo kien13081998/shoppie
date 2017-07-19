@@ -6,7 +6,7 @@
 <div class="breadcrumbs grid-100 middle-color">
 <a href="/home" class="dark-color active-hover">Home</a>
 <a href="/my-account" class="dark-color active-hover">My account</a>
-<strong class="active-color">John Doe</strong>
+<strong class="active-color">{!! $users->first_name !!}</strong>
 </div>
 </div>
 
