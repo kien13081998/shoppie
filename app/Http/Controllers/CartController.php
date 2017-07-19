@@ -13,7 +13,6 @@ use DB;
 use Join;
 use Cart;
 use shoppie\Mail\UserEmail;
-use shoppie\Mail\OrderShipped;
 use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller

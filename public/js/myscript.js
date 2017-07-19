@@ -45,22 +45,4 @@ $(".updateCart").click(function (e) {
         }
     });
 });
-$(".sendmessage").click(function (e) {
-    e.preventDefault();
-    var name = $(this).attr('name');
-    var email = $(this).attr('email');
-    var location = $(this).attr('location');
-    var message = $(this).attr('message');
-   var token=$("input[name='_token']").val();
-    $.ajax({
-        url:'/send-contact/',
-        type:"post",
-        cache:false,
-        data:{name:name,email:email,location:location,message:message,_token:token},
-        success:function(data){
-          console.log(data);
-          alert('send message ok');
-        }
-    });
-});
 });

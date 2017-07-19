@@ -11,9 +11,26 @@ use DispatchesJobs, ValidatesRequests;
 use DB, Session, scrypt , Hash;
 use Illuminate\Support\Facades\Crypt;
 use update;
+use Illuminate\Support\Facades\Mail;
+use shoppie\Mail\ContactEmail;
+
 
 class UserController extends Controller
 {
+    public function sendcontact(Request $request){
+      $this->validate($request, [
+        'name'=> 'required|string|max:255',
+        'email_customer' => 'required|string|email|max:255',
+        'phone_customer' => 'required|string|max:20',
+        'email' => 'required|string|email|max:255',
+        'location' => 'required|string|min:5',
+        'message'=> 'required|max:500'
+      ]);
+      $data = $request->all();
+      $email = $data['email'];
+       Mail::to($email)->send(new ContactEmail($data));
+      return redirect('/contact')->with('contact', 'Thank you for texting us, we will respond soon');
+    }
     /**
      * Show the form for creating a new resource.
      *

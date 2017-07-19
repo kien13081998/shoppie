@@ -99,12 +99,13 @@ Route::get('/search', 'ShowControler@search')->name('search');
 Route::get('/cart', 'CartController@showcart');
 Route::get('/home', 'ShowControler@home');
 Route::get('/contact', 'ShowControler@contact');
-Route::post('/send-contact', 'shopcontroller@sendcontact')->name('send-contact');
+Route::post('/send-contact', 'UserController@sendcontact')->name('send-contact');
+//show
 Route::get('/shoes', 'ShowControler@shoes');
 Route::get('/trousers', 'ShowControler@trousers');
 Route::get('/news', 'ShowControler@news');
 Route::get('/sale', 'ShowControler@sale');
-Route::get('/about', 'ShowControler@about');
+Route::get('/about-us', 'ShowControler@about');
 Route::get('/blog', 'ShowControler@blog');
 Route::get('/product/{name}', 'ShowControler@product_name');
 Route::get('/product/detail/{products}', 'ShowControler@product_detail')->where('id', '[0-9]+');

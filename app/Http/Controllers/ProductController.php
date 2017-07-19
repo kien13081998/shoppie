@@ -29,7 +29,7 @@ class ProductController extends Controller
     {
 
       $categories = Categories::where('status', 0)->get();
-      $products = Products::all();
+      $products = Products::orderBy('id' ,'DESC')->get();
       return view('products.list')->with('products' , $products)->with('categories', $categories);
     }
     public function indexByCategories($name){

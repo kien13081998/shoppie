@@ -309,10 +309,10 @@
     </li>
 
     <li class="light-color active-hover">
-    <a href="/news" class="main-menu-item transition-all">What’s new</a>
+    <a href="/news" class="main-menu-item transition-all">What’s news</a>
     </li>
     <li class="active-color active-hover">
-      <a href="/sale" class="main-menu-item transition-all"><i class="icon-star"></i> Sale</a>
+      <a href="/sale" class="main-menu-item transition-all"><i class="icon-star"></i> Sale New</a>
     </li>
     </ul>
     </nav>
@@ -348,7 +348,7 @@
     </h3>
     <ul class="middle-color">
     <li class="light-hover">
-    <a href="my-account.html">My Account</a>
+    <a href="#">My Account</a>
     </li>
     <li class="light-hover">
     <a href="#">Order History</a>
@@ -367,7 +367,7 @@
     </h3>
     <ul class="middle-color">
     <li class="light-hover">
-    <a href="about-us.html">About us</a>
+    <a href="#">About us</a>
     </li>
     <li class="light-hover">
     <a href="#">Delivery information</a>
@@ -436,27 +436,12 @@
     <script src="{{asset('/js/jquery-1.11.0.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/myscript.js')}}">
     </script>
-    <!-- <script>
-    $('.search').select2({
-      placeholder: 'Select an item',
-        ajax: {
-          url: '/search',
-          dataType: 'json',
-          delay: 250,
-          processResults: function (data) {
-            return {
-              results:  $.map(data, function (item) {
-                    return {
-                        text: item.name,
-                        id: item.id
-                    }
-                })
-            };
-          },
-          cache: true
-        }
-      });
-    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script type="text/javascript">
+                Global.documentReady();
+                Contact.initMap("#map-canvas");
+           </script>
+
     </footer>
   </body>
 </html>
