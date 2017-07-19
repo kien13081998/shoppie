@@ -65,6 +65,7 @@ Route::post('/about_us/update/{abouts}', 'AboutController@update');
 Route::get('/about_us/destroy/{abouts}', 'AboutController@destroy');
 Route::get('/about_us/show/{abouts}', 'AboutController@show')->where('id', '[0-9]+');
 //product
+Route::get('/product/search', 'ProductController@search')->name('search/product');
 Route::get('/product/create', 'ProductController@create');
 Route::post('/product/create', 'ProductController@store');
 Route::get('/product/list', 'ProductController@index');

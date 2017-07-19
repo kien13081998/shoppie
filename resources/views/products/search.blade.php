@@ -10,38 +10,8 @@
                 <span class="tools pull-right">
                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                     <a href="javascript:;" class="fa fa-times"></a>
+                    <a href="{{ url('/product/list') }}">Back to the overview</a>
                  </span>
-    </header>
-    <div class="panel-body">
-        <section id="unseen">
-          <table class="table table-bordered table-striped table-condensed">
-            <thead>
-              <th>List_Categories</th>
-            </thead>
-            <tbody>
-              <tr>
-                <tr>
-                  <td><?php foreach ($categories as $key => $value): ?>
-                    <a href="/product/categories/{!! $value['name'] !!}"> |{!! $value['name'] !!}|</a>
-                  <?php endforeach; ?></td>
-                </tr>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-    </div>
-</section>
-<section class="panel">
-    <header class="panel-heading">
-        Responsive table
-                <span class="tools pull-right">
-                    <a href="javascript:;" class="fa fa-chevron-down"></a>
-                    <a href="javascript:;" class="fa fa-times"></a>
-                 </span>
-                 <form action="{!! url('/product/search') !!}" method="get">
-                   <input type="text" name="key" placeholder="key search">
-                   <button type="submit" >search</button>
-                 </form>
     </header>
     <div class="panel-body">
       <section id="unseen">
@@ -49,7 +19,7 @@
             <thead>
             <tr>
               <th>name</th>
-              <th>intro short</th>
+              <th>images</th>
               <th>sale</th>
               <th>price</th>
               <th>tool</th>
@@ -59,7 +29,7 @@
               <?php foreach ($products as $k => $v ): ?>
                 <tr style="max-width:20px; ">
                   <td>{!! $v['name'] !!}</td>
-                  <td>{!! $v['intro_short'] !!}</td>
+                  <td> <img src="{{asset('/').'/'.$v->images}}" alt="" style="with:100px; height:100px;"></td>
                   <td>{!! $v['sale'] !!}</td>
                   <td>{!! $v['price'] !!}</td>
                 <td>
@@ -72,7 +42,6 @@
             </tbody>
         </table>
       </section>
-        {{ $products->links() }}
     </div>
 </section>
 </div>

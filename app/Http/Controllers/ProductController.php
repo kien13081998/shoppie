@@ -25,11 +25,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function search(Request $request ){
+       $products = Products::where('name', 'Like', '%' . $request->key . '%')
+           ->simplePaginate(5);
+       return view('products.search')
+           ->with('products', $products);
+     }
     public function index()
     {
-
       $categories = Categories::where('status', 0)->get();
-      $products = Products::orderBy('id' ,'DESC')->get();
+      $products = Products::orderBy('id' ,'DESC')->simplePaginate(8);
       return view('products.list')->with('products' , $products)->with('categories', $categories);
     }
     public function indexByCategories($name){
