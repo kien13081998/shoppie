@@ -12,7 +12,7 @@
 <div class="page-block page-block-bottom cream-bg grid-container">
 <div class="content-with-sidebar grid-100">
 <p>If you already have an account with us, please login at the <a href="/home" class="active-color dark-hover"><strong>login page</strong></a></p>
-<form class="content-form margin-bottom" action="{{url('/user/update'.'/'.$users->id)}}" method="POST">
+<form class="content-form margin-bottom" action="{{url('/user/update'.'/'.$users->id)}}" method="post" enctype="multipart/form-data">
   {{ csrf_field() }}
 
 <div class="with-shadow grid-100 light-bg margin-bottom clearfix">
@@ -42,10 +42,10 @@ Your personal details
 </div>
 <div class="form-input">
 <label for="avatar" class="middle-color">Avatar <span class="active-color">*</span></label>
-<input type="file" class="text-input dark-color light-bg{{ $errors->has('avatar') ? ' has-error' : '' }}" name="avatar" id="avatar" value="{{ old('avatar') }}"/>
-@if ($errors->has('avatar'))
+<input type="file" class="text-input dark-color light-bg {{ $errors->has('images') ? ' has-error' : '' }}" name="images" id="avatar"/>
+@if ($errors->has('images'))
     <span class="help-block">
-        <strong>{{ $errors->first('avatar') }}</strong>
+        <strong>{{ $errors->first('images') }}</strong>
     </span>
 @endif
 </input>
@@ -89,37 +89,9 @@ Your adress
 </div>
 </div>
 </div>
-<!-- <div class="with-shadow grid-100 light-bg margin-bottom clearfix">
-<div class="content-page grid-100">
-<h2 class="bigger-header with-border subheader-font">
-Your password
-</h2>
-<div class="form-input">
-<label for="password" class="middle-color">Password <span class="active-color">*</span></label>
-<input type="password" class="text-input dark-color light-bg{{ $errors->has('password') ? ' has-error' : '' }}" name="password" id="password" value=""/>
-@if ($errors->has('password'))
-    <span class="help-block">
-        <strong>{{ $errors->first('password') }}</strong>
-    </span>
-@endif
-</input>
-</div>
-<div class="form-input">
-<label for="confirm_password" class="middle-color">Confirm password <span class="active-color">*</span></label>
-<input type="password" class="text-input dark-color light-bg" name="password_confirmation" id="confirm_password" value=""/>
-</div>
-</div>
-</div> -->
-<div class="with-shadow grid-100 light-bg margin-bottom clearfix">
-<div class="content-page grid-100">
-<h2 class="bigger-header with-border subheader-font">
-Newsletter
-</h2>
-</div>
-</div>
 <p class="align-center middle-color">I have read and agree to the <a href="#" class="active-color dark-hover"><strong>Privacy Policy</strong></a></p>
 <div class="form-submit">
-<button type="submit" class="button-normal uppercase light-color middle-gradient dark-gradient-hover">Create new account</button>
+<button type="submit" class="button-normal uppercase light-color middle-gradient dark-gradient-hover">Update new account</button>
 </div>
 </form>
 </div>

@@ -35,6 +35,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('/images/icons/apple-touch-icon.png')}}">
     <link rel="apple-touch-icon" href="{{asset('/images/icons/apple-touch-icon.png')}}">
     <style media="screen">
+
     .row {
       box-sizing: border-box;
         width: 100%;
@@ -437,10 +438,10 @@
     <script type="text/javascript" src="{{asset('js/myscript.js')}}">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
                 Global.documentReady();
                 Contact.initMap("#map-canvas");
-           </script>
+           </script> -->
 
     </footer>
   </body>

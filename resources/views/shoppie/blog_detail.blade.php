@@ -26,7 +26,7 @@
 <a href="../../product/detail/{!! $valp['id'] !!}" class="sidebar-product dark-color active-hover">
 <span>
 {!! $valp['name'] !!}
-<strong class="active-color">Price:{!! $valp['price'] !!}</strong>
+<strong class="active-color">Price:{!! $valp['price'] !!}.$</strong>
 </span>
 <img src="{{asset('/').'/'.$valp['images']}}" style="height:25px;" alt="Pablo Coelho jacket"/>
 </a>

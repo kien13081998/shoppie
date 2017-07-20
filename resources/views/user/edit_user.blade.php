@@ -86,7 +86,7 @@
             </div>
             <br>
             <button type="submit" class="btn btn-lg btn-login btn-block btn btn-primary" name="submit" value="submit" style="background:#6BC5A4;">
-                <i class="fa fa-check">Create</i>
+                <i class="fa fa-check">Update</i>
             </button>
         </div>
     </form>

@@ -7,6 +7,12 @@
 <a href="/home" class="dark-color active-hover">Home</a>
 <a href="/my-account" class="dark-color active-hover">My account</a>
 <strong class="active-color">{!! $users->first_name !!}</strong>
+<strong class="active-color {{ $errors->has('update') ? ' has-error' : '' }}">
+  @if (session('update'))
+  >
+    {{ session('update') }}
+  @endif
+</strong>
 </div>
 </div>
 
@@ -33,10 +39,10 @@
 <a href="/user/password/edit/{!! $users->id !!}" class="dark-color active-hover">Password</a>
 </li>
 <li class="sidebar-divider"></li>
-<li class="sidebar-divider"></li>
 <li>
 <a href="/order-history" class="dark-color active-hover">Order history</a>
 </li>
+<li class="sidebar-divider"></li>
 <li>
 <a href="/logout/" class="dark-color active-hover">Logout</a>
 </li>
@@ -88,7 +94,7 @@ Special for you!
 <h2 class="dark-color subheader-font">My orders</h2>
 <ul class="grid-50 tablet-grid-50">
 <li class="middle-color">
-<a href="my-account.html" class="middle-color dark-hover">View your order history</a>
+<a href="/order-history" class="middle-color dark-hover">View your order history</a>
 </li>
 <div class="clear margin-bottom"></div>
 <h2 class="dark-color subheader-font">Newsletter</h2>

@@ -486,7 +486,8 @@ h5.left-nav-title {
 }
 
 .left-side-collapsed .custom-nav ul,
-.left-side-collapsed .custom-nav .menu-list.nav-active ul {
+.left-side-collapsed .custom-nav .
+.nav-active ul {
     display: none;
 }
 

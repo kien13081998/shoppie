@@ -20,21 +20,21 @@ Route::get('/', function () {
     return redirect('/home');
 });
 //user of admin
-Route::get('/user/list', 'UserController@list');
-Route::get('/user/create', 'UserController@create_user');
-Route::post('/user/create', 'UserController@create_store');
-Route::get('/user/edit_user/{users}', 'UserController@edit_user');
-Route::post('/user/edit_user/{users}', 'UserController@update_user');
+Route::get('/user/list', 'UserAdminController@list');
+Route::get('/user/create', 'UserAdminController@create_user');
+Route::post('/user/create', 'UserAdminController@create_store');
+Route::get('/user/edit_user/{users}', 'UserAdminController@edit_user');
+Route::post('/user/edit_user/{users}', 'UserAdminController@update_user');
+Route::get('/user/destroy/{users}', 'UserAdminController@destroy');
 
 //create edit destroy
 Route::get('/user/register', 'UserController@index');
 Route::get('/user/register', 'UserController@create');
 Route::post('/user/store', 'UserController@store');
-Route::get('/user/edit/{users}', 'UserController@edit');
 Route::get('/user/password/edit/{users}', 'UserController@editpassword');
 Route::post('/user/update/password/{users}', 'UserController@updatepassword');
+Route::get('/user/edit/{users}', 'UserController@edit');
 Route::post('/user/update/{users}', 'UserController@update');
-Route::get('/user/destroy/{users}', 'UserController@destroy');
 //login
 Route::get('/user/login', 'LoginController@index');
 Route::post('/user/login', 'LoginController@login');

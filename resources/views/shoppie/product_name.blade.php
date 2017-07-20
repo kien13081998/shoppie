@@ -102,7 +102,7 @@ Collection 2013
 </ul>
 </div>
 </div>
-<?php foreach ( $products as $key => $v_p): ?>
+<?php foreach ( $products as  $v_p): ?>
 <div class="grid-33 tablet-grid-50">
 <div class="product-box light-bg">
   <div class="ribbon-small ribbon-green">
@@ -111,28 +111,28 @@ Collection 2013
   <span class="ribbon-aligner"></span>
   </div>
   </div>
-<a class="product-img" href="/product/detail/{!! $v_p['id'] !!}">
-<span><img src="{{asset('/').'/'.$v_p['images']}}" alt="Pablo Coelho jacket"/></span>
+<a class="product-img" href="/product/detail/{!! $v_p->id !!}">
+<span><img src="{{asset('/').'/'. $v_p->images}}" alt="Pablo Coelho jacket"/></span>
 </a>
 <div class="product-info light-bg middle-border">
 <h3 class="product-title subheader-font">
-<a href="/product/detail/{!! $v_p['id']!!}" class="dark-color active-hover">
-<strong>{!! $v_p['name']!!}</strong>
+<a href="/product/detail/{!! $v_p->id !!}" class="dark-color active-hover">
+<strong>{!! $v_p->name !!}</strong>
 </a>
 </h3>
-<a href="/product/detail/{!! $v_p['id']!!}" class="product-category middle-color dark-hover">{{ $v_p->categories->name }}’s Suit Jacket</a>
+<a href="/product/detail/{!! $v_p->id !!}" class="product-category middle-color dark-hover">{!! $v_p->name_categories !!}’s Suit Jacket</a>
 <div class="product-bottom">
 <div class="product-stars voting-stars stars-small">
 <i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star active-color"></i><i class="icon-star middle-color"></i><i class="icon-star middle-color"></i>
 </div>
 <div class="product-price active-color">
-<del class="light-gradient middle-border dark-color">{!! $v_p['price'] !!}.&#36;</del>
-<strong>{!! $v_p['sale'] !!}.&#36;</strong>
+<del class="light-gradient middle-border dark-color">{!! $v_p->price !!}.&#36;</del>
+<strong>{!! $v_p->sale !!}.&#36;</strong>
 </div>
 <div class="clear"></div>
 <div class="button-dual light-color transition-all">
   {{ csrf_field() }}
-<a href="cart" class=" addshopcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $v_p['id']!!}" data-uid="Session::get('id')" data-price="{!! $v_p['sale'] !!}">
+<a href="cart" class=" addshopcart button-dual-left middle-gradient dark-gradient-hover" data-pid="{!! $v_p->id !!}" data-uid="Session::get('id')" data-price="{!! $v_p->sale !!}">
 Add to cart <i class="icon-shopping-cart"></i>
 </a>
 <a class="button-dual-right middle-gradient dark-gradient-hover">
@@ -148,9 +148,10 @@ Add to cart <i class="icon-shopping-cart"></i>
 <a class="button-block middle-color dark-hover light-bg middle-border" onclick="Products.loadMoreProducts($(this).parent(), this, 3); return false" href="components/productsContent.html">
 <strong>Load more clothes</strong> &nbsp; <i class="icon-repeat"></i>
 </a>
-</div>
-</div>
 <div class="pager align-right light-gradient middle-color middle-border active-hover active-border-hover">
+  {!! $products->links() !!}
+</div>
+</div>
 </div>
 </div>
 </section>

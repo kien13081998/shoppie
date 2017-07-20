@@ -9,26 +9,28 @@ use shoppie\News;
 use shoppie\Abouts;
 use shoppie\Blogs;
 use shoppie\Users;
-use Session;
+use Session,DB;
 
 class ShowControler extends Controller
 {
       public function myaccount(){
         if(Session::get('id')) {
           $users = Users::where('id',Session::get('id'))->first();
-          $categories = Categories::orderBy('id', 'DESC')->where('id','<=','3')->get();
-          return view('user.myaccount')->with('categories', $categories)->with('users',$users);
+
+          return view('user.myaccount')->with('users',$users);
         } else {
           return redirect('/home');
         }
 
       }
      public function about(){
+
        $abouts = Abouts::orderBy('id', 'DESC')->simplePaginate(4);
        return view('shoppie.about')->with('abouts',$abouts);
 
      }
      public function trousers(){
+
        $news =News::orderBy('id', 'DESC')->take(4)->get();
        $products_coats = Products::orderBy('id', 'DESC')->where('categories_id','<=','3')->take(5)->get();
        $trousers_list = Products::orderBy('id', 'DESC')->where('categories_id',5)->simplePaginate(4);
@@ -36,6 +38,7 @@ class ShowControler extends Controller
 
      }
      public function blog(){
+
        $products = Products::orderBy('id', 'DESC')->take(4)->get();
        $news = News::orderBy('id', 'DESC')->take(4)->get();
        $blogs = Blogs::orderBy('id', 'DESC')->take(5)->get();
@@ -44,6 +47,7 @@ class ShowControler extends Controller
      }
 
      public function blog_detail(Blogs $blogs ){
+
        $products = Products::orderBy('id', 'DESC')->take(4)->get();
        $news = News::orderBy('id', 'DESC')->take(4)->get();
        return view('shoppie.blog_detail')->with('blogs',$blogs)->with('news', $news)->with('products', $products);
@@ -51,6 +55,7 @@ class ShowControler extends Controller
      }
       public function home()
       {
+
           $products = Products::orderBy('id', 'DESC')->take(3)->get();
           $blogs = Blogs::orderBy('id', 'DESC')->take(3)->get();
           $products_men = Products::orderBy('id','DESC')->where('categories_id',2)->take(4)->get();
@@ -60,6 +65,7 @@ class ShowControler extends Controller
       }
       public function shoes()
       {
+
           $news =News::orderBy('id', 'DESC')->take(4)->get();
           $products_coats = Products::orderBy('id', 'DESC')->where('categories_id','<=','3')->take(5)->get();
           $products_shoes = Products::orderBy('id', 'DESC')->where('categories_id',4)->simplePaginate(8);
@@ -67,17 +73,20 @@ class ShowControler extends Controller
       }
 
         public function sale(){
+
           $sale = Products::orderBy('id', 'DESC')->simplePaginate(4);
           return view('shoppie.sale')->with('sale', $sale);
 
         }
        public function news()
       {
+
         $products = Products::orderBy('id', 'DESC')->take(8)->get();
         $news = News::orderBy('id', 'DESC')->simplePaginate(4);
         return view('shoppie.news')->with('news' , $news)->with('products',$products);
       }
       public function news_detail(News $news){
+
         $products = Products::orderBy('id', 'DESC')->take(6)->get();
         return view('shoppie.news_detail')->with('news', $news)->with('products' ,$products);
 
@@ -89,6 +98,7 @@ class ShowControler extends Controller
      */
     public function product_detail(Products $products)
     {
+    
       $product_list = Products::orderBy('id', 'DESC')->simplePaginate(4);
       $news = News::orderBy('id', 'DESC')->take(4)->get();
       return view('shoppie.product_detail')->with('products' , $products)->with('news', $news)->with('product_list', $product_list);
@@ -101,18 +111,25 @@ class ShowControler extends Controller
      */
     public function product_name($name)
     {
+
       $news = News::orderBy('id', 'DESC')->take(4)->get();
-      $categories = Categories::with('products')->whereName($name)->take(9)->first();
-      return view('shoppie.product_name')->with('news',$news)->with('Categories', $categories)->with('products', $categories->products);
+      $products = DB::table('products')
+      ->join('categories', 'products.categories_id','=','categories.id')
+      ->select('categories.name AS name_categories','products.id','products.name','products.brand','products.price','products.sale','products.intro_short','products.detail','products.images')
+      ->where('categories.name', $name)
+      ->simplePaginate(6);
+      return view('shoppie.product_name')->with('news',$news)->with('products',$products);
     }
     public function search(Request $request)
       {
+
           $products = Products::where('name', 'Like', '%' . $request->key . '%')
               ->simplePaginate(5);
           return view('search')
               ->with('products', $products);
       }
       public function contact(){
+
         return view('shoppie.contact');
       }
 }

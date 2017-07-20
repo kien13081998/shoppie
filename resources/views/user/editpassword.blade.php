@@ -45,7 +45,7 @@ Newsletter
 </div>
 <p class="align-center middle-color">I have read and agree to the <a href="#" class="active-color dark-hover"><strong>Privacy Policy</strong></a></p>
 <div class="form-submit">
-<button type="submit" class="button-normal uppercase light-color middle-gradient dark-gradient-hover">Create new account</button>
+<button type="submit" class="button-normal uppercase light-color middle-gradient dark-gradient-hover">Update password new account</button>
 </div>
 </form>
 </div>

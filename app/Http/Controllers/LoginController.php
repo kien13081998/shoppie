@@ -37,7 +37,6 @@ class LoginController extends Controller
 
           $users = DB::table('users')->select('id','first_name')->where('email', $email)->where('password',$password)->first();
           $newdata = $users;
-          print_r($users);
           if ($newdata != "") {
             Session::put('id',$users->id);
             Session::put('name',$users->first_name);

@@ -25,7 +25,7 @@
 <a href="../../product/detail/{!! $value['id'] !!}" class="sidebar-product dark-color active-hover">
 <span>
 {!! $value['name'] !!}
-<strong class="active-color">{!! $value['price'] !!}</strong>
+<strong class="active-color">{!! $value['price'] !!}.$</strong>
 </span>
 <img src="{{asset('/').'/'.$value['images']}}"  style="height:25px;"alt="Pablo Coelho jacket"/>
 </a>
