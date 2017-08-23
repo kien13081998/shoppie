@@ -28,13 +28,13 @@
             </div>
             <div class="row_form{{ $errors->has('detail') ? ' has-error' : '' }}">
               <h5>detail</h5>
-              <input type="text"   class="form-control" name="detail" value="{!! $news->detail !!}"/>
+              <textarea type="text" id="detail"  class="form-control" name="detail" value="{!! $news->detail !!}"/>
               @if ($errors->has('detail'))
                   <span class="help-block">
                       <strong>{{ $errors->first('detail') }}</strong>
                   </span>
               @endif
-            </input>
+            </textarea>
 
             </div>
             <div class="row_form{{ $errors->has('images') ? ' has-error' : '' }}">

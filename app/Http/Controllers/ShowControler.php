@@ -98,7 +98,7 @@ class ShowControler extends Controller
      */
     public function product_detail(Products $products)
     {
-    
+
       $product_list = Products::orderBy('id', 'DESC')->simplePaginate(4);
       $news = News::orderBy('id', 'DESC')->take(4)->get();
       return view('shoppie.product_detail')->with('products' , $products)->with('news', $news)->with('product_list', $product_list);

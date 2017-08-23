@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "actuallymab/laravel-comment": "^0.3.0",
         "gloudemans/shoppingcart": "^2.3",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.4.*",
@@ -13,7 +14,8 @@
         "laravelcollective/html": "^5.4",
         "mailgun/mailgun-php": "^2.3",
         "php-http/guzzle6-adapter": "^1.1",
-        "php-http/message": "^1.6"
+        "php-http/message": "^1.6",
+        "unisharp/laravel-ckeditor": "^4.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

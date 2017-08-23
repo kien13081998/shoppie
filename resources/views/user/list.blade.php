@@ -42,7 +42,7 @@
 
                     <td>
                       <a href="../user/edit_user/{!! $v['id'] !!}">edit</a>
-                      <a href="../user/destroy/{!! $v['id']!!}">delete</a>
+                      <!-- <a href="../user/destroy/{!! $v['id']!!}">delete</a> -->
                     </td>
                   </tr>
                   <?php  endforeach; ?>

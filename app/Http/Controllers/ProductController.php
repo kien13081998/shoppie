@@ -137,7 +137,7 @@ class ProductController extends Controller
       $data = $request->all();
       $data['images']= "upload/products/{$name}";
       $products->update($data);
-      return redirect('product/list');
+      return redirect('/product/list');
     } else{
       $this->validate($request, [
         'name'=> 'required|string|max:255',
@@ -150,7 +150,7 @@ class ProductController extends Controller
 
       $data = $request->all();
       $products->update($data);
-      return redirect('product/list');
+      return redirect('/product/list');
     }
   }
 
@@ -164,6 +164,6 @@ class ProductController extends Controller
     {
       $products = Products::find($products->id);
       $products->delete();
-      return redirect('product/list');
+      return redirect('/product/list');
     }
 }

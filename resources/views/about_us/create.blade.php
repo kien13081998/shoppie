@@ -16,12 +16,13 @@
             </div>
             <div class="row_form{{ $errors->has('detail') ? ' has-error' : '' }}">
               <h5>detail</h5>
-              <input type="text"  class="form-control{{ $errors->has('detail') ? ' has-error' : '' }}" name="detail" value="{{ old('detail') }}"/>
+              <textarea type="text" id="detail"  class="form-control{{ $errors->has('detail') ? ' has-error' : '' }}" name="detail" value="{{ old('detail') }}"/>
               @if ($errors->has('detail'))
                   <span class="help-block">
                       <strong>{{ $errors->first('detail') }}</strong>
                   </span>
               @endif
+              </textarea>
             </div>
             <br>
             <button type="submit" class="btn btn-lg btn-login btn-block btn btn-primary" name="submit" value="submit" style="background:#6BC5A4;">

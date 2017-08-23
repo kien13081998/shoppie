@@ -29,13 +29,13 @@
             </div>
             <div class="row_form{{ $errors->has('detail') ? ' has-error' : '' }}">
               <h5>details</h5>
-              <input type="text"  class="form-control{{ $errors->has('detail') ? ' has-error' : '' }}" name="detail" value="{{ old('detail') }}"/>
+              <textarea type="text"  id="detail" class="form-control{{ $errors->has('detail') ? ' has-error' : '' }}" name="detail" value="{{ old('detail') }}"/>
               @if ($errors->has('detail'))
                   <span class="help-block">
                       <strong>{{ $errors->first('detail') }}</strong>
                   </span>
               @endif
-            </input>
+            </textarea>
 
             </div>
             <div class="row_form{{ $errors->has('images') ? ' has-error' : '' }}">
@@ -47,7 +47,7 @@
                   </span>
               @endif
             </input>
-              
+
             </div>
             <!-- <div class="row_form">
               <div class="form-group">

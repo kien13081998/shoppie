@@ -121,7 +121,7 @@ Contact form
 </div>
 <div class="form-input">
 <label for="message" class="middle-color">Message</label>
-<textarea class=" textarea-input dark-color light-bg" name="message" id="message"></textarea>
+<textarea class=" textarea-input dark-color light-bg" name="message" id="ckeditor"></textarea>
 </div>
 <div class="form-submit">
 <button type="submit" class="button-normal uppercase light-color middle-gradient dark-gradient-hover">Send message</button>

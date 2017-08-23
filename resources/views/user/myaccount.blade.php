@@ -96,12 +96,12 @@ Special for you!
 <li class="middle-color">
 <a href="/order-history" class="middle-color dark-hover">View your order history</a>
 </li>
-<div class="clear margin-bottom"></div>
+<!-- <div class="clear margin-bottom"></div>
 <h2 class="dark-color subheader-font">Newsletter</h2>
 <ul class="grid-100">
 <li class="middle-color">
 <a href="my-account.html" class="middle-color dark-hover">Subscribe / Unsubscribe to newsletter</a>
-</li>
+</li> -->
 </ul>
 </div>
 </div>

@@ -56,6 +56,7 @@ Route::get('/blog/edit/{blogs}', 'BlogController@edit');
 Route::post('/blog/update/{blogs}', 'BlogController@update');
 Route::get('/blog/destroy/{blogs}', 'BlogController@destroy');
 Route::get('/blog/show/{blogs}', 'BlogController@show')->where('id', '[0-9]+');
+Route::post('home/comment','BlogController@storecomment');
 //about_us
 Route::get('/about_us/create', 'AboutController@create');
 Route::post('/about_us/create', 'AboutController@store');

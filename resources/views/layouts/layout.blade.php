@@ -178,7 +178,7 @@
     <a href="/blog" class="dark-color">Blog</a>
     </li>
     <li>
-    <a href="/about" class="dark-color">About Us</a>
+    <a href="/about-us" class="dark-color">About Us</a>
     </li>
 
 
@@ -245,13 +245,10 @@
     </form>
     </div>
     <div class="header-middle-box header-compare remove-whitespaces hide-on-mobile">
-      <?php if(Session::get('id')): ?>
        <a href="/contact" class="dark-color">
       <i class="icon-heart middle-color">&nbsp;</i>
       Contact
       </a>
-    <?php endif; ?>
-
     </div>
     <div class="header-middle-box last-box hide-on-mobile hide-on-tablet">
     <div class="header-cart" id="header-cart">
@@ -438,10 +435,22 @@
     <script type="text/javascript" src="{{asset('js/myscript.js')}}">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <!-- <script type="text/javascript">
-                Global.documentReady();
-                Contact.initMap("#map-canvas");
-           </script> -->
+    Global.documentReady();
+    Contact.initMap("#map-canvas");
+  </script> -->
+    <script> CKEDITOR.replace('ckeditor',
+    {
+            filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+            filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+            filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+            filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+            filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+            filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+        }
+    ); </script>
 
     </footer>
   </body>

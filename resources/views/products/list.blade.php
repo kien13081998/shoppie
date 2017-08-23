@@ -39,7 +39,7 @@
                     <a href="javascript:;" class="fa fa-times"></a>
                  </span>
                  <form action="{!! url('/product/search') !!}" method="get">
-                   <input type="text" name="key" placeholder="key search">
+                   <input type="text" name="key" placeholder="product name">
                    <button type="submit" >search</button>
                  </form>
     </header>

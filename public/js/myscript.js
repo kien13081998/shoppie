@@ -40,7 +40,6 @@ $(".updateCart").click(function (e) {
 
             t+=parseInt($(v).find('strong').text());
           })
-          $('#sub').text(t+'.$');
           $('#total_order').text(t+'.$');
         }
     });

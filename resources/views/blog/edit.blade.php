@@ -27,12 +27,13 @@
             </div>
             <div class="row_form{{ $errors->has('detail') ? ' has-error' : '' }}">
               <h5>detail</h5>
-              <input type="text"   class="form-control" name="detail" value="{!! $blog->detail !!}"/>
+              <textarea type="text"   class="form-control" name="detail" value="{!! $blog->detail !!} " id="detail"/>
               @if ($errors->has('detail'))
                   <span class="help-block">
                       <strong>{{ $errors->first('detail') }}</strong>
                   </span>
               @endif
+              </textarea>
             </input>
 
             </div>
@@ -45,7 +46,7 @@
                   </span>
               @endif
             </input>
-              
+
             </div>
             <!-- <label class="checkbox">
                 <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy

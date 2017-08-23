@@ -4,6 +4,8 @@ namespace shoppie\Http\Controllers;
 
 use shoppie\Blogs;
 use Illuminate\Http\Request;
+use DB, Session, scrypt , Hash;
+
 
 class BlogController extends Controller
 {
@@ -16,6 +18,22 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function storecomment(Comment $comment, Request $request)
+    {
+      if(Session::has()){
+        if(Request::ajax()){
+        $comment->body = Input::get('comment');
+        $comment->user_id = Auth::id();
+        $comment->image_id = Input::get('id');
+        $comment->save();
+
+        }
+      }else{
+        return Redirect('/user/login');
+      }
+
+    }
     public function index()
     {
       $blog = Blogs::orderBy('id', 'DESC')->get();
